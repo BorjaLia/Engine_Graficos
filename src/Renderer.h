@@ -4,6 +4,9 @@
 
 namespace engine
 {
+	/// The class that draws to the screen
+	/// @ingroup Rnderer
+
 	class Renderer
 	{
 	protected:

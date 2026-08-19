@@ -5,6 +5,11 @@
 
 namespace engine
 {
+	/// The base class for the game
+	///
+	/// Has the main loop
+	/// @ingroup Game
+
 	class BaseGame
 	{
 	public:

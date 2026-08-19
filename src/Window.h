@@ -4,6 +4,9 @@
 
 namespace engine
 {
+	/// The class that handles the glfw Window
+	/// @ingroup Window
+	
 	class Window
 	{
 	public:
