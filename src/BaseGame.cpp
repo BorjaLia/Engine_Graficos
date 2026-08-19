@@ -28,7 +28,7 @@ void engine::BaseGame::Run()
 void engine::BaseGame::Initialize()
 {
 	window.Initialize();
-	renderer = Renderer::Get();
+	//renderer = Renderer::Get();
 	renderer->Initialize(window);
 }
 
