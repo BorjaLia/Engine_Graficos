@@ -3,7 +3,6 @@
 
 engine::Window::Window()
 {
-
 }
 
 engine::Window::~Window()
@@ -12,32 +11,28 @@ engine::Window::~Window()
 
 int engine::Window::Initialize()
 {
-    if (!glfwInit())
-        return -1;
+    if (!glfwInit()) return 1;
 
-    glfwWindow = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
+    glfwWindow = glfwCreateWindow(1200, 800, "Game Engine", NULL, NULL);
     if (!glfwWindow)
     {
         glfwTerminate();
-        return -1;
+        return 1;
     }
 
     glfwMakeContextCurrent(glfwWindow);
 
-    return 1;
+    return 0;
 }
 
-int engine::Window::Update()
+void engine::Window::Update()
 {
-    //CAMBIAR!!!!
-    glfwSwapBuffers(glfwWindow);
-    return 0;
 }
 
 int engine::Window::Shutdown()
 {
     glfwTerminate();
-    return 1;
+    return 0;
 }
 
 int engine::Window::ShouldClose()

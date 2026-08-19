@@ -14,14 +14,7 @@ void engine::BaseGame::Run()
 
 	while (isRunning)
 	{
-		/* Render here */
-		glClear(GL_COLOR_BUFFER_BIT);
-
-
-		//ESTO NO VA ACA
-		window.Update();
-		/* Swap front and back buffers */
-		//glfwSwapBuffers(window);
+		renderer.Update();
 
 		/* Poll for and process events */
 		glfwPollEvents();
@@ -35,8 +28,7 @@ void engine::BaseGame::Run()
 void engine::BaseGame::Initialize()
 {
 	window.Initialize();
-
-
+	renderer.Initialize(window);
 }
 
 void engine::BaseGame::Shutdown()

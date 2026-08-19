@@ -11,12 +11,12 @@ namespace engine
 		~Window();
 
 		int Initialize();
-		int Update();
+		void Update();
 		int Shutdown();
 
 		int ShouldClose();
 
-		inline GLFWwindow& GetWindow() { return *glfwWindow; };
+		inline GLFWwindow& GetGlfwWindow() { return *glfwWindow; };
 
 	private:
 

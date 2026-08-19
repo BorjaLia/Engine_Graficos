@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Window.h"
+
 namespace engine
 {
 	class Renderer
@@ -8,7 +10,13 @@ namespace engine
 		Renderer();
 		~Renderer();
 
+		int Initialize(Window& window);
+		void Update();
+		int Shutdown();
+
 	private:
+
+		Window* window;
 
 	};
 }
