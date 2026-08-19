@@ -1,12 +1,17 @@
-#Engine Graficos
+# Engine Graficos {#index}
 
 Documentacion para el engine de graficos
 
-#Autores 
+## Autores 
 
 [Borja Lia](https://github.com/BorjaLia)
 
 [Santino Verrua](https://github.com/LordMungi)
+
+
+## Contenidos
+
+- @subpage arquitecture_page "Arquitectura"
 
 @ref Referencia : ejemplo de referencias
 
