@@ -21,7 +21,6 @@ namespace engine
 		void Shutdown();
 
 		Window window;
-		Renderer renderer;
-
+		Renderer* renderer;
 	};
 }

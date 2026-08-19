@@ -14,6 +14,7 @@ int engine::Window::Initialize()
     if (!glfwInit()) return 1;
 
     glfwWindow = glfwCreateWindow(1200, 800, "Game Engine", NULL, NULL);
+
     if (!glfwWindow)
     {
         glfwTerminate();

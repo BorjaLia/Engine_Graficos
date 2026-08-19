@@ -6,9 +6,20 @@ namespace engine
 {
 	class Renderer
 	{
+	protected:
+
+		Renderer(){}
+
+		static Renderer* instance;
+
+		Window* window;
+
 	public:
-		Renderer();
-		~Renderer();
+
+        Renderer(Renderer& other) = delete;
+        void operator=(const Renderer&) = delete;
+
+        static Renderer* Get();
 
 		int Initialize(Window& window);
 		void Update();
@@ -16,7 +27,6 @@ namespace engine
 
 	private:
 
-		Window* window;
 
 	};
 }

@@ -14,7 +14,7 @@ void engine::BaseGame::Run()
 
 	while (isRunning)
 	{
-		renderer.Update();
+		renderer->Update();
 
 		/* Poll for and process events */
 		glfwPollEvents();
@@ -28,7 +28,8 @@ void engine::BaseGame::Run()
 void engine::BaseGame::Initialize()
 {
 	window.Initialize();
-	renderer.Initialize(window);
+	renderer = Renderer::Get();
+	renderer->Initialize(window);
 }
 
 void engine::BaseGame::Shutdown()
