@@ -137,6 +137,9 @@
       <AdditionalLibraryDirectories>$(SolutionDir)lib\;$(SolutionDir)lib\glfw-3.5.1.bin.WIN64\lib-vc2022\;$(SolutionDir)lib\glfw-3.5.1.bin.WIN64\lib-static-ucrt\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>glfw3dll.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>"$(SolutionDir)config\config.bat" "$(SolutionDir)" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
