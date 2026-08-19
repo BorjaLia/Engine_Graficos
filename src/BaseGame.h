@@ -13,7 +13,7 @@ namespace engine
 
 	private:
 
-
+		Window window;
 
 	};
 }
