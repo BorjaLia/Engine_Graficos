@@ -28,6 +28,8 @@ namespace engine
 		void Update();
 		int Shutdown();
 
+		unsigned int buffer;
+
 	private:
 
 

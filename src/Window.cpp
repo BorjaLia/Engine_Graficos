@@ -22,7 +22,8 @@ int engine::Window::Initialize()
     }
 
     glfwMakeContextCurrent(glfwWindow);
-    //gladLoadGL(glfwGetProcAddress);
+
+    gladLoadGL();
 
     return 0;
 }
