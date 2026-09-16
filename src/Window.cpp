@@ -23,6 +23,11 @@ int engine::Window::Initialize()
 
     glfwMakeContextCurrent(glfwWindow);
 
+    if (glewInit() != GLEW_OK)
+    {
+        return -1;
+    }
+
     return 0;
 }
 

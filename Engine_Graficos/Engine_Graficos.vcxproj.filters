@@ -29,6 +29,12 @@
     <Filter Include="Math\Vector3">
       <UniqueIdentifier>{e713182e-7c47-4b2f-a663-3cb401369ddc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="File">
+      <UniqueIdentifier>{9e9ab230-2728-4e4d-97cf-9f629b3017ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer\Shader">
+      <UniqueIdentifier>{4ead4e2f-b45f-4e7f-ab35-cd2bae619d2e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Main.cpp">
@@ -43,9 +49,6 @@
     <ClCompile Include="..\src\Renderer.cpp">
       <Filter>Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="..\lib\glad\src\glad.c">
-      <Filter>EntryPoint</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\Entity.cpp">
       <Filter>Entity</Filter>
     </ClCompile>
@@ -54,6 +57,15 @@
     </ClCompile>
     <ClCompile Include="..\src\Shape.cpp">
       <Filter>Entity\Entity2D\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\glew-2.3.1\src\glew.c">
+      <Filter>EntryPoint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\File.cpp">
+      <Filter>File</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Shader.cpp">
+      <Filter>Renderer\Shader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -77,6 +89,12 @@
     </ClInclude>
     <ClInclude Include="..\src\Shape.h">
       <Filter>Entity\Entity2D\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\File.h">
+      <Filter>File</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Shader.h">
+      <Filter>Renderer\Shader</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

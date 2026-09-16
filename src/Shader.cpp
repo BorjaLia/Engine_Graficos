@@ -1,11 +1,12 @@
 #include "Shader.h"
 
 #include "Window.h"
+#include "File.h"
 #include <iostream>
 
-unsigned int CompileShader(unsigned int type, const std::string& source)
+unsigned int engine::CompileShader(unsigned int type, const std::string& source)
 {
-	unsigned int id = glCreateShader(GL_VERTEX_SHADER);
+	unsigned int id = glCreateShader(type);
 	const char* src = source.c_str();
 	glShaderSource(id, 1, &src, nullptr);
 	glCompileShader(id);
@@ -30,7 +31,21 @@ unsigned int CompileShader(unsigned int type, const std::string& source)
 	return id;
 }
 
-int CreateShader(const std::string& vertexShader, const std::string& fragmentShader)
+bool engine::CreateShaderFromFile(const std::string& vertexShaderFilepath, const std::string& fragmentShaderFilepath)
+{
+	std::string vertexShader;
+	std::string fragmentShader;
+
+	if (!engine::File::ReadFile(vertexShaderFilepath, vertexShader)) return 0;
+	if (!engine::File::ReadFile(fragmentShaderFilepath, fragmentShader)) return 0;
+
+	unsigned int shader = CreateShader(vertexShader,fragmentShader);
+	glUseProgram(shader);
+
+	return true;
+}
+
+int engine::CreateShader(const std::string& vertexShader, const std::string& fragmentShader)
 {
 	unsigned int program = glCreateProgram();
 	unsigned int vs = CompileShader(GL_VERTEX_SHADER,vertexShader);
@@ -44,4 +59,6 @@ int CreateShader(const std::string& vertexShader, const std::string& fragmentSha
 
 	glDeleteShader(vs);
 	glDeleteShader(fs);
+
+	return 1;
 }

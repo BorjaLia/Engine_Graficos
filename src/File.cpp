@@ -3,6 +3,9 @@
 #include <fstream>
 #include <sstream>
 
+#include <filesystem>
+#include <iostream>
+
 std::string engine::File::rootPath = "";
 
 void engine::File::SetRootPath(const std::string& path)
@@ -13,6 +16,8 @@ void engine::File::SetRootPath(const std::string& path)
 	{
 		rootPath += '/';
 	}
+
+	std::cout << "Root path set to: " << std::filesystem::absolute(rootPath) << std::endl;
 }
 
 std::string engine::File::GetAbsolutePath(const std::string& filepath)
@@ -24,6 +29,8 @@ std::string engine::File::GetAbsolutePath(const std::string& filepath)
 
 bool engine::File::ReadFile(const std::string& filepath, std::string& outText, FileType type)
 {
+
+
 	std::ifstream file(GetAbsolutePath(filepath));
 	if (!file.is_open()) return false;
 
@@ -32,6 +39,7 @@ bool engine::File::ReadFile(const std::string& filepath, std::string& outText, F
 	outText = buffer.str();
 
 	file.close();
+
 	return true;
 }
 

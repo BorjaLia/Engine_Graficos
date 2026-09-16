@@ -2,6 +2,11 @@
 
 #include <string>
 
-static unsigned int CompileShader(unsigned int type, const std::string& source);
+namespace engine
+{
+	static unsigned int CompileShader(unsigned int type, const std::string& source);
 
-static int CreateShader(const std::string& vertexShader, const std::string& fragmentShader);
+	bool CreateShaderFromFile(const std::string& vertexShaderFilepath, const std::string& fragmentShaderFilepath);
+
+	static int CreateShader(const std::string& vertexShader, const std::string& fragmentShader);
+}
