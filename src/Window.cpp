@@ -23,8 +23,6 @@ int engine::Window::Initialize()
 
     glfwMakeContextCurrent(glfwWindow);
 
-    gladLoadGL();
-
     return 0;
 }
 
