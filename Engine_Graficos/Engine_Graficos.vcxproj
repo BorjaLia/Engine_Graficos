@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\lib\glad\src\glad.c" />
     <ClCompile Include="..\src\BaseGame.cpp" />
     <ClCompile Include="..\src\Entity.cpp" />
     <ClCompile Include="..\src\Entity2D.cpp" />
@@ -144,12 +145,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib\;$(SolutionDir)lib\glfw-3.5.1.bin.WIN64\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib\;$(SolutionDir)lib\glfw-3.5.1.bin.WIN64\include\;$(SolutionDir)lib\glad\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)lib\;$(SolutionDir)lib\glfw-3.5.1.bin.WIN64\lib-vc2022\;$(SolutionDir)lib\glfw-3.5.1.bin.WIN64\lib-static-ucrt\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\;$(SolutionDir)lib\glfw-3.5.1.bin.WIN64\lib-vc2022\;$(SolutionDir)lib\glfw-3.5.1.bin.WIN64\lib-static-ucrt\;$(SolutionDir)lib\glad\src\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>glfw3dll.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
@@ -164,12 +165,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib\;$(SolutionDir)lib\glfw-3.5.1.bin.WIN64\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib\;$(SolutionDir)lib\glfw-3.5.1.bin.WIN64\include\;$(SolutionDir)lib\glad\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)lib\;$(SolutionDir)lib\glfw-3.5.1.bin.WIN64\lib-vc2022\;$(SolutionDir)lib\glfw-3.5.1.bin.WIN64\lib-static-ucrt\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\;$(SolutionDir)lib\glfw-3.5.1.bin.WIN64\lib-vc2022\;$(SolutionDir)lib\glfw-3.5.1.bin.WIN64\lib-static-ucrt\;$(SolutionDir)lib\glad\src\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
       <AdditionalDependencies>glfw3dll.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>

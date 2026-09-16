@@ -43,6 +43,9 @@
     <ClCompile Include="..\src\Renderer.cpp">
       <Filter>Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="..\lib\glad\src\glad.c">
+      <Filter>EntryPoint</Filter>
+    </ClCompile>
     <ClCompile Include="..\src\Entity.cpp">
       <Filter>Entity</Filter>
     </ClCompile>
