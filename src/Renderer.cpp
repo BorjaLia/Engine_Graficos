@@ -39,9 +39,6 @@ void engine::Renderer::Update()
 	glDrawArrays(GL_TRIANGLES,0,3);
 
 	glfwSwapBuffers(&(window->GetGlfwWindow()));
-
-	//Change to somewhere else
-	glfwPollEvents();
 }
 
 int engine::Renderer::Shutdown()
