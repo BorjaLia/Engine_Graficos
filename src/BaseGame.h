@@ -1,7 +1,10 @@
 #pragma once
 
+#include <vector>
+
 #include "Window.h"
 #include "Renderer.h"
+#include "Entity.h"
 
 namespace engine
 {
@@ -25,7 +28,11 @@ namespace engine
 		void Initialize();
 		void Shutdown();
 
+		void AddEntity(Entity* entity);
+
 		Window window;
 		Renderer* renderer = Renderer::Get();
+
+		std::vector<Entity*> entities;
 	};
 }

@@ -25,6 +25,6 @@ namespace engine
 
 	private:
 
-		GLFWwindow* glfwWindow;
+		GLFWwindow* glfwWindow = nullptr;
 	};
 }

@@ -9,18 +9,7 @@ int engine::Renderer::Initialize(Window& window)
 {
 	this->window = &window;
 
-	float positions[6] = {
-		-0.5f,-0.5f,
-		0.0f,0.5f,
-		0.5f,-0.5f
-	};
 
-	glGenBuffers(1, &buffer);
-	glBindBuffer(GL_ARRAY_BUFFER, buffer);
-	glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(float), positions, GL_STATIC_DRAW);
-
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0,2,GL_FLOAT,GL_FALSE,sizeof(float) * 2 /*change to size of vertex struct*/, 0);
 
 	File::SetRootPath("../res/shaders/");
 
@@ -34,11 +23,13 @@ int engine::Renderer::Initialize(Window& window)
 
 void engine::Renderer::Update()
 {
-	glClear(GL_COLOR_BUFFER_BIT);
-
-	glDrawArrays(GL_TRIANGLES,0,3);
-
 	glfwSwapBuffers(&(window->GetGlfwWindow()));
+	glClear(GL_COLOR_BUFFER_BIT);
+}
+
+void engine::Renderer::Draw(int vertexCount)
+{
+	glDrawArrays(GL_TRIANGLES, 0, vertexCount);
 }
 
 int engine::Renderer::Shutdown()
@@ -46,9 +37,7 @@ int engine::Renderer::Shutdown()
 	return 0;
 }
 
-
 engine::Renderer* engine::Renderer::instance = nullptr;;
-
 
 engine::Renderer* engine::Renderer::Get()
 {

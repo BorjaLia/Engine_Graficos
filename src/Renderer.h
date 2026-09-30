@@ -15,7 +15,7 @@ namespace engine
 
 		static Renderer* instance;
 
-		Window* window;
+		Window* window = nullptr;
 
 	public:
 
@@ -26,9 +26,9 @@ namespace engine
 
 		int Initialize(Window& window);
 		void Update();
+		void Draw(int vertexCount);
 		int Shutdown();
 
-		unsigned int buffer;
 
 	private:
 
