@@ -19,6 +19,16 @@ void engine::BaseGame::Run()
 	{
 		window.Update();
 		renderer->Update();
+
+
+		for (Entity* e : entities)
+		{
+			if (Shape* shape = dynamic_cast<Shape*>(e))
+			{
+				shape->Update();
+			}
+		}
+
 		for (Entity* e : entities)
 		{
 			if (Shape* shape = dynamic_cast<Shape*>(e))

@@ -2,6 +2,10 @@
 
 #include "Shape.h"
 
+#include "BlueSquare.h"
+
+#include "Vector2.h"
+#include "Vertex.h"
 
 
 int main()
@@ -16,13 +20,18 @@ int main()
 void MyGame::Start()
 {
 
-	engine::Shape* e1 = new engine::Shape();
-	e1->setPosition(math::Vector3(0.0f, 0.0f, 0.0f));
-	e1->setTint(utils::Color::white());
-	AddEntity(e1);
+	BlueSquare* blueSquare = new BlueSquare();
+	blueSquare->setPosition(math::Vector3(0.0f, 0.0f, 0.0f));
+	blueSquare->setTint(utils::Color::white());
 
-	engine::Shape* e2 = new engine::Shape();
-	e2->setPosition(math::Vector3(0.5f, 0.5f, 0.5f));
-	e2->setTint(utils::Color::white());
-	AddEntity(e2);
+	blueSquare->AddVertex(math::Vertex(math::Vector2(-0.1f, -0.1f), utils::Color::blue()));
+	blueSquare->AddVertex(math::Vertex(math::Vector2(-0.1f, 0.1f), utils::Color::blue()));
+	blueSquare->AddVertex(math::Vertex(math::Vector2(0.1f, 0.1f), utils::Color::blue()));
+	blueSquare->AddVertex(math::Vertex(math::Vector2(0.1f, -0.1f), utils::Color::blue()));
+
+	blueSquare->Setindex({ 0,1,2,2,3,0 });
+
+	blueSquare->SetSize({0.15f,0.15f});
+
+	AddEntity(blueSquare);
 }

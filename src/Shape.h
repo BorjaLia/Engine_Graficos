@@ -3,6 +3,7 @@
 
 #include "Core.h"
 
+//#include <functional>
 #include <vector>
 
 namespace engine
@@ -11,11 +12,17 @@ namespace engine
 	{
 	private:
 
+		//std::function<void()> updateFunction;
+
 	public:
 
 		Shape();
 		~Shape();
 
+		virtual void Update() override;
+
 		virtual void Draw() override;
+
+		//void SetUpdateFunction(std::function<void()> updateFunction);
 	};
 }

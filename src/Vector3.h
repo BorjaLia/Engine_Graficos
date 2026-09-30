@@ -20,5 +20,15 @@ namespace math
 			this->y = y;
 			this->z = z;
 		}
+
+		Vector3 operator + (Vector3 v)
+		{
+			return Vector3(x + v.x,y + v.y,z + v.z);
+		}
+
+		Vector3 operator * (float s)
+		{
+			return Vector3(x * s, y * s, z * s);
+		}
 	};
 }

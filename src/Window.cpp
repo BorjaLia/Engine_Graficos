@@ -13,7 +13,7 @@ int engine::Window::Initialize()
 {
     if (!glfwInit()) return 1;
 
-    glfwWindow = glfwCreateWindow(1200, 800, "Game Engine", NULL, NULL);
+    glfwWindow = glfwCreateWindow(1200, 1200, "Game Engine", NULL, NULL);
 
     if (!glfwWindow)
     {
@@ -27,6 +27,8 @@ int engine::Window::Initialize()
     {
         return -1;
     }
+
+    glfwSwapInterval(1); // VSYNC
 
     return 0;
 }

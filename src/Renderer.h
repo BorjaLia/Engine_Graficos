@@ -35,6 +35,8 @@ namespace engine
 		glm::mat4 getProjectionMat4x4() const { return proj; };
 		glm::mat4 getViewMat4x4() const { return view; };
 
+		const float currentFramerate = 244.0f;
+		const float deltaTime = 1.0f / currentFramerate;
 
 	private:
 

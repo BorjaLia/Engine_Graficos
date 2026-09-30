@@ -15,11 +15,11 @@ engine::Entity::~Entity()
 
 void engine::Entity::Initialize()
 {
-	tint = utils::Color::white();
-
-	vertices.push_back(math::Vertex(math::Vector2(-0.5f, -0.5f), utils::Color::red()));
-	vertices.push_back(math::Vertex(math::Vector2(0.0f, 0.5f), utils::Color::green()));
-	vertices.push_back(math::Vertex(math::Vector2(0.5f, -0.5f), utils::Color::blue()));
+	//tint = utils::Color::white();
+	//
+	//vertices.push_back(math::Vertex(math::Vector2(-0.5f, -0.5f), utils::Color::red()));
+	//vertices.push_back(math::Vertex(math::Vector2(0.0f, 0.5f), utils::Color::green()));
+	//vertices.push_back(math::Vertex(math::Vector2(0.5f, -0.5f), utils::Color::blue()));
 
 	//vertices.push_back(math::Vertex(math::Vector2(-0.5f, -0.5f), utils::Color::red()));
 	//vertices.push_back(math::Vertex(math::Vector2(-0.5f, 0.5f), utils::Color::green()));
@@ -37,7 +37,7 @@ void engine::Entity::Initialize()
 		v.color.a *= (tint.a / 255.0f);
 	}
 
-	indices = { 0,1,2 };
+	//indices = { 0,1,2 };
 	//indices = { 0,1,2,2,3,0 };
 
 	glGenVertexArrays(1, &vao);
@@ -61,5 +61,23 @@ void engine::Entity::Initialize()
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+}
+
+void engine::Entity::AddVertex(math::Vertex v)
+{
+	vertices.push_back(v);
+}
+
+void engine::Entity::AddIndex(int i)
+{
+	indices.push_back(i);
+}
+
+void engine::Entity::Setindex(std::vector<int> indices)
+{
+	for (int i : indices)
+	{
+		this->indices.push_back(i);
+	}
 }
 

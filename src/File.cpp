@@ -29,8 +29,6 @@ std::string engine::File::GetAbsolutePath(const std::string& filepath)
 
 bool engine::File::ReadFile(const std::string& filepath, std::string& outText, FileType type)
 {
-
-
 	std::ifstream file(GetAbsolutePath(filepath));
 	if (!file.is_open()) return false;
 
