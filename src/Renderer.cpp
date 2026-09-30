@@ -29,9 +29,9 @@ void engine::Renderer::Update()
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void engine::Renderer::Draw(int vertexCount,int glDrawType)
+void engine::Renderer::Draw(int indexCount,int glDrawType)
 {
-	glDrawArrays(glDrawType, 0, vertexCount);
+	glDrawElements(glDrawType, indexCount,GL_UNSIGNED_INT,nullptr);
 }
 
 int engine::Renderer::Shutdown()

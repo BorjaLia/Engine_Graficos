@@ -26,7 +26,7 @@ namespace engine
 
 		int Initialize(Window& window);
 		void Update();
-		void Draw(int vertexCount, int glDrawType = GL_POLYGON);
+		void Draw(int indexCount, int glDrawType = GL_POLYGON);
 		int Shutdown();
 
 

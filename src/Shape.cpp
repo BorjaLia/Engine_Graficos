@@ -12,7 +12,7 @@ void engine::Shape::Draw()
 {
 	glBindVertexArray(vao);
 
-	Renderer::Get()->Draw(vertices.size());
+	Renderer::Get()->Draw(indices.size());
 	
 	glBindVertexArray(0);
 }

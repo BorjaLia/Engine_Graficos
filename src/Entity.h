@@ -26,7 +26,9 @@ namespace engine
 
 	protected:
 
+		unsigned int ibo;
 		unsigned int vao;
+		std::vector<unsigned int> indices;
 		std::vector<math::Vertex> vertices;
 
 	public:
