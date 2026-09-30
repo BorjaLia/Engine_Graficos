@@ -1,5 +1,6 @@
 #include "BaseGame.h"
 
+#include "Entity.h"
 #include "Shape.h"
 
 engine::BaseGame::BaseGame()

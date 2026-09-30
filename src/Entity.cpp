@@ -15,14 +15,16 @@ engine::Entity::~Entity()
 
 void engine::Entity::Initialize()
 {
-	//vertices.push_back(math::Vertex(math::Vector2(-0.5f, -0.5f), utils::Color::red()));
-	//vertices.push_back(math::Vertex(math::Vector2(0.0f, 0.5f), utils::Color::green()));
-	//vertices.push_back(math::Vertex(math::Vector2(0.5f, -0.5f), utils::Color::blue()));
+	tint = utils::Color::white();
 
 	vertices.push_back(math::Vertex(math::Vector2(-0.5f, -0.5f), utils::Color::red()));
-	vertices.push_back(math::Vertex(math::Vector2(-0.5f, 0.5f), utils::Color::green()));
-	vertices.push_back(math::Vertex(math::Vector2(0.5f, 0.5f), utils::Color::blue()));
-	vertices.push_back(math::Vertex(math::Vector2(0.5f, -0.5f), utils::Color::green()));
+	vertices.push_back(math::Vertex(math::Vector2(0.0f, 0.5f), utils::Color::green()));
+	vertices.push_back(math::Vertex(math::Vector2(0.5f, -0.5f), utils::Color::blue()));
+
+	//vertices.push_back(math::Vertex(math::Vector2(-0.5f, -0.5f), utils::Color::red()));
+	//vertices.push_back(math::Vertex(math::Vector2(-0.5f, 0.5f), utils::Color::green()));
+	//vertices.push_back(math::Vertex(math::Vector2(0.5f, 0.5f), utils::Color::blue()));
+	//vertices.push_back(math::Vertex(math::Vector2(0.5f, -0.5f), utils::Color::green()));
 
 	for (math::Vertex& v : vertices)
 	{
@@ -35,7 +37,8 @@ void engine::Entity::Initialize()
 		v.color.a *= (tint.a / 255.0f);
 	}
 
-	indices = { 0,1,2,2,3,0 };
+	indices = { 0,1,2 };
+	//indices = { 0,1,2,2,3,0 };
 
 	glGenVertexArrays(1, &vao);
 	glBindVertexArray(vao);
