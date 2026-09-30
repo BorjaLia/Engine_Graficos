@@ -13,14 +13,14 @@ PinkSquare::~PinkSquare()
 void PinkSquare::Update()
 {
 
-	if (currentScale.x > maxScale && growing)
+	if (scale.x > maxScale && growing)
 	{
 		growing = false;
 		//currentScale = { maxScale,maxScale ,maxScale };
 	}
 
 
-	if (currentScale.x < minScale && !growing)
+	if (scale.x < minScale && !growing)
 	{
 		//currentScale = { minScale,minScale ,minScale };
 		growing = true;
@@ -31,11 +31,11 @@ void PinkSquare::Update()
 
 void PinkSquare::ChangeSize()
 {
-	currentScale.x += (growing ? 1.0f : -1.0f) * renderer->deltaTime;
-	currentScale.y = currentScale.x;
+	scale.x += (growing ? 1.0f : -1.0f) * renderer->deltaTime;
+	scale.y = scale.x;
 
-	this->setScale(currentScale);
+	//this->setScale(scale);
 
 	//std::cout << position.x << "," << position.y << "," << position.z << std::endl;
-	std::cout << growing << " " << currentScale.x << std::endl;
+	std::cout << growing << " " << scale.x << std::endl;
 }

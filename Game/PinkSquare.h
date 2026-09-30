@@ -16,7 +16,7 @@ private:
 
 	void ChangeSize();
 
-	math::Vector3 currentScale = {1.0f,1.0f,1.0f};
+	//math::Vector3 currentScale = {1.0f,1.0f,1.0f};
 
 	bool growing = true;
 
