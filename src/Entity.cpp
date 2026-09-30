@@ -15,17 +15,40 @@ engine::Entity::~Entity()
 
 void engine::Entity::Initialize()
 {
-	float positions[6] = {
-		-0.5f,-0.5f,
-		0.0f,0.5f,
-		0.5f,-0.5f
-	};
+	vertices.push_back(math::Vertex(math::Vector2(-0.5f, -0.5f), utils::Color::red()));
+	vertices.push_back(math::Vertex(math::Vector2(0.0f, 0.5f), utils::Color::green()));
+	vertices.push_back(math::Vertex(math::Vector2(0.5f, -0.5f), utils::Color::blue()));
+
+
+	//vertices.push_back(math::Vertex(math::Vector2(-0.5f, -0.5f), utils::Color::red()));
+	//vertices.push_back(math::Vertex(math::Vector2(-0.5f, 0.5f), utils::Color::green()));
+	//vertices.push_back(math::Vertex(math::Vector2(0.5f, 0.5f), utils::Color::blue()));
+	//vertices.push_back(math::Vertex(math::Vector2(0.5f, -0.5f), utils::Color::green()));
+
+	for (math::Vertex& v : vertices)
+	{
+		v.pos.x += position.x;
+		v.pos.y += position.y;
+
+		v.color.r *= (tint.r / 255.0f);
+		v.color.g *= (tint.g / 255.0f);
+		v.color.b *= (tint.b / 255.0f);
+		v.color.a *= (tint.a / 255.0f);
+	}
+	glGenVertexArrays(1, &vao);
+	glBindVertexArray(vao);
 
 	glGenBuffers(1, &buffer);
+
 	glBindBuffer(GL_ARRAY_BUFFER, buffer);
-	glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(float), positions, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(math::Vertex), vertices.data(), GL_STATIC_DRAW);
 
 	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2 /*change to size of vertex struct*/, 0);
+	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(math::Vertex), (void*)offsetof(math::Vertex, pos));
+
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(math::Vertex), (void*)offsetof(math::Vertex, color));
+
+	glBindVertexArray(0);
 }
 

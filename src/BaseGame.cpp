@@ -18,7 +18,6 @@ void engine::BaseGame::Run()
 	{
 		window.Update();
 		renderer->Update();
-
 		for (Entity* e : entities)
 		{
 			if (Shape* shape = dynamic_cast<Shape*>(e))
@@ -40,12 +39,13 @@ void engine::BaseGame::Initialize()
 
 	Shape* e1 = new Shape();
 	e1->setPosition(math::Vector3(0, 0, 0));
+	e1->setTint(utils::Color::white());
 	AddEntity(e1);
 
 	Shape* e2 = new Shape();
 	e2->setPosition(math::Vector3(0.5, 0.5, 0.5));
+	e2->setTint(utils::Color::white());
 	AddEntity(e2);
-
 
 	for (Entity* e: entities)
 	{

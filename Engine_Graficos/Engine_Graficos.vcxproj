@@ -32,6 +32,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\BaseGame.h" />
+    <ClInclude Include="..\src\Color.h" />
     <ClInclude Include="..\src\Entity.h" />
     <ClInclude Include="..\src\Entity2D.h" />
     <ClInclude Include="..\src\File.h" />
@@ -40,6 +41,7 @@
     <ClInclude Include="..\src\Shape.h" />
     <ClInclude Include="..\src\Vector2.h" />
     <ClInclude Include="..\src\Vector3.h" />
+    <ClInclude Include="..\src\Vertex.h" />
     <ClInclude Include="..\src\Window.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
