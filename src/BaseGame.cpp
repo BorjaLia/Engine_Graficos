@@ -37,15 +37,7 @@ void engine::BaseGame::Initialize()
 	window.Initialize();
 	renderer->Initialize(window);
 
-	Shape* e1 = new Shape();
-	e1->setPosition(math::Vector3(0, 0, 0));
-	e1->setTint(utils::Color::white());
-	AddEntity(e1);
-
-	Shape* e2 = new Shape();
-	e2->setPosition(math::Vector3(0.5, 0.5, 0.5));
-	e2->setTint(utils::Color::white());
-	AddEntity(e2);
+	Start();
 
 	for (Entity* e: entities)
 	{

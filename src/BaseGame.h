@@ -2,6 +2,7 @@
 
 #include <vector>
 
+#include "Core.h"
 #include "Window.h"
 #include "Renderer.h"
 #include "Entity.h"
@@ -13,7 +14,7 @@ namespace engine
 	/// Has the main loop
 	/// @ingroup Game
 
-	class BaseGame
+	class ENGINE_API BaseGame
 	{
 	public:
 		BaseGame();
@@ -21,14 +22,16 @@ namespace engine
 
 		void Run();
 
+		virtual void Start() = 0;
+
+		void AddEntity(Entity* entity);
+
 	private:
 
 		bool isRunning = true;
 
 		void Initialize();
 		void Shutdown();
-
-		void AddEntity(Entity* entity);
 
 		Window window;
 		Renderer* renderer = Renderer::Get();
