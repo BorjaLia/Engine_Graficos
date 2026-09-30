@@ -33,5 +33,5 @@ void PinkSquare::ChangeSize()
 	scale.y = scale.x;
 
 	//std::cout << position.x << "," << position.y << "," << position.z << std::endl;
-	std::cout << growing << " " << scale.x << std::endl;
+	//std::cout << growing << " " << scale.x << std::endl;
 }
