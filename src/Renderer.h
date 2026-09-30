@@ -2,6 +2,8 @@
 
 #include "Window.h"
 
+#include <glm/glm.hpp>
+
 namespace engine
 {
 	/// The class that draws to the screen
@@ -29,9 +31,18 @@ namespace engine
 		void Draw(int indexCount, int glDrawType = GL_POLYGON);
 		int Shutdown();
 
+		glm::mat4 getMPVMat4x4() const { return mvp; };
+		glm::mat4 getProjectionMat4x4() const { return proj; };
+		glm::mat4 getViewMat4x4() const { return view; };
+
 
 	private:
 
+
+		glm::mat4 proj;
+		glm::mat4 view;
+		glm::mat4 model;
+		glm::mat4 mvp;
 
 	};
 }

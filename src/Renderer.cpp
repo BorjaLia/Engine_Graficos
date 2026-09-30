@@ -3,6 +3,7 @@
 #include "File.h"
 #include "Shader.h"
 
+#include <glm/gtc/matrix_transform.hpp>
 #include <iostream>
 
 int engine::Renderer::Initialize(Window& window)
@@ -19,6 +20,9 @@ int engine::Renderer::Initialize(Window& window)
 	{
 		std::cout << "Shader Created";
 	}
+
+	proj = glm::ortho(-2.0f,2.0f,-1.5f,1.5f,-1.0f,1.0f);
+
 
 	return 0;
 }

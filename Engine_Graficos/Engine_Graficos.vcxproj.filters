@@ -96,5 +96,8 @@
     <ClInclude Include="..\src\Shader.h">
       <Filter>Renderer\Shader</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\Color.h" />
+    <ClInclude Include="..\src\Vector2.h" />
+    <ClInclude Include="..\src\Vertex.h" />
   </ItemGroup>
 </Project>

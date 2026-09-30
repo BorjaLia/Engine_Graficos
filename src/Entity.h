@@ -8,6 +8,8 @@
 #include "Vertex.h"
 #include "Renderer.h"
 
+#include <glm/glm.hpp>
+
 namespace engine
 {
 	class Entity
@@ -17,6 +19,8 @@ namespace engine
 		math::Vector3 position;
 		math::Vector3 rotation;
 		math::Vector3 scale;
+
+		glm::mat4 model;
 
 		utils::Color tint;
 
