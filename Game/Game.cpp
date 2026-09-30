@@ -32,7 +32,7 @@ void MyGame::Start()
 
 	blueSquare->Setindex({ 0,1,2,2,3,0 });
 
-	blueSquare->SetSize({0.15f,0.15f});
+	blueSquare->SetborderOffset({0.15f,0.15f});
 
 	AddEntity(blueSquare);
 

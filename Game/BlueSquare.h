@@ -12,7 +12,7 @@ public:
 
 	void Update() override;
 
-	void SetSize(math::Vector2 s);
+	void SetborderOffset(math::Vector2 b);
 
 private:
 
@@ -20,5 +20,5 @@ private:
 
 	math::Vector3 dir;
 
-	math::Vector2 size;
+	math::Vector2 borderOffset;
 };

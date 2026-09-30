@@ -13,33 +13,33 @@ BlueSquare::~BlueSquare()
 
 void BlueSquare::Update()
 {
-	if (this->getPosition().y < -1.0f + size.y)
+	if (this->getPosition().y < -1.0f + borderOffset.y)
 	{
-		position.y = -1.0f + size.y;
+		position.y = -1.0f + borderOffset.y;
 		dir = { 1.0f,0.0f,0.0f };
 	}
-	else if (this->getPosition().x > 1.0f - size.x)
+	else if (this->getPosition().x > 1.0f - borderOffset.x)
 	{
-		position.x = 1.0f - size.x;
+		position.x = 1.0f - borderOffset.x;
 		dir = { 0.0f,1.0f,0.0f };
 	}
-	else if (this->getPosition().y > 1.0f - size.y)
+	else if (this->getPosition().y > 1.0f - borderOffset.y)
 	{
-		position.y = 1.0f - size.y;
+		position.y = 1.0f - borderOffset.y;
 		dir = { -1.0f,0.0f,0.0f };
 	}
-	else if (this->getPosition().x < -1.0f + size.x)
+	else if (this->getPosition().x < -1.0f + borderOffset.x)
 	{
-		position.x = -1.0f + size.x;
+		position.x = -1.0f + borderOffset.x;
 		dir = { 0.0f,-1.0f,0.0f };
 	}
 
 	Move();
 }
 
-void BlueSquare::SetSize(math::Vector2 s)
+void BlueSquare::SetborderOffset(math::Vector2 b)
 {
-	size = s;
+	borderOffset = b;
 }
 
 void BlueSquare::Move()
