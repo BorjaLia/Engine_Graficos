@@ -35,6 +35,7 @@ void BlueSquare::Update()
 	}
 
 	Move();
+
 	Rotate();
 }
 
