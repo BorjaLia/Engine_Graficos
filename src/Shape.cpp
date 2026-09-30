@@ -29,11 +29,11 @@ void engine::Shape::Draw()
 		x = v.pos.x;
 		y = v.pos.y;
 
-		v.pos.x *= scale.x;
-		v.pos.y *= scale.y;
-
 		v.pos.x = x * c - y * s;
 		v.pos.y = x * s + y * c;
+
+		v.pos.x *= scale.x;
+		v.pos.y *= scale.y;
 
 		v.pos.x += position.x;
 		v.pos.y += position.y;
