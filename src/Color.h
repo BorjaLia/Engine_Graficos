@@ -38,6 +38,7 @@ namespace utils
 		static Color blue() { return Color(0, 0, 255); }
 
 		static Color yellow() { return Color(255, 255, 0); }
+		static Color pink() { return Color(255, 0, 255); }
 
 		static Color white() { return Color(255, 255, 255); }
 		static Color black() { return Color(0, 0, 0); }

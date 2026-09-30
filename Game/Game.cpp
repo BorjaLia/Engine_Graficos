@@ -3,6 +3,7 @@
 #include "Shape.h"
 
 #include "BlueSquare.h"
+#include "PinkSquare.h"
 
 #include "Vector2.h"
 #include "Vertex.h"
@@ -34,4 +35,17 @@ void MyGame::Start()
 	blueSquare->SetSize({0.15f,0.15f});
 
 	AddEntity(blueSquare);
+
+	PinkSquare* pinkSquare = new PinkSquare();
+	pinkSquare->setPosition(math::Vector3(0.0f, 0.0f, 0.0f));
+	pinkSquare->setTint(utils::Color::white());
+
+	pinkSquare->AddVertex(math::Vertex(math::Vector2(-0.1f, -0.1f), utils::Color::pink()));
+	pinkSquare->AddVertex(math::Vertex(math::Vector2(-0.1f, 0.1f), utils::Color::pink()));
+	pinkSquare->AddVertex(math::Vertex(math::Vector2(0.1f, 0.1f), utils::Color::pink()));
+	pinkSquare->AddVertex(math::Vertex(math::Vector2(0.1f, -0.1f), utils::Color::pink()));
+
+	pinkSquare->Setindex({ 0,1,2,2,3,0 });
+
+	AddEntity(pinkSquare);
 }

@@ -132,10 +132,12 @@
   <ItemGroup>
     <ClInclude Include="BlueSquare.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="PinkSquare.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BlueSquare.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="PinkSquare.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

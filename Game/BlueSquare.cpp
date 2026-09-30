@@ -46,5 +46,5 @@ void BlueSquare::Move()
 {
 	this->setPosition(this->getPosition() + (dir * renderer->deltaTime));
 
-	std::cout << position.x << "," << position.y << "," << position.z << std::endl;
+	//std::cout << position.x << "," << position.y << "," << position.z << std::endl;
 }

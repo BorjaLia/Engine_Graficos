@@ -19,6 +19,9 @@ void engine::Shape::Draw()
 
 	for (math::Vertex& v : newV)
 	{
+		v.pos.x *= scale.x;
+		v.pos.y *= scale.y;
+
 		v.pos.x += position.x;
 		v.pos.y += position.y;
 	}

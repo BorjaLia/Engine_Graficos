@@ -24,12 +24,18 @@
     <ClInclude Include="BlueSquare.h">
       <Filter>Objects</Filter>
     </ClInclude>
+    <ClInclude Include="PinkSquare.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BlueSquare.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="PinkSquare.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
   </ItemGroup>

@@ -16,10 +16,12 @@ private:
 
 	void ChangeSize();
 
+	math::Vector3 currentScale = {1.0f,1.0f,1.0f};
+
 	bool growing = true;
 
-	const float minScale = 1;
-	const float maxScale = 3;
+	const float minScale = 1.0f;
+	const float maxScale = 3.0f;
 
 	math::Vector2 size;
 };
