@@ -9,13 +9,15 @@ int engine::Renderer::Initialize(Window& window)
 {
 	this->window = &window;
 
-
-
 	File::SetRootPath("../res/shaders/");
 
 	if (!CreateShaderFromFile("VertexShaderOne.shader", "FragmentShaderOne.shader"))
 	{
 		std::cout << "Couldnt create shaders!";
+	}
+	else
+	{
+		std::cout << "Shader Created";
 	}
 
 	return 0;
