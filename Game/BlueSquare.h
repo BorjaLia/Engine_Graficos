@@ -17,6 +17,10 @@ public:
 private:
 
 	void Move();
+	
+	void Rotate();
+
+	float angle = 0.0f;
 
 	math::Vector3 dir;
 

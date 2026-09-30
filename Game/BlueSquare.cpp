@@ -35,6 +35,7 @@ void BlueSquare::Update()
 	}
 
 	Move();
+	Rotate();
 }
 
 void BlueSquare::SetborderOffset(math::Vector2 b)
@@ -47,4 +48,14 @@ void BlueSquare::Move()
 	this->setPosition(this->getPosition() + (dir * renderer->deltaTime));
 
 	//std::cout << position.x << "," << position.y << "," << position.z << std::endl;
+}
+
+void BlueSquare::Rotate()
+{
+	if (angle > 360.0f)
+	{
+		angle = 0.0f;
+	}
+
+	angle += renderer->deltaTime;
 }
