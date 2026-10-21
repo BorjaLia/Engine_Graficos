@@ -2,15 +2,7 @@
 
 #include <GLFW/glfw3.h>
 
-engine::Input::Input()
-{
-}
-
-engine::Input::~Input()
-{
-}
-
-engine::Input* engine::Input::instance = nullptr;;
+engine::Input* engine::Input::instance = nullptr;
 
 engine::Input* engine::Input::Get()
 {
@@ -21,9 +13,9 @@ engine::Input* engine::Input::Get()
     return instance;
 }
 
-int engine::Input::Initialize(Window* newWindow)
+int engine::Input::Initialize(Window& window)
 {
-    window = newWindow;
+    this->window = &window;
     return 0;
 }
 

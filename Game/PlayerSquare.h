@@ -4,8 +4,6 @@
 
 #include "Vector3.h"
 
-#include "Input.h"
-
 class PlayerSquare : public engine::Shape
 {
 public:
@@ -15,8 +13,6 @@ public:
 	void Update() override;
 
 private:
-
-	engine::Input* input = engine::Input::Get();
 
 	void Move();
 

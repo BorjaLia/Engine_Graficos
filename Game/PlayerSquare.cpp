@@ -15,10 +15,10 @@ void PlayerSquare::Update()
 {
 	dir = { 0.0f,0.0f,0.0f };
 
-	if (input->IsKeyPressed(KeyCode::W)) dir.y += 1.0f;
-	if (input->IsKeyPressed(KeyCode::A)) dir.x -= 1.0f;
-	if (input->IsKeyPressed(KeyCode::S)) dir.y -= 1.0f;
-	if (input->IsKeyPressed(KeyCode::D)) dir.x += 1.0f;
+	if (engine::Input::Get()->IsKeyPressed(KeyCode::W)) dir.y += 1.0f;
+	if (engine::Input::Get()->IsKeyPressed(KeyCode::A)) dir.x -= 1.0f;
+	if (engine::Input::Get()->IsKeyPressed(KeyCode::S)) dir.y -= 1.0f;
+	if (engine::Input::Get()->IsKeyPressed(KeyCode::D)) dir.x += 1.0f;
 
 	Move();
 }

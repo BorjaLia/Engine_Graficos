@@ -18,7 +18,7 @@ void engine::BaseGame::Run()
 	while (isRunning)
 	{
 		window.Update();
-		input.Update();
+		input->Update();
 		renderer->Update();
 
 		for (Entity* e : entities)
@@ -46,7 +46,7 @@ void engine::BaseGame::Run()
 void engine::BaseGame::Initialize()
 {
 	window.Initialize();
-	input.Initialize();
+	input->Initialize(window);
 	renderer->Initialize(window);
 
 	Start();
@@ -59,7 +59,7 @@ void engine::BaseGame::Initialize()
 
 void engine::BaseGame::Shutdown()
 {
-	input.Shutdown();
+	input->Shutdown();
 	window.Shutdown();
 }
 

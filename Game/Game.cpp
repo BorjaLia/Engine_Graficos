@@ -4,6 +4,7 @@
 
 #include "BlueSquare.h"
 #include "PinkSquare.h"
+#include "PlayerSquare.h"
 
 #include "Vector2.h"
 #include "Vertex.h"
@@ -47,4 +48,17 @@ void MyGame::Start()
 	pinkSquare->Setindex({ 0,1,2,2,3,0 });
 
 	AddEntity(pinkSquare);
+
+	PlayerSquare* playerSquare = new PlayerSquare();
+	playerSquare->setPosition(math::Vector3(0.0f, 0.0f, 0.0f));
+	playerSquare->setTint(utils::Color::white());
+
+	playerSquare->AddVertex(math::Vertex(math::Vector2(-0.1f, -0.1f), utils::Color::white()));
+	playerSquare->AddVertex(math::Vertex(math::Vector2(-0.1f, 0.1f), utils::Color::white()));
+	playerSquare->AddVertex(math::Vertex(math::Vector2(0.1f, 0.1f), utils::Color::white()));
+	playerSquare->AddVertex(math::Vertex(math::Vector2(0.1f, -0.1f), utils::Color::white()));
+
+	playerSquare->Setindex({ 0,1,2,2,3,0 });
+
+	AddEntity(playerSquare);
 }
