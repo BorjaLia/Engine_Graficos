@@ -46,6 +46,7 @@ void engine::BaseGame::Run()
 void engine::BaseGame::Initialize()
 {
 	window.Initialize();
+	input.Initialize();
 	renderer->Initialize(window);
 
 	Start();
@@ -58,6 +59,7 @@ void engine::BaseGame::Initialize()
 
 void engine::BaseGame::Shutdown()
 {
+	input.Shutdown();
 	window.Shutdown();
 }
 

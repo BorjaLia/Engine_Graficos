@@ -27,7 +27,6 @@ namespace engine
 		glm::mat4 model;
 
 		utils::Color tint;
-
 	
 		unsigned int buffer;
 

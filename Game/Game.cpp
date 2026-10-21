@@ -20,7 +20,6 @@ int main()
 
 void MyGame::Start()
 {
-
 	BlueSquare* blueSquare = new BlueSquare();
 	blueSquare->setPosition(math::Vector3(0.0f, 0.0f, 0.0f));
 	blueSquare->setTint(utils::Color::white());

@@ -4,10 +4,6 @@
     <Filter Include="BaseGame">
       <UniqueIdentifier>{da85d317-4449-4ed2-9d41-20b34d63ea35}</UniqueIdentifier>
     </Filter>
-    <Filter Include="EntryPoint">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="Window">
       <UniqueIdentifier>{3a97a028-2e2e-4281-8631-b0776c24ff99}</UniqueIdentifier>
     </Filter>
@@ -35,10 +31,26 @@
     <Filter Include="Renderer\Shader">
       <UniqueIdentifier>{4ead4e2f-b45f-4e7f-ab35-cd2bae619d2e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Math\Vector2">
+      <UniqueIdentifier>{efa3ccec-50e1-40b7-8eef-10a3f21d8d8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{4e01de08-3b33-4f1a-b4e3-c15dbb35cae8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math\Vertex">
+      <UniqueIdentifier>{034992e9-49f2-471c-854e-210befbc15ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{ac024910-d6e3-4d9d-98d8-7fb02f0403f0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Main.cpp">
-      <Filter>EntryPoint</Filter>
+      <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="..\src\BaseGame.cpp">
       <Filter>BaseGame</Filter>
@@ -59,13 +71,16 @@
       <Filter>Entity\Entity2D\Shape</Filter>
     </ClCompile>
     <ClCompile Include="..\lib\glew-2.3.1\src\glew.c">
-      <Filter>EntryPoint</Filter>
+      <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="..\src\File.cpp">
       <Filter>File</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Shader.cpp">
       <Filter>Renderer\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Input.cpp">
+      <Filter>Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -96,8 +111,20 @@
     <ClInclude Include="..\src\Shader.h">
       <Filter>Renderer\Shader</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Color.h" />
-    <ClInclude Include="..\src\Vector2.h" />
-    <ClInclude Include="..\src\Vertex.h" />
+    <ClInclude Include="..\src\Vector2.h">
+      <Filter>Math\Vector2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Core.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Color.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Vertex.h">
+      <Filter>Math\Vertex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Input.h">
+      <Filter>Input</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

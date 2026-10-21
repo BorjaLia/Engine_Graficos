@@ -5,6 +5,7 @@
 #include "Core.h"
 #include "Window.h"
 #include "Renderer.h"
+#include "Input.h"
 #include "Entity.h"
 
 namespace engine
@@ -35,6 +36,7 @@ namespace engine
 
 		Window window;
 		Renderer* renderer = Renderer::Get();
+		Input input;
 
 		std::vector<Entity*> entities;
 	};

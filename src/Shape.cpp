@@ -12,7 +12,7 @@ engine::Shape::~Shape()
 
 void engine::Shape::Update()
 {
-	//updateFunction();
+
 }
 
 void engine::Shape::Draw()
@@ -48,8 +48,3 @@ void engine::Shape::Draw()
 	
 	glBindVertexArray(0);
 }
-
-//void engine::Shape::SetUpdateFunction(std::function<void()> updateFunction)
-//{
-//	this->updateFunction = updateFunction;
-//}

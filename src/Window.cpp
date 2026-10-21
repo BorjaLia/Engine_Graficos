@@ -1,6 +1,5 @@
 #include "Window.h"
 
-
 engine::Window::Window()
 {
 }
@@ -35,8 +34,7 @@ int engine::Window::Initialize()
 
 void engine::Window::Update()
 {
-    /* Poll for and process events */
-    glfwPollEvents();
+
 }
 
 int engine::Window::Shutdown()
