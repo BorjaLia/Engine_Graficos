@@ -4,6 +4,8 @@
 
 #include <GLFW/glfw3.h>
 
+#include "Vector2.h"
+
 namespace engine
 {
 	/// The class that handles the glfw Window
@@ -21,10 +23,16 @@ namespace engine
 
 		int ShouldClose();
 
+		math::Vector2 GetSize() { return size; };
+
 		inline GLFWwindow& GetGlfwWindow() { return *glfwWindow; };
 
 	private:
 
+		static void FramebufferResizeCallback(GLFWwindow* glfwWindow, int width, int height);
+
 		GLFWwindow* glfwWindow = nullptr;
+
+		math::Vector2 size;
 	};
 }

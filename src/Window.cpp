@@ -12,7 +12,9 @@ int engine::Window::Initialize()
 {
     if (!glfwInit()) return 1;
 
-    glfwWindow = glfwCreateWindow(1200, 1200, "Game Engine", NULL, NULL);
+    size = math::Vector2(1200, 1200);
+
+    glfwWindow = glfwCreateWindow(size.x,size.y, "Game Engine", NULL, NULL);
 
     if (!glfwWindow)
     {
@@ -21,6 +23,10 @@ int engine::Window::Initialize()
     }
 
     glfwMakeContextCurrent(glfwWindow);
+
+    glfwSetWindowUserPointer(glfwWindow, this);
+
+    glfwSetFramebufferSizeCallback(glfwWindow, FramebufferResizeCallback);
 
     if (glewInit() != GLEW_OK)
     {
@@ -46,4 +52,17 @@ int engine::Window::Shutdown()
 int engine::Window::ShouldClose()
 {
     return glfwWindowShouldClose(glfwWindow);
+}
+
+void engine::Window::FramebufferResizeCallback(GLFWwindow* glfwWindow, int width, int height)
+{
+    Window* windowInstance = static_cast<Window*>(glfwGetWindowUserPointer(glfwWindow));
+
+    if (windowInstance)
+    {
+        windowInstance->size.x = static_cast<float>(width);
+        windowInstance->size.y = static_cast<float>(height);
+    }
+
+    glViewport(0, 0, width, height);
 }
