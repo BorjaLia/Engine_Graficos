@@ -1,6 +1,7 @@
 #include "PlayerSquare.h"
 
 #include "Input.h"
+#include "Window.h"
 
 #include <iostream>
 
@@ -34,8 +35,18 @@ void PlayerSquare::Teleport()
 
 	if (queueTeleport && !isTeleporting)
 	{
+		math::Vector2 mousePos = engine::Input::Get()->GetMousePosition();
+
+		math::Vector2 targetMin(-1.0f, 1.0f);
+		math::Vector2 targetMax(1.0f, -1.0f);
+
+		math::Vector2 normalizedPos = math::Vector2::Remap(mousePos, { 0.0f,0.0f }, renderer->GetSize(),targetMin, targetMax);
+
+		this->setPosition(normalizedPos);
+
+		std::cout << "Mouse: " << mousePos.ToString() << std::endl;
+
 		ShowPosition();
-		this->setPosition(engine::Input::Get()->GetMousePosition());
 	}
 
 	isTeleporting = queueTeleport;
@@ -55,5 +66,5 @@ void PlayerSquare::Move()
 
 void PlayerSquare::ShowPosition()
 {
-	std::cout << time << std::endl << this->getPosition().ToString() << std::endl;
+	std::cout << "Position: " << this->getPosition().ToString() << std::endl;
 }

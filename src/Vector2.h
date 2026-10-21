@@ -24,6 +24,8 @@ namespace math
 			this->y = y;
 		}
 
+		static Vector2 Remap(const Vector2& value, const Vector2& inMin, const Vector2& inMax, const Vector2& outMin, const Vector2& outMax);
+
 		operator Vector3() const;
 
 		std::string ToString() const;
