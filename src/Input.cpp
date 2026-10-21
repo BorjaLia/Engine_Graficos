@@ -10,8 +10,20 @@ engine::Input::~Input()
 {
 }
 
-int engine::Input::Initialize()
+engine::Input* engine::Input::instance = nullptr;;
+
+engine::Input* engine::Input::Get()
 {
+    if (instance == nullptr)
+    {
+        instance = new engine::Input();
+    }
+    return instance;
+}
+
+int engine::Input::Initialize(Window* newWindow)
+{
+    window = newWindow;
     return 0;
 }
 
@@ -28,6 +40,6 @@ int engine::Input::Shutdown()
 
 bool engine::Input::IsKeyPressed(KeyCode key)
 {
-    int state = glfwGetKey(&window.GetGlfwWindow(), static_cast<int>(key));
+    int state = glfwGetKey(&window->GetGlfwWindow(), static_cast<int>(key));
     return state == GLFW_PRESS;
 }

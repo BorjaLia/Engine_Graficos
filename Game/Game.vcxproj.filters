@@ -27,6 +27,9 @@
     <ClInclude Include="PinkSquare.h">
       <Filter>Objects</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerSquare.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -36,6 +39,9 @@
       <Filter>Objects</Filter>
     </ClCompile>
     <ClCompile Include="PinkSquare.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerSquare.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
   </ItemGroup>

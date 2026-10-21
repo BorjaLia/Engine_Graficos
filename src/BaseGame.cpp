@@ -18,8 +18,8 @@ void engine::BaseGame::Run()
 	while (isRunning)
 	{
 		window.Update();
+		input.Update();
 		renderer->Update();
-
 
 		for (Entity* e : entities)
 		{

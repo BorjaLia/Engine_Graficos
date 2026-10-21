@@ -36,7 +36,7 @@ namespace engine
 
 		Window window;
 		Renderer* renderer = Renderer::Get();
-		Input input;
+		Input* input Input::Get();
 
 		std::vector<Entity*> entities;
 	};

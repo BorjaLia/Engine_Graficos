@@ -16,16 +16,18 @@ namespace engine
 		Input();
 		~Input();
 
-		int Initialize();
+		static Input* Get();
+
+		int Initialize(Window* newWindow);
 		void Update();
 		int Shutdown();
 
-		bool IsKeyDown(KeyCode key);
 		bool IsKeyPressed(KeyCode key);
 
 	private:
 
-		Window window;
+		static Input* instance;
 
+		Window* window;
 	};
 }
