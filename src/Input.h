@@ -6,6 +6,8 @@
 
 #include "Keycodes.h"
 
+#include "Vector2.h"
+
 /// The class that handles the Input
 /// @ingroup Input
 
@@ -32,6 +34,10 @@ namespace engine
 		void Update();
 		int Shutdown();
 
+
+		math::Vector2 GetMousePosition();
+
+		bool IsMouseButtonPressed(MouseCode button);
 		bool IsKeyPressed(KeyCode key);
 
 	private:

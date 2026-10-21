@@ -30,6 +30,20 @@ int engine::Input::Shutdown()
     return 0;
 }
 
+math::Vector2 engine::Input::GetMousePosition()
+{
+    double xpos, ypos;
+    glfwGetCursorPos(&window->GetGlfwWindow(), &xpos, &ypos);
+
+    return math::Vector2(static_cast<float>(xpos), static_cast<float>(ypos));
+}
+
+bool engine::Input::IsMouseButtonPressed(MouseCode button)
+{
+    int state = glfwGetMouseButton(&window->GetGlfwWindow(), static_cast<int>(button));
+    return state == GLFW_PRESS;
+}
+
 bool engine::Input::IsKeyPressed(KeyCode key)
 {
     int state = glfwGetKey(&window->GetGlfwWindow(), static_cast<int>(key));
