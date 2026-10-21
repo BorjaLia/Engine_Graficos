@@ -1,8 +1,13 @@
 #pragma once
 
+#include "core.h"
+#include <string>
+
 namespace math
 {
-	struct Vector3
+	struct ENGINE_API Vector2;
+
+	struct ENGINE_API Vector3
 	{
 		float x;
 		float y;
@@ -30,5 +35,9 @@ namespace math
 		{
 			return Vector3(x * s, y * s, z * s);
 		}
+
+		operator Vector2() const;
+
+		std::string ToString() const;
 	};
 }
