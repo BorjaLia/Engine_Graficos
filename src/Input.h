@@ -1,5 +1,9 @@
 #pragma once
 
+#include "Window.h"
+
+#include "Keycodes.h"
+
 /// The class that handles the Input
 /// @ingroup Input
 
@@ -16,7 +20,12 @@ namespace engine
 		void Update();
 		int Shutdown();
 
+		bool IsKeyDown(KeyCode key);
+		bool IsKeyPressed(KeyCode key);
+
 	private:
+
+		Window window;
 
 	};
 }

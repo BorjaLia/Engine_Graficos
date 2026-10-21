@@ -23,5 +23,11 @@ void engine::Input::Update()
 
 int engine::Input::Shutdown()
 {
+    return 0;
+}
 
+bool engine::Input::IsKeyPressed(KeyCode key)
+{
+    int state = glfwGetKey(&window.GetGlfwWindow(), static_cast<int>(key));
+    return state == GLFW_PRESS;
 }

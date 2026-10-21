@@ -126,5 +126,8 @@
     <ClInclude Include="..\src\Input.h">
       <Filter>Input</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\Keycodes.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
