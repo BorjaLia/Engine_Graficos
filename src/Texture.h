@@ -23,11 +23,9 @@ namespace engine
 		Renderer* renderer = Renderer::Get();
 		std::string filePath = "";
 
-		unsigned char localBuffer;
+		unsigned char* localBuffer;
 		math::Vector2 size;
 		int BPP;
 
 	};
-
-
 }

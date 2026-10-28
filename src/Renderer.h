@@ -3,6 +3,7 @@
 #include "Window.h"
 
 #include <glm/glm.hpp>
+#include "GL/GL.h"
 
 namespace engine
 {

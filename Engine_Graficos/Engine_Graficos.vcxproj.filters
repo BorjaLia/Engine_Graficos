@@ -59,6 +59,9 @@
     <Filter Include="External\stb">
       <UniqueIdentifier>{2e8ae8b4-ee06-42e9-9f57-8fe6445441c3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utils\ErrorHandling">
+      <UniqueIdentifier>{8cb45271-3492-4bbc-bb14-45c02a877ae6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Main.cpp">
@@ -102,6 +105,9 @@
     </ClCompile>
     <ClCompile Include="..\src\Texture.cpp">
       <Filter>Renderer\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GLFunctions.cpp">
+      <Filter>Utils\ErrorHandling</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +161,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Texture.h">
       <Filter>Renderer\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GLFunctions.h">
+      <Filter>Utils\ErrorHandling</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
