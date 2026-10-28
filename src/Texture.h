@@ -20,7 +20,7 @@ namespace engine
 
 	private:
 
-		Renderer* renderer = Renderer::Get();
+		unsigned int rendererId =;
 		std::string filePath = "";
 
 		unsigned char* localBuffer;
