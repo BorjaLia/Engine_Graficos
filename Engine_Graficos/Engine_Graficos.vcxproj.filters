@@ -100,6 +100,9 @@
     <ClCompile Include="..\src\vendor\stb\stb_image.cpp">
       <Filter>External\stb</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Texture.cpp">
+      <Filter>Renderer\Texture</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\BaseGame.h">
@@ -149,6 +152,9 @@
     </ClInclude>
     <ClInclude Include="..\src\vendor\stb\stb_image.h">
       <Filter>External\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Texture.h">
+      <Filter>Renderer\Texture</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
