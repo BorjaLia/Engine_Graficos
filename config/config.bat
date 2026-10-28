@@ -1,4 +1,4 @@
-echo -Running inital configuration-
+echo -Running inital Engine configuration-
 
 set path=%~1
 set out=%~2
