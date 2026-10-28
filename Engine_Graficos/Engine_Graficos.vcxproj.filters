@@ -47,6 +47,18 @@
     <Filter Include="Input">
       <UniqueIdentifier>{ac024910-d6e3-4d9d-98d8-7fb02f0403f0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Renderer\Texture">
+      <UniqueIdentifier>{593293d6-1e73-4e32-91e3-6222e42bf466}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External">
+      <UniqueIdentifier>{44658081-f855-4bec-958d-34eafd7e1600}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External\Glew">
+      <UniqueIdentifier>{ebff35d4-15ad-41fc-8f5f-b7a2c06fd43c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External\stb">
+      <UniqueIdentifier>{2e8ae8b4-ee06-42e9-9f57-8fe6445441c3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Main.cpp">
@@ -70,9 +82,6 @@
     <ClCompile Include="..\src\Shape.cpp">
       <Filter>Entity\Entity2D\Shape</Filter>
     </ClCompile>
-    <ClCompile Include="..\lib\glew-2.3.1\src\glew.c">
-      <Filter>Core</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\File.cpp">
       <Filter>File</Filter>
     </ClCompile>
@@ -84,6 +93,12 @@
     </ClCompile>
     <ClCompile Include="..\src\MathConversion.cpp">
       <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\glew-2.3.1\src\glew.c">
+      <Filter>External\Glew</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\vendor\stb\stb_image.cpp">
+      <Filter>External\stb</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -131,6 +146,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Keycodes.h">
       <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\vendor\stb\stb_image.h">
+      <Filter>External\stb</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
