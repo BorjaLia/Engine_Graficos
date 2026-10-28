@@ -9,7 +9,6 @@
 #include "Vector2.h"
 #include "Vertex.h"
 
-
 int main()
 {
 	MyGame game;
