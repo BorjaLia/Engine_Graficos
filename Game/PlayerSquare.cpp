@@ -14,6 +14,10 @@ PlayerSquare::~PlayerSquare()
 {
 }
 
+void PlayerSquare::Start()
+{
+}
+
 void PlayerSquare::Update()
 {	
 	time += renderer->deltaTime;

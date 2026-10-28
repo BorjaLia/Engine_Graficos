@@ -19,6 +19,7 @@ namespace engine
 		Shape();
 		~Shape();
 
+		virtual void Start() override;
 		virtual void Update() override;
 
 		virtual void Draw() override;

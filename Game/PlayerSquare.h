@@ -10,6 +10,7 @@ public:
 	PlayerSquare();
 	~PlayerSquare();
 
+	void Start() override;
 	void Update() override;
 
 private:

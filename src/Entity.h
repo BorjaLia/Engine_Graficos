@@ -58,6 +58,7 @@ namespace engine
 		inline void setScale(math::Vector3 scale) { this->scale = scale; }
 		inline void setTint(utils::Color tint) { this->tint = tint; }
 
+		virtual void Start() = 0;
 		virtual void Update() = 0;
 
 		virtual void Draw() = 0;
