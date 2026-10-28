@@ -8,6 +8,7 @@ namespace math
 	struct Vertex
 	{
 		Vector2 pos;
+		Vector2 textureCoords;
 		utils::Color color;
 
 		Vertex(){}

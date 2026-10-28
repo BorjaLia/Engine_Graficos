@@ -12,6 +12,9 @@ int engine::Renderer::Initialize(Window& window)
 
 	File::SetRootPath("../res/shaders/");
 
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+
 	if (!CreateShaderFromFile("VertexShaderOne.shader", "FragmentShaderOne.shader"))
 	{
 		std::cout << "Couldnt create shaders!";

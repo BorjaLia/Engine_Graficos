@@ -22,7 +22,7 @@ private:
 	bool queueTeleport = false;
 	bool isTeleporting = false;
 
-	//engine::Texture* texture;
+	engine::Texture* texture;
 
 	void Move();
 	void Teleport();

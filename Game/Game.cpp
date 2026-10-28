@@ -50,7 +50,7 @@ void MyGame::Start()
 
 	PlayerSquare* playerSquare = new PlayerSquare();
 	playerSquare->setPosition(math::Vector3(0.0f, 0.0f, 0.0f));
-	playerSquare->setTint(utils::Color::white());
+	playerSquare->setTint(utils::Color(255,255,255,200));
 
 	playerSquare->AddVertex(math::Vertex(math::Vector2(-0.1f, -0.1f), utils::Color::white()));
 	playerSquare->AddVertex(math::Vertex(math::Vector2(-0.1f, 0.1f), utils::Color::white()));

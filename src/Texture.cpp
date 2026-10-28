@@ -15,8 +15,8 @@ engine::Texture::Texture(const std::string path) : filePath(path), localBuffer(n
 	/*
 */	/*GLCall(*/glTextureParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	/*GLCall(*/glTextureParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	/*GLCall(*/glTextureParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
-	/*GLCall(*/glTextureParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
+	/*GLCall(*/glTextureParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	/*GLCall(*/glTextureParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	/*
 */	/*GLCall(*/glTexImage1D(GL_TEXTURE_2D,0,GL_RGBA8,size.x,0,GL_RGBA,GL_UNSIGNED_BYTE,localBuffer);
 	/*GLCall(*/glBindTexture(GL_TEXTURE_2D, 0);
