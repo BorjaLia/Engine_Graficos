@@ -16,6 +16,9 @@ PlayerSquare::~PlayerSquare()
 
 void PlayerSquare::Start()
 {
+	//texture = new engine::Texture("res/assets/image.jpg");
+	//texture->Bind();
+	//bind shader uniform
 }
 
 void PlayerSquare::Update()

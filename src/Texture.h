@@ -7,7 +7,7 @@
 
 namespace engine
 {
-	class Texture
+	class ENGINE_API Texture
 	{
 	public:
 		Texture(const std::string path);
@@ -20,7 +20,7 @@ namespace engine
 
 	private:
 
-		unsigned int rendererId =;
+		unsigned int rendererId;
 		std::string filePath = "";
 
 		unsigned char* localBuffer;

@@ -10,6 +10,10 @@ engine::Shape::~Shape()
 {
 }
 
+void engine::Shape::Start()
+{
+}
+
 void engine::Shape::Update()
 {
 

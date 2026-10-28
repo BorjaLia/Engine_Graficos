@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Shape.h"
+#include "Texture.h"
 
 #include "Vector3.h"
 
@@ -20,6 +21,8 @@ private:
 
 	bool queueTeleport = false;
 	bool isTeleporting = false;
+
+	//engine::Texture* texture;
 
 	void Move();
 	void Teleport();
