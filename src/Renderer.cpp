@@ -35,7 +35,8 @@ void engine::Renderer::Update()
 
 void engine::Renderer::Draw(int indexCount,int glDrawType)
 {
-	GLCall(glDrawElements(glDrawType, indexCount,GL_UNSIGNED_INT,nullptr));
+	//GLCall(glDrawElements(glDrawType, indexCount,GL_UNSIGNED_INT,nullptr));
+	glDrawElements(glDrawType, indexCount, GL_UNSIGNED_INT, nullptr);
 }
 
 int engine::Renderer::Shutdown()

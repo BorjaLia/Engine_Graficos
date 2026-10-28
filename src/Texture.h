@@ -26,6 +26,5 @@ namespace engine
 		unsigned char* localBuffer;
 		math::Vector2 size;
 		int BPP;
-
 	};
 }

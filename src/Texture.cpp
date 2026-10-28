@@ -10,16 +10,16 @@ engine::Texture::Texture(const std::string path) : filePath(path), localBuffer(n
 
 	size = math::Vector2(tempX, tempY);
 
-	GLCall(glGenTextures(1, &rendererId));
-	GLCall(glBindBuffer(GL_TEXTURE_2D, rendererId));
-
-	GLCall(glTextureParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR));
-	GLCall(glTextureParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR));
-	GLCall(glTextureParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP));
-	GLCall(glTextureParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP));
-
-	GLCall(glTexImage1D(GL_TEXTURE_2D,0,GL_RGBA8,size.x,size.y,0,GL_RGBA,GL_UNSIGNED_BYTE,localBuffer));
-	GLCall(glBindTexture(GL_TEXTURE_2D), 0);
+	/*GLCall(*/glGenTextures(1, &rendererId);
+	/*GLCall(*/glBindBuffer(GL_TEXTURE_2D, rendererId);
+	/*
+*/	/*GLCall(*/glTextureParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	/*GLCall(*/glTextureParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	/*GLCall(*/glTextureParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
+	/*GLCall(*/glTextureParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
+	/*
+*/	/*GLCall(*/glTexImage1D(GL_TEXTURE_2D,0,GL_RGBA8,size.x,0,GL_RGBA,GL_UNSIGNED_BYTE,localBuffer);
+	/*GLCall(*/glBindTexture(GL_TEXTURE_2D, 0);
 
 	if (localBuffer) // removes local data 
 	{
@@ -29,16 +29,16 @@ engine::Texture::Texture(const std::string path) : filePath(path), localBuffer(n
 
 engine::Texture::~Texture()
 {
-	GLCall(glDeleteTextures(1, rendererId));
+	///*GLCall(*/glDeleteTextures(1, (GLuint)rendererId);
 }
 
 void engine::Texture::Bind(unsigned int slot) const
 {
-	GLCall(glActiveTexture(GL_TEXTURE0 + slot))
-	GLCall(glBindBuffer(GL_TEXTURE_2D, rendererId));
+	/*GLCall(*/glActiveTexture(GL_TEXTURE0 + slot);
+	/*GLCall(*/glBindBuffer(GL_TEXTURE_2D, rendererId);
 }
 
 void engine::Texture::Unbind()
 {
-	GLCall(glBindTexture(GL_TEXTURE_2D), 0);
+	/*GLCall(*/glBindTexture(GL_TEXTURE_2D, 0);
 }

@@ -3,8 +3,24 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
-#define ASSERT(x)
-#define GLCall(x)
+#include <iostream>
 
-static void GLClearError();
-static bool GLLogCall(const char* function, const char* file,int line);
+//#define ASSERT(x) if (!(x)) __debugbreak();	
+//#define GLCall(x) GLClearError();\
+//x;\
+//ASSERT(GLLogCall(#x, __FILE__, __LINE__))
+
+static void GLClearError()
+{
+	while (glGetError() != GL_NO_ERROR);
+}
+
+static bool GLLogCall(const char* function, const char* file, int line)
+{
+	while (GLenum error = glGetError())
+	{
+		std::cout << "[Opengl error]:\n " << (error) << "\n in " << function << "\n file " << file << "\n at line " << line << std::endl;
+		return false;
+	}
+	return true;
+}
