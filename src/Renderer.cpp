@@ -26,6 +26,7 @@ int engine::Renderer::Initialize(Window& window)
 
 	proj = glm::ortho(-2.0f,2.0f,-1.5f,1.5f,-1.0f,1.0f);
 
+	File::SetRootPath("");
 
 	return 0;
 }

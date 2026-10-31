@@ -17,7 +17,7 @@ void engine::File::SetRootPath(const std::string& path)
 		rootPath += '/';
 	}
 
-	std::cout << "Root path set to: " << std::filesystem::absolute(rootPath) << std::endl;
+	std::cout << std::endl << "Root path set to: " << std::filesystem::absolute(rootPath) << std::endl;
 }
 
 std::string engine::File::GetAbsolutePath(const std::string& filepath)

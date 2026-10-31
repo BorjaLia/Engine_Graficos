@@ -4,6 +4,8 @@
 #include "Window.h"
 #include "Shader.h"
 
+#include "File.h"
+
 #include <iostream>
 
 PlayerSquare::PlayerSquare()
@@ -17,8 +19,9 @@ PlayerSquare::~PlayerSquare()
 
 void PlayerSquare::Start()
 {
-	texture = new engine::Texture("res/assets/image.jpg");
+	texture = new engine::Texture("res/assets/images.png");
 	texture->Bind();
+
 	//engine::Shader::SetUniform1i("u_texture",0);
 }
 

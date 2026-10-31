@@ -4,6 +4,8 @@
 #include <vector>
 #include <cstdint>
 
+#include "Core.h"
+
 namespace engine
 {
 
@@ -14,7 +16,7 @@ namespace engine
 	};
 
 	/// functions for reading and writing files.
-	class File
+	class ENGINE_API File
 	{
 	public:
 		static void SetRootPath(const std::string& path);

@@ -173,7 +173,7 @@
       <AdditionalDependencies>glfw3dll.lib;opengl32.lib;glfw3.lib;glfw3_mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>"$(SolutionDir)config\config.bat" "$(SolutionDir)" "$(OutDir)"</Command>
+      <Command>"$(SolutionDir)config\engine_config.bat" "$(SolutionDir)" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -195,7 +195,7 @@
       <AdditionalDependencies>glfw3dll.lib;opengl32.lib;glfw3.lib;glfw3_mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>"$(SolutionDir)config\config.bat" "$(SolutionDir)" "$(OutDir)"</Command>
+      <Command>"$(SolutionDir)config\engine_config.bat" "$(SolutionDir)" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
