@@ -1,12 +1,28 @@
 #pragma once
 
 #include <string>
+#include <unordered_map>
 
 namespace engine
 {
-	static unsigned int CompileShader(unsigned int type, const std::string& source);
+	class Shader
+	{
+	private:
+		unsigned int m_RendererID;
+		std::unordered_map<std::string, int> m_UniformLocationCache;
 
-	bool CreateShaderFromFile(const std::string& vertexShaderFilepath, const std::string& fragmentShaderFilepath);
+	public:
+		Shader(const std::string& vertexShaderFilepath, const std::string& fragmentShaderFilepath);
+		~Shader();
 
-	static int CreateShader(const std::string& vertexShader, const std::string& fragmentShader);
+		void Bind() const;
+		void Unbind() const;
+
+		void SetUniform1i(const std::string& name, int value);
+
+	private:
+		unsigned int CompileShader(unsigned int type, const std::string& source);
+		unsigned int CreateShader(const std::string& vertexShader, const std::string& fragmentShader);
+		int GetUniformLocation(const std::string& name);
+	};
 }
