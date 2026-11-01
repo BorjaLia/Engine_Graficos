@@ -6,8 +6,9 @@
 
 #include "Vector3.h"
 #include "Vector2.h"
-#include "Color.h"
 #include "Vertex.h"
+#include "Material.h"
+#include "Color.h"
 #include "Renderer.h"
 
 #include <glm/glm.hpp>
@@ -25,6 +26,8 @@ namespace engine
 		math::Vector3 scale;
 
 		glm::mat4 model;
+
+		Material* material;
 
 		utils::Color tint;
 	
@@ -47,6 +50,8 @@ namespace engine
 		void AddVertex(math::Vertex v);
 		void AddIndex(int i);
 		void Setindex(std::vector<int> indices);
+
+		Material* GetMaterial() const { return material; }
 
 		inline math::Vector3 getPosition() { return position; }
 		inline math::Vector3 getRotation() { return rotation; }

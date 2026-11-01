@@ -10,6 +10,11 @@ PinkSquare::~PinkSquare()
 {
 }
 
+void PinkSquare::Start()
+{
+	material = new engine::Material("../res/shaders/VertexShaderOne.shader", "../res/shaders/FragmentShaderOne.shader");
+}
+
 void PinkSquare::Update()
 {
 

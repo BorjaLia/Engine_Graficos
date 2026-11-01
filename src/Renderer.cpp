@@ -15,15 +15,6 @@ int engine::Renderer::Initialize(Window& window)
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 
-	if (!CreateShaderFromFile("VertexShaderOne.shader", "FragmentShaderOne.shader"))
-	{
-		std::cout << "Couldnt create shaders!";
-	}
-	else
-	{
-		std::cout << "Shader Created";
-	}
-
 	proj = glm::ortho(-2.0f,2.0f,-1.5f,1.5f,-1.0f,1.0f);
 
 	File::SetRootPath("");

@@ -11,6 +11,11 @@ BlueSquare::~BlueSquare()
 {
 }
 
+void BlueSquare::Start()
+{
+	material = new engine::Material("../res/shaders/VertexShaderOne.shader", "../res/shaders/FragmentShaderOne.shader");
+}
+
 void BlueSquare::Update()
 {
 	if (this->getPosition().y < -1.0f + borderOffset.y)

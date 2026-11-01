@@ -44,8 +44,11 @@ namespace engine
 			return m_UniformLocationCache[name];
 
 		int location = glGetUniformLocation(m_RendererID, name.c_str());
+
 		if (location == -1)
-			std::cout << "Warning: uniform '" << name << "' doesn't exist!" << std::endl;
+		{
+			std::cout << "\n" << "Warning: uniform '" << name << "' doesn't exist!" << std::endl;
+		}
 
 		m_UniformLocationCache[name] = location;
 		return location;

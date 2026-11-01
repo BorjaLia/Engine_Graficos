@@ -44,8 +44,8 @@ engine::Texture::~Texture()
 
 void engine::Texture::Bind(unsigned int slot) const
 {
-	/*GLCall(*/glActiveTexture(GL_TEXTURE0 + slot);
-	/*GLCall(*/glBindBuffer(GL_TEXTURE_2D, rendererId);
+	glActiveTexture(GL_TEXTURE0 + slot);
+	glBindTexture(GL_TEXTURE_2D, rendererId);
 }
 
 void engine::Texture::Unbind()

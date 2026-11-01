@@ -117,7 +117,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>"$(ProjectDir)config\game_config.bat" "$(SolutionDir)" "$(OutDir)" "$(SolutionDir)Game\bin\$(Platform)\$(Configuration)\"</Command>
+      <Command>"$(ProjectDir)config\game_config.bat" "$(SolutionDir)" "$(OutDir)" "$(SolutionDir)bin\$(Platform)\$(Configuration)\"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -135,7 +135,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>"$(ProjectDir)config\game_config.bat" "$(SolutionDir)" "$(OutDir)" "$(SolutionDir)Game\bin\$(Platform)\$(Configuration)\"</Command>
+      <Command>"$(ProjectDir)config\game_config.bat" "$(SolutionDir)" "$(OutDir)" "$(SolutionDir)bin\$(Platform)\$(Configuration)\"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

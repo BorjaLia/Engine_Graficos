@@ -52,10 +52,10 @@ void MyGame::Start()
 	playerSquare->setPosition(math::Vector3(0.0f, 0.0f, 0.0f));
 	playerSquare->setTint(utils::Color(255,255,255,200));
 
-	playerSquare->AddVertex(math::Vertex(math::Vector2(-0.1f, -0.1f), utils::Color::white()));
-	playerSquare->AddVertex(math::Vertex(math::Vector2(-0.1f, 0.1f), utils::Color::white()));
-	playerSquare->AddVertex(math::Vertex(math::Vector2(0.1f, 0.1f), utils::Color::white()));
-	playerSquare->AddVertex(math::Vertex(math::Vector2(0.1f, -0.1f), utils::Color::white()));
+	playerSquare->AddVertex(math::Vertex(math::Vector2(-0.1f, -0.1f), math::Vector2(0.0f, 0.0f), utils::Color::white()));
+	playerSquare->AddVertex(math::Vertex(math::Vector2(-0.1f, 0.1f), math::Vector2(0.0f, 1.0f), utils::Color::white()));
+	playerSquare->AddVertex(math::Vertex(math::Vector2(0.1f, 0.1f), math::Vector2(1.0f, 1.0f), utils::Color::white()));
+	playerSquare->AddVertex(math::Vertex(math::Vector2(0.1f, -0.1f), math::Vector2(1.0f, 0.0f), utils::Color::white()));
 
 	playerSquare->Setindex({ 0,1,2,2,3,0 });
 

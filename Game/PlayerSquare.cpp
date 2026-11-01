@@ -19,10 +19,10 @@ PlayerSquare::~PlayerSquare()
 
 void PlayerSquare::Start()
 {
-	texture = new engine::Texture("res/assets/images.png");
-	texture->Bind();
+	material = new engine::Material("../res/shaders/VertexTexture.shader", "../res/shaders/FragmentTexture.shader");
 
-	//engine::Shader::SetUniform1i("u_texture",0);
+	engine::Texture* myTexture = new engine::Texture("res/assets/images.png");
+	material->SetTexture(myTexture);
 }
 
 void PlayerSquare::Update()
@@ -32,7 +32,7 @@ void PlayerSquare::Update()
 	if (objectiveTime < static_cast<int>(time))
 	{
 		objectiveTime = static_cast<int>(time) + 2;
-		ShowPosition();
+		//ShowPosition();
 	}
 
 	Teleport();
@@ -55,7 +55,7 @@ void PlayerSquare::Teleport()
 
 		this->setPosition(normalizedPos);
 
-		std::cout << "Mouse: " << mousePos.ToString() << std::endl;
+		std::cout << "\n" << "Mouse: " << mousePos.ToString() << std::endl;
 
 		ShowPosition();
 	}

@@ -2,6 +2,8 @@
 
 engine::Entity::Entity()
 {
+	material = nullptr;
+
 	position = math::Vector3(0.0f, 0.0f, 0.0f);
 	rotation = math::Vector3(0.0f, 1.0f, 0.0f);
 	scale = math::Vector3(1.0f, 1.0f, 1.0f);
@@ -11,6 +13,7 @@ engine::Entity::Entity()
 
 engine::Entity::~Entity()
 {
+	delete material;
 }
 
 void engine::Entity::Initialize()
@@ -55,7 +58,10 @@ void engine::Entity::Initialize()
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(math::Vertex), (void*)offsetof(math::Vertex, pos));
 
 	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(1, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(math::Vertex), (void*)offsetof(math::Vertex, color));
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(math::Vertex), (void*)offsetof(math::Vertex, textureCoords));
+
+	glEnableVertexAttribArray(2);
+	glVertexAttribPointer(2, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(math::Vertex), (void*)offsetof(math::Vertex, color));
 
 	glBindVertexArray(0);
 

@@ -10,6 +10,7 @@ public:
 	BlueSquare();
 	~BlueSquare();
 
+	void Start() override;
 	void Update() override;
 
 	void SetborderOffset(math::Vector2 b);

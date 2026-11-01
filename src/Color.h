@@ -42,6 +42,5 @@ namespace utils
 
 		static Color white() { return Color(255, 255, 255); }
 		static Color black() { return Color(0, 0, 0); }
-
 	};
 }

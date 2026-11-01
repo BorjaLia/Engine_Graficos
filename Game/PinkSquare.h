@@ -10,6 +10,7 @@ public:
 	PinkSquare();
 	~PinkSquare();
 
+	void Start() override;
 	void Update() override;
 
 private:

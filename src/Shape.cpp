@@ -48,7 +48,17 @@ void engine::Shape::Draw()
 
 	glBindVertexArray(vao);
 
+	if (material)
+	{
+		material->Bind();
+	}
+
 	Renderer::Get()->Draw(indices.size());
 	
+	if (material)
+	{
+		material->Unbind();
+	}
+
 	glBindVertexArray(0);
 }
