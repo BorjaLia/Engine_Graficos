@@ -6,6 +6,7 @@ namespace engine
 		: m_Texture(nullptr)
 	{
 		m_Shader = new Shader(vertexPath, fragmentPath);
+		m_Tint = utils::Color::blue();
 	}
 
 	Material::~Material()
@@ -17,6 +18,11 @@ namespace engine
 	void Material::SetTexture(Texture* texture)
 	{
 		m_Texture = texture;
+	}
+
+	void Material::SetTint(utils::Color color)
+	{
+		m_Tint = color;
 	}
 
 	Shader* Material::GetShader() const
@@ -33,6 +39,7 @@ namespace engine
 			m_Texture->Bind(0);
 			m_Shader->SetUniform("u_texture", 0);
 		}
+		m_Shader->SetUniform("u_Color", math::Vector4(m_Tint.r, m_Tint.g, m_Tint.b, m_Tint.a));
 	}
 
 	void Material::Unbind() const

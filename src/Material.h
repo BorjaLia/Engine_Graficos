@@ -11,12 +11,15 @@ namespace engine
 	private:
 		Shader* m_Shader;
 		Texture* m_Texture;
+		utils::Color m_Tint;
 
 	public:
 		Material(const std::string& vertexPath, const std::string& fragmentPath);
 		~Material();
 
 		void SetTexture(Texture* texture);
+		void SetTint(utils::Color color);
+
 		Shader* GetShader() const;
 
 		void Bind() const;
