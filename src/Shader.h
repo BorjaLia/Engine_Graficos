@@ -3,6 +3,8 @@
 #include <string>
 #include <unordered_map>
 
+#include "Vector4.h"
+
 namespace engine
 {
 	class Shader
@@ -18,7 +20,8 @@ namespace engine
 		void Bind() const;
 		void Unbind() const;
 
-		void SetUniform1i(const std::string& name, int value);
+		void SetUniform(const std::string& name, int value);
+		void SetUniform(const std::string& name, math::Vector4 value);
 
 	private:
 		unsigned int CompileShader(unsigned int type, const std::string& source);

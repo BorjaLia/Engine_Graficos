@@ -65,6 +65,9 @@
     <Filter Include="Renderer\Material">
       <UniqueIdentifier>{933828d4-8944-42f5-82d0-1ab6ebf26112}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Math\Vector4">
+      <UniqueIdentifier>{035089ae-f0cd-459e-8268-319c5cfce4d4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Main.cpp">
@@ -173,6 +176,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Material.h">
       <Filter>Renderer\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Vector4.h">
+      <Filter>Math\Vector4</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

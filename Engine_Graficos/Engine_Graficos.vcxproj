@@ -53,6 +53,7 @@
     <ClInclude Include="..\src\Texture.h" />
     <ClInclude Include="..\src\Vector2.h" />
     <ClInclude Include="..\src\Vector3.h" />
+    <ClInclude Include="..\src\Vector4.h" />
     <ClInclude Include="..\src\vendor\stb\stb_image.h" />
     <ClInclude Include="..\src\Vertex.h" />
     <ClInclude Include="..\src\Window.h" />

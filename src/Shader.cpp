@@ -33,9 +33,13 @@ namespace engine
 		glUseProgram(0);
 	}
 
-	void Shader::SetUniform1i(const std::string& name, int value)
+	void Shader::SetUniform(const std::string& name, int value)
 	{
 		glUniform1i(GetUniformLocation(name), value);
+	}
+	void Shader::SetUniform(const std::string& name, math::Vector4 value)
+	{
+		glUniform4f(GetUniformLocation(name), value.x, value.y, value.z, value.w);
 	}
 
 	int Shader::GetUniformLocation(const std::string& name)
