@@ -31,7 +31,7 @@ namespace engine
 		if (m_Texture)
 		{
 			m_Texture->Bind(0);
-			m_Shader->SetUniform1i("u_texture", 0);
+			m_Shader->SetUniform("u_texture", 0);
 		}
 	}
 
