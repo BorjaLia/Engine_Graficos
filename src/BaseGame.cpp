@@ -17,10 +17,7 @@ void engine::BaseGame::Run()
 
 	for (Entity* e : entities)
 	{
-		if (Shape* shape = dynamic_cast<Shape*>(e))
-		{
-			shape->Start();
-		}
+		e->Start();
 	}
 
 	while (isRunning)
@@ -31,18 +28,12 @@ void engine::BaseGame::Run()
 
 		for (Entity* e : entities)
 		{
-			if (Shape* shape = dynamic_cast<Shape*>(e))
-			{
-				shape->Update();
-			}
+			e->Update();
 		}
 
 		for (Entity* e : entities)
 		{
-			if (Shape* shape = dynamic_cast<Shape*>(e))
-			{
-				shape->Draw();
-			}
+			e->Draw();
 		}
 
 		isRunning = !window.ShouldClose();
