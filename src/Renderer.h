@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Window.h"
+#include "Vertex.h"
 
 #include <glm/glm.hpp>
 #include "GL/GL.h"
@@ -37,6 +38,9 @@ namespace engine
 		glm::mat4 getMPVMat4x4() const { return mvp; };
 		glm::mat4 getProjectionMat4x4() const { return proj; };
 		glm::mat4 getViewMat4x4() const { return view; };
+
+		void GenerateBuffers(std::vector<math::Vertex> vertices, std::vector<unsigned int> indices,
+			unsigned int* vao, unsigned int* vbo, unsigned int* ibo);
 
 		const float currentFramerate = 244.0f;
 		const float deltaTime = 1.0f / currentFramerate;
