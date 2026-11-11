@@ -31,7 +31,7 @@ namespace engine
 
 		utils::Color tint;
 	
-		unsigned int buffer;
+		unsigned int vbo;
 
 		Renderer* renderer = Renderer::Get();
 

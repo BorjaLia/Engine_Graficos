@@ -8,7 +8,7 @@ engine::Entity::Entity()
 	rotation = math::Vector3(0.0f, 1.0f, 0.0f);
 	scale = math::Vector3(1.0f, 1.0f, 1.0f);
 
-	buffer = 0;
+	vbo = 0;
 }
 
 engine::Entity::~Entity()
@@ -18,17 +18,6 @@ engine::Entity::~Entity()
 
 void engine::Entity::Initialize()
 {
-	//tint = utils::Color::white();
-	//
-	//vertices.push_back(math::Vertex(math::Vector2(-0.5f, -0.5f), utils::Color::red()));
-	//vertices.push_back(math::Vertex(math::Vector2(0.0f, 0.5f), utils::Color::green()));
-	//vertices.push_back(math::Vertex(math::Vector2(0.5f, -0.5f), utils::Color::blue()));
-
-	//vertices.push_back(math::Vertex(math::Vector2(-0.5f, -0.5f), utils::Color::red()));
-	//vertices.push_back(math::Vertex(math::Vector2(-0.5f, 0.5f), utils::Color::green()));
-	//vertices.push_back(math::Vertex(math::Vector2(0.5f, 0.5f), utils::Color::blue()));
-	//vertices.push_back(math::Vertex(math::Vector2(0.5f, -0.5f), utils::Color::green()));
-
 	for (math::Vertex& v : vertices)
 	{
 		v.pos.x += position.x;
@@ -40,14 +29,11 @@ void engine::Entity::Initialize()
 		v.color.a *= (tint.a / 255.0f);
 	}
 
-	//indices = { 0,1,2 };
-	//indices = { 0,1,2,2,3,0 };
-
 	glGenVertexArrays(1, &vao);
 	glBindVertexArray(vao);
 
-	glGenBuffers(1, &buffer);
-	glBindBuffer(GL_ARRAY_BUFFER, buffer);
+	glGenBuffers(1, &vbo);
+	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 	glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(math::Vertex), vertices.data(), GL_STATIC_DRAW);
 
 	glGenBuffers(1, &ibo);

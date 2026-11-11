@@ -43,7 +43,7 @@ void engine::Shape::Draw()
 		v.pos.y += position.y;
 	}
 
-	glBindBuffer(GL_ARRAY_BUFFER, buffer);
+	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 	glBufferData(GL_ARRAY_BUFFER, newV.size() * sizeof(math::Vertex), newV.data(), GL_STATIC_DRAW);
 
 	glBindVertexArray(vao);
