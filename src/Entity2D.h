@@ -3,7 +3,7 @@
 
 namespace engine
 {
-	class Entity2D : public Entity
+	class ENGINE_API Entity2D : public Entity
 	{
 	private:
 	protected:
