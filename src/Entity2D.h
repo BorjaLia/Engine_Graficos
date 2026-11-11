@@ -33,6 +33,8 @@ namespace engine
 
 		Material* GetMaterial() const { return material; }
 
+		virtual void Draw() override;
+
 		inline utils::Color getTint() { return tint; }
 		inline void setTint(utils::Color tint) { this->tint = tint; }
 

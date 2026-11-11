@@ -12,8 +12,6 @@ namespace engine
 	{
 	private:
 
-		//std::function<void()> updateFunction;
-
 	public:
 
 		Shape();
@@ -21,9 +19,5 @@ namespace engine
 
 		virtual void Start() override;
 		virtual void Update() override;
-
-		virtual void Draw() override;
-
-		//void SetUpdateFunction(std::function<void()> updateFunction);
 	};
 }
