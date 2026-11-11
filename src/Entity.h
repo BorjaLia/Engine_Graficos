@@ -25,22 +25,43 @@ namespace engine
 		math::Vector3 rotation;
 		math::Vector3 scale;
 
+		glm::mat4 model;
+
+		Material* material;
+
+		utils::Color tint;
+	
+		unsigned int vbo;
+
 		Renderer* renderer = Renderer::Get();
+
+		unsigned int ibo;
+		unsigned int vao;
+		std::vector<unsigned int> indices;
+		std::vector<math::Vertex> vertices;
 
 	public:
 		
 		Entity();
 		~Entity();
 	
-		virtual void Initialize();
+		void Initialize();
+
+		void AddVertex(math::Vertex v);
+		void AddIndex(int i);
+		void Setindex(std::vector<int> indices);
+
+		Material* GetMaterial() const { return material; }
 
 		inline math::Vector3 getPosition() { return position; }
 		inline math::Vector3 getRotation() { return rotation; }
 		inline math::Vector3 getScale() { return scale; }
+		inline utils::Color getTint() { return tint; }
 
 		inline void setPosition(math::Vector3 position) { this->position = position; }
 		inline void setRotation(math::Vector3 rotation) { this->rotation = rotation; }
 		inline void setScale(math::Vector3 scale) { this->scale = scale; }
+		inline void setTint(utils::Color tint) { this->tint = tint; }
 
 		virtual void Start() = 0;
 		virtual void Update() = 0;
