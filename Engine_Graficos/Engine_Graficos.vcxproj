@@ -24,6 +24,7 @@
     <ClCompile Include="..\src\Entity.cpp" />
     <ClCompile Include="..\src\Entity2D.cpp" />
     <ClCompile Include="..\src\File.cpp" />
+    <ClCompile Include="..\src\Frame.cpp" />
     <ClCompile Include="..\src\GLFunctions.cpp" />
     <ClCompile Include="..\src\Input.cpp" />
     <ClCompile Include="..\src\Main.cpp" />
@@ -43,6 +44,7 @@
     <ClInclude Include="..\src\Entity.h" />
     <ClInclude Include="..\src\Entity2D.h" />
     <ClInclude Include="..\src\File.h" />
+    <ClInclude Include="..\src\Frame.h" />
     <ClInclude Include="..\src\GLFunctions.h" />
     <ClInclude Include="..\src\Input.h" />
     <ClInclude Include="..\src\Keycodes.h" />

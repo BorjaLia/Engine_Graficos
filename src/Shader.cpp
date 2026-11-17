@@ -86,6 +86,7 @@ namespace engine
 			glDeleteShader(id);
 			return 0;
 		}
+		//std::cout << "compiled " << ((type == GL_VERTEX_SHADER) ? "vertex" : "fragment") << " shader\n";
 
 		return id;
 	}

@@ -68,6 +68,15 @@
     <Filter Include="Math\Vector4">
       <UniqueIdentifier>{035089ae-f0cd-459e-8268-319c5cfce4d4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Renderer\Sprite">
+      <UniqueIdentifier>{d5eba097-bb38-49b6-bd22-2b1a3751f06c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer\Animation">
+      <UniqueIdentifier>{d904cfd2-a8f6-4d26-bda5-6f4ba43ff8a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer\Animation\Frame">
+      <UniqueIdentifier>{fd159ca0-dfb0-4f23-9732-52f3148fcdc9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Main.cpp">
@@ -117,6 +126,9 @@
     </ClCompile>
     <ClCompile Include="..\src\Material.cpp">
       <Filter>Renderer\Material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Frame.cpp">
+      <Filter>Renderer\Animation\Frame</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -179,6 +191,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Vector4.h">
       <Filter>Math\Vector4</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Frame.h">
+      <Filter>Renderer\Animation\Frame</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
