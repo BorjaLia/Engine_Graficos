@@ -6,7 +6,7 @@ namespace engine
 		: m_Texture(nullptr)
 	{
 		m_Shader = new Shader(vertexPath, fragmentPath);
-		m_Tint = utils::Color::blue();
+		m_Tint = utils::Color::white();
 	}
 
 	Material::~Material()
