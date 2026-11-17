@@ -1,11 +1,22 @@
 #include "Vector2.h"
 #include "Vector3.h"
+#include "UVCoords.h"
 
 namespace math
 {
 	Vector3::operator Vector2() const
 	{
 		return Vector2(x, y);
+	}
+
+	Vector2::operator UVCoords() const
+	{
+		return UVCoords(x, y);
+	}
+
+	UVCoords::operator Vector2() const
+	{
+		return Vector2(u, v);
 	}
 
 	Vector2 Vector2::Remap(const Vector2& value, const Vector2& inMin, const Vector2& inMax, const Vector2& outMin, const Vector2& outMax)

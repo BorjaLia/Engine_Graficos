@@ -6,6 +6,7 @@
 namespace math
 {
 	struct ENGINE_API Vector3;
+	struct ENGINE_API UVCoords;
 
 	struct ENGINE_API Vector2
 	{
@@ -27,6 +28,7 @@ namespace math
 		static Vector2 Remap(const Vector2& value, const Vector2& inMin, const Vector2& inMax, const Vector2& outMin, const Vector2& outMax);
 
 		operator Vector3() const;
+		operator UVCoords() const;
 
 		std::string ToString() const;
 	};

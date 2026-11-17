@@ -77,6 +77,9 @@
     <Filter Include="Renderer\Animation\Frame">
       <UniqueIdentifier>{fd159ca0-dfb0-4f23-9732-52f3148fcdc9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Math\UVCoords">
+      <UniqueIdentifier>{2709b262-f0ae-43fc-ad4a-7a73135cf95a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Main.cpp">
@@ -194,6 +197,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Frame.h">
       <Filter>Renderer\Animation\Frame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\UVCoords.h">
+      <Filter>Math\UVCoords</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

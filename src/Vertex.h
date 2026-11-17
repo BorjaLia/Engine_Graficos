@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Vector2.h"
+#include "UVCoords.h"
 #include "Color.h"
 
 namespace math
@@ -8,7 +9,7 @@ namespace math
 	struct Vertex
 	{
 		Vector2 pos;
-		Vector2 textureCoords;
+		UVCoords textureCoords;
 		utils::Color color;
 
 		Vertex(){}
@@ -19,7 +20,7 @@ namespace math
 			this->color = color;
 		}
 
-		Vertex(Vector2 pos, Vector2 textureCoords, utils::Color color)
+		Vertex(Vector2 pos, UVCoords textureCoords, utils::Color color)
 		{
 			this->pos = pos;
 			this->textureCoords = textureCoords;
