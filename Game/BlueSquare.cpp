@@ -63,7 +63,7 @@ void BlueSquare::Rotate()
 		angle = 0.0f;
 	}
 
-	angle += renderer->deltaTime;
+	angle += renderer->deltaTime * 30.0f;
 
-	this->setRotation({angle,0.0f,0.0f});
+	this->setRotation({0.0f,0.0f,angle});
 }
