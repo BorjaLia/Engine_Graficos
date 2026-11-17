@@ -32,14 +32,14 @@ void engine::Animation::AddFrame(float frameX, float frameY,
 	frame.uvCoords[0].u = (frameX / textureWidth);
 	frame.uvCoords[0].v = (frameY / textureHeigth);
 
-	frame.uvCoords[1].u = ((frameX + frameWidth) / textureWidth);
-	frame.uvCoords[1].v = (frameY / textureHeigth);
+	frame.uvCoords[1].u = (frameX / textureWidth);
+	frame.uvCoords[1].v = ((frameY + frameHeigth) / textureHeigth);
 
-	frame.uvCoords[2].u = (frameX / textureWidth);
+	frame.uvCoords[2].u = ((frameX + frameWidth) / textureWidth);
 	frame.uvCoords[2].v = ((frameY + frameHeigth) / textureHeigth);
 
 	frame.uvCoords[3].u = ((frameX + frameWidth) / textureWidth);
-	frame.uvCoords[3].v = ((frameY + frameHeigth) / textureHeigth);
+	frame.uvCoords[3].v = (frameY / textureHeigth);
 
 	frames.push_back(frame);
 }
@@ -58,17 +58,17 @@ void engine::Animation::AddFrame(float frameX, float frameY,
 	{
 		Frame frame;
 
-		frame.uvCoords[0].u = ((frameX + frameXIndex) / textureWidth);
+		frame.uvCoords[0].u = (frameX / textureWidth);
 		frame.uvCoords[0].v = (frameY / textureHeigth);
 
-		frame.uvCoords[1].u = (((frameX + frameXIndex) + frameWidth) / textureWidth);
-		frame.uvCoords[1].v = (frameY / textureHeigth);
+		frame.uvCoords[1].u = (frameX / textureWidth);
+		frame.uvCoords[1].v = ((frameY + frameHeigth) / textureHeigth);
 
-		frame.uvCoords[2].u = ((frameX + frameXIndex) / textureWidth);
+		frame.uvCoords[2].u = ((frameX + frameWidth) / textureWidth);
 		frame.uvCoords[2].v = ((frameY + frameHeigth) / textureHeigth);
 
-		frame.uvCoords[3].u = (((frameX + frameXIndex) + frameWidth) / textureWidth);
-		frame.uvCoords[3].v = ((frameY + frameHeigth) / textureHeigth);
+		frame.uvCoords[3].u = ((frameX + frameWidth) / textureWidth);
+		frame.uvCoords[3].v = (frameY / textureHeigth);
 
 		frames.push_back(frame);
 		frameXIndex += frameWidth;

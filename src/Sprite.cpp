@@ -1,6 +1,6 @@
 #include "Sprite.h"
 
-engine::Sprite::Sprite() : texture(engine::Texture("res/assets/images.png"))
+engine::Sprite::Sprite() : texture(engine::Texture("res/assets/spritesheet.png"))
 {
 	const int vertexAmount = 4;
 	math::Vertex vertices[vertexAmount];
@@ -76,17 +76,19 @@ void engine::Sprite::SetTextureCoordinates(float u0, float v0,
 
 	vertices[1].textureCoords.u = u1;
 	vertices[1].textureCoords.v = v1;
-	
+
 	vertices[2].textureCoords.u = u2;
 	vertices[2].textureCoords.v = v2;
-	
+
 	vertices[3].textureCoords.u = u3;
 	vertices[3].textureCoords.v = v3;
+
+	UpdateBufferData();
 }
 
 void engine::Sprite::SetTextureCoordinates(math::UVCoords uv1, math::UVCoords uv2, math::UVCoords uv3, math::UVCoords uv4)
 {
-	SetTextureCoordinates(uv1.u,uv1.v, uv2.u, uv2.v, uv3.u, uv3.v, uv4.u, uv4.v);
+	SetTextureCoordinates(uv1.u, uv1.v, uv2.u, uv2.v, uv3.u, uv3.v, uv4.u, uv4.v);
 }
 
 void engine::Sprite::SetTexture(const engine::Texture& texture)
@@ -96,7 +98,7 @@ void engine::Sprite::SetTexture(const engine::Texture& texture)
 
 void engine::Sprite::SetAnimation(Animation* animation)
 {
-	animation = animation;
+	this->animation = animation;
 	previousFrame = std::numeric_limits<unsigned int>::max_digits10;
 }
 
@@ -104,7 +106,7 @@ void engine::Sprite::Start()
 {
 	material = new engine::Material("../res/shaders/VertexTexture.shader", "../res/shaders/FragmentTexture.shader");
 
-	texture = engine::Texture("res/assets/images.png");
+	//texture = engine::Texture("res/assets/images.png");
 	material->SetTexture(&texture);
 }
 

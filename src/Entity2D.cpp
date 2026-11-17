@@ -66,6 +66,11 @@ void engine::Entity2D::Setindex(std::vector<int> indices)
 	}
 }
 
+void engine::Entity2D::UpdateBufferData()
+{
+	renderer->UpdateBuffers(vertices,&vbo);
+}
+
 void engine::Entity2D::setPosition(math::Vector3 position)
 {
 	this->position = position;

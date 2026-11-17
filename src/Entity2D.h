@@ -31,6 +31,8 @@ namespace engine
 		void AddIndex(int i);
 		void Setindex(std::vector<int> indices);
 
+		void UpdateBufferData();
+
 		Material* GetMaterial() const { return material; }
 
 		void setPosition(math::Vector3 position) override;

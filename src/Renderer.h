@@ -30,6 +30,7 @@ namespace engine
         static Renderer* Get();
 
 		int Initialize(Window& window);
+
 		void Update();
 		void Draw(unsigned int& vao, unsigned int& ibo, glm::mat4 trs, Material* material, int glDrawType = GL_TRIANGLES);
 		int Shutdown();
@@ -42,6 +43,8 @@ namespace engine
 
 		void GenerateBuffers(std::vector<math::Vertex> vertices, std::vector<unsigned int> indices,
 			unsigned int* vao, unsigned int* vbo, unsigned int* ibo);
+
+		void UpdateBuffers(std::vector<math::Vertex> vertices, unsigned int* vbo);
 
 	private:
 

@@ -67,5 +67,19 @@ void MyGame::Start()
 	testSprite->setPosition(math::Vector3(0.0f, 0.0f, 0.0f));
 	testSprite->setScale(math::Vector3(0.2f, 0.2f, 1.0f));
 
+	engine::Animation* runAnim = new engine::Animation();
+
+	math::Vector2 frameSize = math::Vector2(200.0f, 246.6f);
+
+	for (int j = 4; j >= 0; j--)
+	{
+		for (int i = 0; i < 6; i++)
+		{
+			runAnim->AddFrame(math::Vector2(i * frameSize.x, j * frameSize.y), frameSize, math::Vector2(1200.0f, 1233.0f), 0.001);
+		}
+	}
+
+	testSprite->SetAnimation(runAnim);
+
 	AddEntity(testSprite);
 }

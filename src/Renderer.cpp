@@ -72,6 +72,15 @@ void engine::Renderer::GenerateBuffers(std::vector<math::Vertex> vertices, std::
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 }
 
+void engine::Renderer::UpdateBuffers(std::vector<math::Vertex> vertices,unsigned int* vbo)
+{
+	glBindBuffer(GL_ARRAY_BUFFER, *vbo);
+
+	glBufferSubData(GL_ARRAY_BUFFER, 0, vertices.size() * sizeof(math::Vertex), vertices.data());
+
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+}
+
 engine::Renderer* engine::Renderer::instance = nullptr;;
 
 engine::Renderer* engine::Renderer::Get()
