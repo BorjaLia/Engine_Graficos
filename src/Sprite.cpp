@@ -5,19 +5,19 @@ engine::Sprite::Sprite(void) :
 {
 	texturedVertex[0].pos.x = -0.5;
 	texturedVertex[0].pos.y = 0.5;
-	//texturedVertex[0].pos.z = 0.0f;
+	texturedVertex[0].pos.z = 0.0f;
 	
 	texturedVertex[1].pos.x = 0.5;
 	texturedVertex[1].pos.y = 0.5;
-	//texturedVertex[1].pos.z = 0.0f;
+	texturedVertex[1].pos.z = 0.0f;
 	
 	texturedVertex[2].pos.x = -0.5;
 	texturedVertex[2].pos.y = -0.5;
-	//texturedVertex[2].pos.z = 0.0f;
+	texturedVertex[2].pos.z = 0.0f;
 
 	texturedVertex[3].pos.x = 0.5;
 	texturedVertex[3].pos.y = -0.5;
-	//texturedVertex[3].pos.z = 0.0f;
+	texturedVertex[3].pos.z = 0.0f;
 	
 	texturedVertex[0].textureCoords.u = 0.0;
 	texturedVertex[0].textureCoords.v = 0.0f;
