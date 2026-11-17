@@ -1,11 +1,14 @@
 #pragma once
 #include "Core.h"
-#include "Shader.h"
-#include "Texture.h"
 #include <string>
+
+#include "Color.h"
 
 namespace engine
 {
+	class Shader;
+	class Texture;
+
 	class ENGINE_API Material
 	{
 	private:

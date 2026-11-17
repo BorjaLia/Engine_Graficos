@@ -33,6 +33,12 @@ namespace engine
 
 		Material* GetMaterial() const { return material; }
 
+		void setPosition(math::Vector3 position) override;
+		void setRotation(math::Vector3 rotation) override;
+		void setScale(math::Vector3 scale) override;
+
+		void updateTransform();
+
 		virtual void Draw() override;
 
 		inline utils::Color getTint() { return tint; }

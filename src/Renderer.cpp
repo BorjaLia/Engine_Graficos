@@ -28,8 +28,13 @@ void engine::Renderer::Update()
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void engine::Renderer::Draw(unsigned int& vao, unsigned int& ibo, glm::mat4 trs, int glDrawType)
+void engine::Renderer::Draw(unsigned int& vao, unsigned int& ibo, glm::mat4 trs, Material* material, int glDrawType)
 {
+	if (material)
+	{
+		material->Bind();
+		material->GetShader()->SetUniform("u_MVP", trs);
+	}
 	glBindVertexArray(vao);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
 	glDrawElements(glDrawType, 6, GL_UNSIGNED_INT, nullptr);

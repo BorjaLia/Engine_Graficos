@@ -2,6 +2,7 @@
 
 #include "Window.h"
 #include "Vertex.h"
+#include "Material.h"
 
 #include <glm/glm.hpp>
 #include "GL/GL.h"
@@ -30,7 +31,7 @@ namespace engine
 
 		int Initialize(Window& window);
 		void Update();
-		void Draw(unsigned int &vao, unsigned int &ibo, glm::mat4 trs, int glDrawType = GL_TRIANGLES);
+		void Draw(unsigned int& vao, unsigned int& ibo, glm::mat4 trs, Material* material, int glDrawType = GL_TRIANGLES);
 		int Shutdown();
 
 		math::Vector2 GetSize() { return window->GetSize(); };
