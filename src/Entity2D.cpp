@@ -21,46 +21,33 @@ void engine::Entity2D::Initialize()
 
 void engine::Entity2D::Draw()
 {
-	std::vector<math::Vertex> newV = vertices;
+	//float s = sin(rotation.x);
+	//float c = cos(rotation.x);
 
-	float s = sin(rotation.x);
-	float c = cos(rotation.x);
+	//float x, y;
 
-	float x, y;
+	//for (math::Vertex& v : newV)
+	//{
+	//	v.pos.x *= scale.x;
+	//	v.pos.y *= scale.y;
 
-	for (math::Vertex& v : newV)
-	{
-		v.pos.x *= scale.x;
-		v.pos.y *= scale.y;
+	//	x = v.pos.x;
+	//	y = v.pos.y;
 
-		x = v.pos.x;
-		y = v.pos.y;
+	//	v.pos.x = x * c - y * s;
+	//	v.pos.y = x * s + y * c;
 
-		v.pos.x = x * c - y * s;
-		v.pos.y = x * s + y * c;
+	//	v.pos.x += position.x;
+	//	v.pos.y += position.y;
+	//}
 
-		v.pos.x += position.x;
-		v.pos.y += position.y;
-	}
-
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(GL_ARRAY_BUFFER, newV.size() * sizeof(math::Vertex), newV.data(), GL_STATIC_DRAW);
-
-	glBindVertexArray(vao);
+	//glBindBuffer(GL_ARRAY_BUFFER, vbo);
+	//glBufferData(GL_ARRAY_BUFFER, newV.size() * sizeof(math::Vertex), newV.data(), GL_STATIC_DRAW);
 
 	if (material)
-	{
 		material->Bind();
-	}
 
-	Renderer::Get()->Draw(indices.size());
-
-	if (material)
-	{
-		material->Unbind();
-	}
-
-	glBindVertexArray(0);
+	Renderer::Get()->Draw(vao, ibo, trs);
 }
 
 void engine::Entity2D::AddVertex(math::Vertex v)

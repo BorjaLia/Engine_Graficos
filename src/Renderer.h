@@ -30,7 +30,7 @@ namespace engine
 
 		int Initialize(Window& window);
 		void Update();
-		void Draw(int indexCount, int glDrawType = GL_POLYGON);
+		void Draw(unsigned int &vao, unsigned int &ibo, glm::mat4 trs, int glDrawType = GL_TRIANGLES);
 		int Shutdown();
 
 		math::Vector2 GetSize() { return window->GetSize(); };

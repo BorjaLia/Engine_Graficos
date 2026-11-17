@@ -28,10 +28,11 @@ void engine::Renderer::Update()
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void engine::Renderer::Draw(int indexCount,int glDrawType)
+void engine::Renderer::Draw(unsigned int& vao, unsigned int& ibo, glm::mat4 trs, int glDrawType)
 {
-	//GLCall(glDrawElements(glDrawType, indexCount,GL_UNSIGNED_INT,nullptr));
-	glDrawElements(glDrawType, indexCount, GL_UNSIGNED_INT, nullptr);
+	glBindVertexArray(vao);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
+	glDrawElements(glDrawType, 6, GL_UNSIGNED_INT, nullptr);
 }
 
 int engine::Renderer::Shutdown()

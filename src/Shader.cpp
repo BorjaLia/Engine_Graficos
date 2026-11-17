@@ -42,6 +42,11 @@ namespace engine
 		glUniform4f(GetUniformLocation(name), value.x, value.y, value.z, value.w);
 	}
 
+	void Shader::SetUniform(const std::string& name, glm::mat4& value)
+	{
+		glUniformMatrix4fv(GetUniformLocation(name), 1, GL_FALSE, &value[0][0]);
+	}
+
 	int Shader::GetUniformLocation(const std::string& name)
 	{
 		if (m_UniformLocationCache.find(name) != m_UniformLocationCache.end())

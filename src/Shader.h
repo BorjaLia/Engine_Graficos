@@ -2,6 +2,7 @@
 
 #include <string>
 #include <unordered_map>
+#include <glm/glm.hpp>
 
 #include "Vector4.h"
 
@@ -22,6 +23,7 @@ namespace engine
 
 		void SetUniform(const std::string& name, int value);
 		void SetUniform(const std::string& name, math::Vector4 value);
+		void SetUniform(const std::string& name, glm::mat4& value);
 
 	private:
 		unsigned int CompileShader(unsigned int type, const std::string& source);
