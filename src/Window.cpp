@@ -1,5 +1,7 @@
 #include "Window.h"
 
+#include "GameTime.h"
+
 engine::Window::Window()
 {
 }
@@ -40,7 +42,7 @@ int engine::Window::Initialize()
 
 void engine::Window::Update()
 {
-
+    engine::Time::UpdateTime(glfwGetTime());
 }
 
 int engine::Window::Shutdown()

@@ -80,6 +80,9 @@
     <Filter Include="Math\UVCoords">
       <UniqueIdentifier>{2709b262-f0ae-43fc-ad4a-7a73135cf95a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utils\Time">
+      <UniqueIdentifier>{3741f67f-0fba-4a78-87bd-4e40afaf9a57}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Main.cpp">
@@ -135,6 +138,9 @@
     </ClCompile>
     <ClCompile Include="..\src\Animation.cpp">
       <Filter>Renderer\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameTime.cpp">
+      <Filter>Utils\Time</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -206,6 +212,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Animation.h">
       <Filter>Renderer\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameTime.h">
+      <Filter>Utils\Time</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
