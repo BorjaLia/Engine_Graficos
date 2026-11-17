@@ -8,16 +8,18 @@ engine::Animation::Animation() :
 }
 engine::Animation::~Animation(void) {}
 
-//void engine::Animation::Update(Timer& timer){
-//	currentTime += timer.timeBetweenFrames();
-//
-//	while(_currentTime > length) {
-//		currentTime -= length;
-//	}
-//
-//	float frameLength = length / frames.size();
-//	currentFrame = static_cast<int>(currentTime / frameLength);
-//}
+void engine::Animation::Update()
+{
+	currentTime += Time::GetDeltaTime();
+
+	while(currentTime > length) 
+	{
+		currentTime -= length;
+	}
+
+	float frameLength = length / frames.size();
+	currentFrame = static_cast<int>(currentTime / frameLength);
+}
 
 void engine::Animation::AddFrame(float frameX, float frameY,
 	float frameWidth, float frameHeigth,

@@ -1,7 +1,7 @@
 #ifndef ANIMATION_H
 #define ANIMATION_H
 
-//#include "Timer.h"
+#include "GameTime.h"
 #include "Frame.h"
 #include "Vector2.h"
 #include <vector>
@@ -19,7 +19,7 @@ namespace engine
 		DllExport Animation();
 		DllExport ~Animation();
 
-		//DllExport void Update(Timer& timer);
+		DllExport void Update();
 
 		DllExport void AddFrame(float frameX, float frameY,
 			float frameWidth, float frameHeigth,
