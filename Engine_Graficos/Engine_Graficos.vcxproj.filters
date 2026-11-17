@@ -142,6 +142,9 @@
     <ClCompile Include="..\src\GameTime.cpp">
       <Filter>Utils\Time</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Sprite.cpp">
+      <Filter>Renderer\Sprite</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\BaseGame.h">
@@ -215,6 +218,9 @@
     </ClInclude>
     <ClInclude Include="..\src\GameTime.h">
       <Filter>Utils\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Sprite.h">
+      <Filter>Renderer\Sprite</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
