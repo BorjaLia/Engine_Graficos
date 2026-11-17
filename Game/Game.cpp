@@ -1,6 +1,7 @@
 #include "Game.h"
 
 #include "Shape.h"
+#include "Sprite.h"
 
 #include "BlueSquare.h"
 #include "PinkSquare.h"
@@ -60,4 +61,18 @@ void MyGame::Start()
 	playerSquare->Setindex({ 0,1,2,2,3,0 });
 
 	AddEntity(playerSquare);
+
+	engine::Sprite* testSprite = new engine::Sprite();
+
+	testSprite->setPosition(math::Vector3(0.0f, 0.0f, 0.0f));
+	testSprite->setTint(utils::Color(255, 255, 255, 200));
+
+	testSprite->AddVertex(math::Vertex(math::Vector2(-0.1f, -0.1f), math::Vector2(0.0f, 0.0f), utils::Color::white()));
+	testSprite->AddVertex(math::Vertex(math::Vector2(-0.1f, 0.1f), math::Vector2(0.0f, 1.0f), utils::Color::white()));
+	testSprite->AddVertex(math::Vertex(math::Vector2(0.1f, 0.1f), math::Vector2(1.0f, 1.0f), utils::Color::white()));
+	testSprite->AddVertex(math::Vertex(math::Vector2(0.1f, -0.1f), math::Vector2(1.0f, 0.0f), utils::Color::white()));
+
+	testSprite->Setindex({ 0,1,2,2,3,0 });
+
+	AddEntity(testSprite);
 }

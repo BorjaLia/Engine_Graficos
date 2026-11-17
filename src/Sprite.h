@@ -3,6 +3,7 @@
 
 #include "Entity2D.h"
 #include "Animation.h"
+#include "Texture.h"
 #include <limits>
 
 namespace engine
@@ -10,7 +11,7 @@ namespace engine
 	class Sprite : public Entity2D
 	{
 	public:
-		DllExport Sprite(void);
+		DllExport Sprite();
 		DllExport ~Sprite(void);
 
 		DllExport void SetTextureCoordinates(float u0, float v0,
@@ -21,12 +22,13 @@ namespace engine
 		DllExport void SetTexture(const Texture& texture);
 		DllExport void SetAnimation(Animation* animation);
 
+		DllExport void Start() override;
 		DllExport void Update() override;
 		//DllExport void Draw(Renderer& rkRenderer);
 
 	private:
 
-		Texture* texture;
+		Texture texture;
 		math::Vertex texturedVertex[4];
 		Animation* animation;
 		int currentFrame;

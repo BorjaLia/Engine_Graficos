@@ -1,7 +1,6 @@
 #include "Sprite.h"
 
-engine::Sprite::Sprite(void) :
-	texture(nullptr)
+engine::Sprite::Sprite() : texture(engine::Texture("res/assets/images.png"))
 {
 	texturedVertex[0].pos.x = -0.5;
 	texturedVertex[0].pos.y = 0.5;
@@ -49,7 +48,7 @@ void engine::Sprite::SetTextureCoordinates(float u0, float v0,
 
 void engine::Sprite::SetTexture(const engine::Texture& texture)
 {
-	//this->texture = texture;
+	this->texture = texture;
 }
 
 
@@ -57,6 +56,14 @@ void engine::Sprite::SetAnimation(Animation* animation)
 {
 	animation = animation;
 	previousFrame = std::numeric_limits<unsigned int>::max_digits10;
+}
+
+void engine::Sprite::Start()
+{
+	material = new engine::Material("../res/shaders/VertexTexture.shader", "../res/shaders/FragmentTexture.shader");
+
+	engine::Texture* myTexture = new engine::Texture("res/assets/images.png");
+	material->SetTexture(myTexture);
 }
 
 void engine::Sprite::Update()
