@@ -4,6 +4,7 @@
 #include "Entity2D.h"
 #include "Animation.h"
 #include "Texture.h"
+#include "UVCoords.h"
 #include <limits>
 
 namespace engine
@@ -19,6 +20,8 @@ namespace engine
 			float u2, float v2,
 			float u3, float v3);
 
+		DllExport void SetTextureCoordinates(math::UVCoords uv1, math::UVCoords uv2, math::UVCoords uv3, math::UVCoords uv4);
+
 		DllExport void SetTexture(const Texture& texture);
 		DllExport void SetAnimation(Animation* animation);
 
@@ -29,11 +32,10 @@ namespace engine
 	private:
 
 		Texture texture;
-		math::Vertex texturedVertex[4];
+		//math::Vertex texturedVertex[4];
 		Animation* animation;
 		int currentFrame;
 		int previousFrame;
-
 	};
 }
 #endif

@@ -32,7 +32,7 @@ void MyGame::Start()
 
 	blueSquare->Setindex({ 0,1,2,2,3,0 });
 
-	blueSquare->SetborderOffset({0.15f,0.15f});
+	blueSquare->SetborderOffset({ 0.15f,0.15f });
 
 	AddEntity(blueSquare);
 
@@ -51,7 +51,7 @@ void MyGame::Start()
 
 	PlayerSquare* playerSquare = new PlayerSquare();
 	playerSquare->setPosition(math::Vector3(0.0f, 0.0f, 0.0f));
-	playerSquare->setTint(utils::Color(255,255,255,200));
+	playerSquare->setTint(utils::Color(255, 255, 255, 200));
 
 	playerSquare->AddVertex(math::Vertex(math::Vector2(-0.1f, -0.1f), math::Vector2(0.0f, 0.0f), utils::Color::white()));
 	playerSquare->AddVertex(math::Vertex(math::Vector2(-0.1f, 0.1f), math::Vector2(0.0f, 1.0f), utils::Color::white()));
@@ -65,14 +65,7 @@ void MyGame::Start()
 	engine::Sprite* testSprite = new engine::Sprite();
 
 	testSprite->setPosition(math::Vector3(0.0f, 0.0f, 0.0f));
-	testSprite->setTint(utils::Color(255, 255, 255, 200));
-
-	testSprite->AddVertex(math::Vertex(math::Vector2(-0.1f, -0.1f), math::Vector2(0.0f, 0.0f), utils::Color::white()));
-	testSprite->AddVertex(math::Vertex(math::Vector2(-0.1f, 0.1f), math::Vector2(0.0f, 1.0f), utils::Color::white()));
-	testSprite->AddVertex(math::Vertex(math::Vector2(0.1f, 0.1f), math::Vector2(1.0f, 1.0f), utils::Color::white()));
-	testSprite->AddVertex(math::Vertex(math::Vector2(0.1f, -0.1f), math::Vector2(1.0f, 0.0f), utils::Color::white()));
-
-	testSprite->Setindex({ 0,1,2,2,3,0 });
+	testSprite->setScale(math::Vector3(0.2f, 0.2f, 1.0f));
 
 	AddEntity(testSprite);
 }
