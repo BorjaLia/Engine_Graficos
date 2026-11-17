@@ -5,6 +5,8 @@
 
 namespace engine
 {
+	/// The class that holds the coordinates of a frame in a texture atlas
+	/// @ingroup Sprite
 	class Frame
 	{
 	public:

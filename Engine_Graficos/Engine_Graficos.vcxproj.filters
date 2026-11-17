@@ -133,6 +133,9 @@
     <ClCompile Include="..\src\Frame.cpp">
       <Filter>Renderer\Animation\Frame</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Animation.cpp">
+      <Filter>Renderer\Animation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\BaseGame.h">
@@ -200,6 +203,9 @@
     </ClInclude>
     <ClInclude Include="..\src\UVCoords.h">
       <Filter>Math\UVCoords</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Animation.h">
+      <Filter>Renderer\Animation</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
