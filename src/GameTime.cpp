@@ -5,6 +5,7 @@ double engine::Time::lastUpdateTime = 0;
 
 void engine::Time::UpdateTime(double time)
 {
+	lastUpdateTime = currentTime;
 	currentTime = time;
 }
 

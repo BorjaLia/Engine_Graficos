@@ -2,6 +2,7 @@
 
 #include "Input.h"
 #include "Window.h"
+#include "GameTime.h"
 #include "Shader.h"
 
 #include "File.h"
@@ -27,7 +28,7 @@ void PlayerSquare::Start()
 
 void PlayerSquare::Update()
 {	
-	time += renderer->deltaTime;
+	time += engine::Time::GetDeltaTime();
 
 	if (objectiveTime < static_cast<int>(time))
 	{
@@ -72,7 +73,7 @@ void PlayerSquare::Move()
 	if (engine::Input::Get()->IsKeyPressed(engine::KeyCode::S)) dir.y -= 1.0f;
 	if (engine::Input::Get()->IsKeyPressed(engine::KeyCode::D)) dir.x += 1.0f;
 
-	this->setPosition(this->getPosition() + (dir * renderer->deltaTime));
+	this->setPosition(this->getPosition() + (dir * engine::Time::GetDeltaTime()));
 }
 
 void PlayerSquare::ShowPosition()

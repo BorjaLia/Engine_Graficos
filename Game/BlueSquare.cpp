@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+#include "GameTime.h"
+
 BlueSquare::BlueSquare()
 {
 	dir = { 0.0f,-1.0f,0.0f };
@@ -51,7 +53,7 @@ void BlueSquare::SetborderOffset(math::Vector2 b)
 
 void BlueSquare::Move()
 {
-	this->setPosition(this->getPosition() + (dir * renderer->deltaTime));
+	this->setPosition(this->getPosition() + (dir * engine::Time::GetDeltaTime()));
 
 	//std::cout << position.x << "," << position.y << "," << position.z << std::endl;
 }
@@ -63,7 +65,7 @@ void BlueSquare::Rotate()
 		angle = 0.0f;
 	}
 
-	angle += renderer->deltaTime * 30.0f;
+	angle += engine::Time::GetDeltaTime() * 30.0f;
 
 	this->setRotation({0.0f,0.0f,angle});
 }

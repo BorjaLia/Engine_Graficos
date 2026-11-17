@@ -1,5 +1,6 @@
 #include "PinkSquare.h"
 
+#include "GameTime.h"
 #include <iostream>
 
 PinkSquare::PinkSquare()
@@ -34,7 +35,7 @@ void PinkSquare::Update()
 
 void PinkSquare::ChangeSize()
 {
-	scale.x += (growing ? 1.0f : -1.0f) * renderer->deltaTime;
+	scale.x += (growing ? 1.0f : -1.0f) * engine::Time::GetDeltaTime();
 	scale.y = scale.x;
 
 	//std::cout << position.x << "," << position.y << "," << position.z << std::endl;

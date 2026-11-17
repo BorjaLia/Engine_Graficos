@@ -43,9 +43,6 @@ namespace engine
 		void GenerateBuffers(std::vector<math::Vertex> vertices, std::vector<unsigned int> indices,
 			unsigned int* vao, unsigned int* vbo, unsigned int* ibo);
 
-		const float currentFramerate = 244.0f;
-		const float deltaTime = 1.0f / currentFramerate;
-
 	private:
 
 		glm::mat4 proj;

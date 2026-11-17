@@ -1,10 +1,11 @@
 #pragma once
 
+#include "Core.h"
 #include "Window.h"
 
 namespace engine
 {
-	class Time
+	class ENGINE_API Time
 	{
 	protected:
 
@@ -18,7 +19,7 @@ namespace engine
 		~Time();
 
 		static double GetTime() { return currentTime; }
-		static double GetDeltaTime() { return currentTime; }
+		static double GetDeltaTime() { return currentTime - lastUpdateTime; }
 
 	private:
 
