@@ -1,5 +1,6 @@
 #pragma once
 #include "Entity.h"
+#include "Bounds.h"
 
 namespace engine
 {
@@ -17,6 +18,7 @@ namespace engine
 
 		glm::mat4 trs;
 		Material* material;
+		Bounds AABB;
 
 		utils::Color tint;
 
@@ -34,10 +36,12 @@ namespace engine
 		void UpdateBufferData();
 
 		Material* GetMaterial() const { return material; }
+		inline Bounds getBounds() { return AABB; }
 
 		void setPosition(math::Vector3 position) override;
 		void setRotation(math::Vector3 rotation) override;
 		void setScale(math::Vector3 scale) override;
+		inline void setBounds(Bounds bounds) { AABB = bounds; }
 
 		void updateTransform();
 
@@ -45,6 +49,12 @@ namespace engine
 
 		inline utils::Color getTint() { return tint; }
 		inline void setTint(utils::Color tint) { this->tint = tint; }
+
+
+		// Inherited via Entity
+		void Start() override;
+
+		void Update() override;
 
 	};
 }

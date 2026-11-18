@@ -83,6 +83,12 @@
     <Filter Include="Utils\Time">
       <UniqueIdentifier>{3741f67f-0fba-4a78-87bd-4e40afaf9a57}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Collisions">
+      <UniqueIdentifier>{4f9e4065-7127-4786-9842-4cfc17a80b04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collisions\Bounds">
+      <UniqueIdentifier>{d459599d-40ab-4a28-b418-7ef8be2955ee}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Main.cpp">
@@ -144,6 +150,9 @@
     </ClCompile>
     <ClCompile Include="..\src\Sprite.cpp">
       <Filter>Renderer\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CollisionManager.cpp">
+      <Filter>Collisions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -221,6 +230,12 @@
     </ClInclude>
     <ClInclude Include="..\src\Sprite.h">
       <Filter>Renderer\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\CollisionManager.h">
+      <Filter>Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Bounds.h">
+      <Filter>Collisions\Bounds</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

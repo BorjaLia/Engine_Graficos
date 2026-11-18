@@ -7,6 +7,7 @@
 #include "Renderer.h"
 #include "Input.h"
 #include "Entity.h"
+#include "CollisionManager.h"
 
 namespace engine
 {
@@ -39,5 +40,9 @@ namespace engine
 		Input* input = Input::Get();
 
 		std::vector<Entity*> entities;
+
+	protected:
+
+		CollisionManager collisions;
 	};
 }
