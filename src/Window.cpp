@@ -14,7 +14,7 @@ int engine::Window::Initialize()
 {
     if (!glfwInit()) return 1;
 
-    size = math::Vector2(1200, 1200);
+    size = math::Vector2(1280, 720);
 
     glfwWindow = glfwCreateWindow(size.x,size.y, "Game Engine", NULL, NULL);
 

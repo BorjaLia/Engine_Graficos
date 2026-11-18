@@ -127,7 +127,7 @@ void Player::Move()
 	if (engine::Input::Get()->IsKeyPressed(engine::KeyCode::S)) dir.y -= 1.0f;
 	if (engine::Input::Get()->IsKeyPressed(engine::KeyCode::D)) dir.x += 1.0f;
 
-	this->SetPosition(this->GetPosition() + (dir * engine::Time::GetDeltaTime()));
+	this->SetPosition(this->GetPosition() + (dir * walkForce * engine::Time::GetDeltaTime()));
 }
 
 void Player::ShowPosition()

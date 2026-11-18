@@ -15,7 +15,13 @@ int engine::Renderer::Initialize(Window& window)
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 
-	proj = glm::ortho(-2.0f,2.0f,-1.5f,1.5f,-1.0f,1.0f);
+	math::Vector2 windowSize = window.GetSize();
+	float worldY = 100;
+	float worldX = worldY * windowSize.x / windowSize.y;
+	float halfWorldY = worldY / 2;
+	float halfWorldX = worldX / 2;
+
+	proj = glm::ortho(-halfWorldX,halfWorldX,-halfWorldY,halfWorldY,-1.0f,1.0f);
 
 	File::SetRootPath("");
 
@@ -33,7 +39,8 @@ void engine::Renderer::Draw(unsigned int& vao, unsigned int& ibo, glm::mat4 trs,
 	if (material)
 	{
 		material->Bind();
-		material->GetShader()->SetUniform("u_MVP", trs);
+		material->GetShader()->SetUniform("u_Model", trs);
+		material->GetShader()->SetUniform("u_Proj", proj);
 	}
 	glBindVertexArray(vao);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
