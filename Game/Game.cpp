@@ -95,7 +95,7 @@ void MyGame::Update()
 	{
 		if (entities[i])
 		{
-			for (int j = i; j < entities.capacity(); j++)
+			for (int j = i + 1; j < entities.capacity(); j++)
 			{
 				if (entities[j])
 				{
