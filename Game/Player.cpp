@@ -90,7 +90,7 @@ void Player::Teleport()
 
 void Player::UpdateVisuals()
 {
-	if (pushCounter < 0)
+	if (pushCounter > 0)
 	{
 		pushCounter -= engine::Time::GetDeltaTime();
 		state = KnucklesAnimationState::PUSHING;
@@ -150,6 +150,11 @@ void Player::Move()
 		AddForce(math::Vector3(0.0f, jumpForce, 0.0f));
 		isGrounded = false;
 		jumpQueue = false;
+	}
+
+	if (pushCounter > 0)
+	{
+		state = KnucklesAnimationState::PUSHING;
 	}
 
 	PhysicsObject::Update();

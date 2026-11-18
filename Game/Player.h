@@ -54,6 +54,6 @@ private:
 
 	bool isDashing = false;
 
-	float pushLimit = 5.0f;
+	float pushLimit = 0.5f;
 	float pushCounter = 0;
 };
