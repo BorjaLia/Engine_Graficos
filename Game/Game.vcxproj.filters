@@ -36,6 +36,9 @@
     <ClInclude Include="Player.h">
       <Filter>Objects\Player</Filter>
     </ClInclude>
+    <ClInclude Include="Rock.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -52,6 +55,9 @@
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Objects\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Rock.cpp">
+      <Filter>Objects</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

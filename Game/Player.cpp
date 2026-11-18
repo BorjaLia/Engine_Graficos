@@ -41,6 +41,10 @@ void Player::Start()
 void Player::Update()
 {
 	bool pressingChangeKey = engine::Input::Get()->IsKeyPressed(engine::KeyCode::G);
+	bool pressingSpinKey = engine::Input::Get()->IsKeyPressed(engine::KeyCode::Space);
+
+	if (pressingSpinKey)
+		SetAnimation(animations[2]);
 
 	if (pressingChangeKey && !changingMode)
 	{
@@ -54,7 +58,7 @@ void Player::Update()
 	wasMoving = isMoving;
 	isMoving = false;
 
-	Teleport();
+	//Teleport();
 
 	if (physicsMode)
 	{

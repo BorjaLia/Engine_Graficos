@@ -149,6 +149,7 @@
     <ClInclude Include="PinkSquare.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerSquare.h" />
+    <ClInclude Include="Rock.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BlueSquare.cpp" />
@@ -156,6 +157,7 @@
     <ClCompile Include="PinkSquare.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerSquare.cpp" />
+    <ClCompile Include="Rock.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
