@@ -25,6 +25,7 @@ void engine::BaseGame::Run()
 		window.Update();
 		input->Update();
 		renderer->Update();
+		Update();
 
 		for (Entity* e : entities)
 		{
@@ -62,7 +63,7 @@ void engine::BaseGame::Shutdown()
 	window.Shutdown();
 }
 
-void engine::BaseGame::AddEntity(Entity* entity)
+void engine::BaseGame::AddEntity(Entity2D* entity)
 {
 	entities.push_back(entity);
 }

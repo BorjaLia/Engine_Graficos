@@ -23,10 +23,11 @@ namespace engine
 		~BaseGame();
 
 		void Run();
-
+		
 		virtual void Start() = 0;
+		virtual void Update() = 0;
 
-		void AddEntity(Entity* entity);
+		void AddEntity(Entity2D* entity);
 
 	private:
 
@@ -39,10 +40,10 @@ namespace engine
 		Renderer* renderer = Renderer::Get();
 		Input* input = Input::Get();
 
-		std::vector<Entity*> entities;
 
 	protected:
 
+		std::vector<Entity2D*> entities;
 		CollisionManager collisions;
 	};
 }

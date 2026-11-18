@@ -11,6 +11,7 @@
 #include "Vector2.h"
 #include "Vertex.h"
 #include "Rock.h"
+#include "EntityManager.h"
 
 int main()
 {
@@ -36,6 +37,7 @@ void MyGame::Start()
 
 	player->SetPosition(math::Vector3(0, 0, 0));
 	player->SetScale(math::Vector3(20, 20, 1));
+	player->setBounds(engine::Bounds(-10, 10, -10, 10));
 
 	engine::Animation* idleAnim = new engine::Animation();
 
@@ -68,4 +70,39 @@ void MyGame::Start()
 	player->AddAnimation(spinAnim);
 
 	AddEntity(player);
+
+	Rock* rock = new Rock();
+
+	texSize = math::Vector2(646, 473);
+	frameSize = math::Vector2(40, 40);
+
+	rock->SetTexture(engine::Texture("res/assets/Rock.png"));
+	rock->SetTextureCoordinates(math::UVCoords(0, texSize.y - frameSize.y),
+		math::UVCoords(0, texSize.y),
+		math::UVCoords(frameSize.x, texSize.y - frameSize.y),
+		math::UVCoords(frameSize.x, texSize.y));
+
+	rock->SetPosition(math::Vector3(20, 0, 0));
+	rock->SetScale(math::Vector3(20, 20, 1));
+	rock->setBounds(engine::Bounds(-10, 10, -10, 10));
+	AddEntity(rock);
+
+}
+
+void MyGame::Update()
+{
+	for (int i = 0; i < entities.capacity(); i++)
+	{
+		if (entities[i])
+		{
+			for (int j = i; j < entities.capacity(); j++)
+			{
+				if (entities[j])
+				{
+					if (engine::CollisionManager::IsCollidingAABB(entities[i], entities[j]))
+						std::cout << "Collision!";
+				}
+			}
+		}
+	}
 }

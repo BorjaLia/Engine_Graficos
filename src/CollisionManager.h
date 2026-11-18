@@ -10,6 +10,6 @@ namespace engine
 
 	public:
 
-		bool IsCollidingAABB(Entity2D a, Entity2D b);
+		static bool IsCollidingAABB(Entity2D* a, Entity2D* b);
 	};
 }

@@ -132,6 +132,12 @@ void engine::Sprite::Update()
 	}
 }
 
+DllExport void engine::Sprite::Draw()
+{
+	texture.Bind();
+	Entity2D::Draw();
+}
+
 //void engine::Sprite::Draw(Renderer& rkRenderer)
 //{
 //	//rkRenderer.SetCurrentTexture(texture);

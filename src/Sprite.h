@@ -44,7 +44,7 @@ namespace engine
 
 		DllExport void Start() override;
 		DllExport void Update() override;
-		//DllExport void Draw(Renderer& rkRenderer);
+		DllExport void Draw() override;
 
 	private:
 		Texture texture;

@@ -70,6 +70,9 @@
     <ClInclude Include="..\src\Vertex.h" />
     <ClInclude Include="..\src\Window.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
