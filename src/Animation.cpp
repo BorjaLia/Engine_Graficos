@@ -1,12 +1,18 @@
 #include "Animation.h"
 
-engine::Animation::Animation() :
+engine::Animation::Animation(std::string name) :
+	name(name),
 	currentTime(0),
 	currentFrame(0),
 	length(1000)
 {
 }
 engine::Animation::~Animation(void) {}
+
+DllExport void engine::Animation::SetName(std::string newName)
+{
+	name = newName;
+}
 
 void engine::Animation::Update()
 {

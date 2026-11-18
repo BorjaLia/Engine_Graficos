@@ -16,8 +16,10 @@ namespace engine
 	class Animation
 	{
 	public:
-		DllExport Animation();
+		DllExport Animation(std::string name = "NULL");
 		DllExport ~Animation();
+
+		DllExport void SetName(std::string newName);
 
 		DllExport void Update();
 
@@ -48,6 +50,8 @@ namespace engine
 		DllExport std::vector<Frame>& GetFrames();
 
 	private:
+
+		std::string name;
 
 		float currentFrame;
 

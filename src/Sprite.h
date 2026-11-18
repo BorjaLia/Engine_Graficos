@@ -11,6 +11,15 @@ namespace engine
 {
 	class Sprite : public Entity2D
 	{
+	protected:
+
+		Animation* animation;
+
+		int currentFrame;	
+		int previousFrame;
+
+		DllExport void SetAnimation(Animation* animation);
+	
 	public:
 		DllExport Sprite();
 		DllExport ~Sprite(void);
@@ -23,19 +32,14 @@ namespace engine
 		DllExport void SetTextureCoordinates(math::UVCoords uv1, math::UVCoords uv2, math::UVCoords uv3, math::UVCoords uv4);
 
 		DllExport void SetTexture(const Texture& texture);
-		DllExport void SetAnimation(Animation* animation);
 
 		DllExport void Start() override;
 		DllExport void Update() override;
 		//DllExport void Draw(Renderer& rkRenderer);
 
 	private:
-
 		Texture texture;
 		//math::Vertex texturedVertex[4];
-		Animation* animation;
-		int currentFrame;
-		int previousFrame;
 	};
 }
 #endif

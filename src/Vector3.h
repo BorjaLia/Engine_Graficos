@@ -36,8 +36,20 @@ namespace math
 			return Vector3(x * s, y * s, z * s);
 		}
 
+		bool operator == (const Vector3& v) const
+		{
+			return (x==v.x && y == v.y && z == v.z);
+		}
+
+		bool operator != (const Vector3& v) const
+		{
+			return !(*this == v);
+		}
+
 		operator Vector2() const;
 
 		std::string ToString() const;
+	
+		static Vector3 zero() { return Vector3(0.0f, 0.0f, 0.0f); }
 	};
 }
