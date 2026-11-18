@@ -33,12 +33,24 @@ namespace engine
 
 		DllExport void SetTexture(const Texture& texture);
 
+		DllExport void FlipX() { isFlippedX = !isFlippedX; }
+		DllExport void FlipY() { isFlippedY = !isFlippedY; }
+
+		DllExport void SetFlipX(bool flipped) { isFlippedX = flipped; }
+		DllExport void SetFlipY(bool flipped) { isFlippedY = flipped; }
+		
+		DllExport bool GetFlipX() { return isFlippedX; }
+		DllExport bool GetFlipY() { return isFlippedY; }
+
 		DllExport void Start() override;
 		DllExport void Update() override;
 		//DllExport void Draw(Renderer& rkRenderer);
 
 	private:
 		Texture texture;
+
+		bool isFlippedX = false;
+		bool isFlippedY = false;
 		//math::Vertex texturedVertex[4];
 	};
 }

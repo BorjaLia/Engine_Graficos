@@ -51,11 +51,18 @@ void Player::Update()
 
 	if (isMoving && !wasMoving)
 	{
+		std::cout << "Changed anim!";
 		SetAnimation(animations[1]);
 	}
 	else if (!isMoving && wasMoving)
 	{
+		std::cout << "Changed anim!";
 		SetAnimation(animations[0]);
+	}
+
+	if (dir.x != 0.0f)
+	{
+		SetFlipX(dir.x < 0.0f);
 	}
 }
 

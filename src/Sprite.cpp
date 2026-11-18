@@ -120,10 +120,13 @@ void engine::Sprite::Update()
 
 	if (currentFrame != previousFrame)
 	{
-		SetTextureCoordinates(animation->GetFrames()[currentFrame].uvCoords[0].u, animation->GetFrames()[currentFrame].uvCoords[0].v,
-			animation->GetFrames()[currentFrame].uvCoords[1].u, animation->GetFrames()[currentFrame].uvCoords[1].v,
-			animation->GetFrames()[currentFrame].uvCoords[2].u, animation->GetFrames()[currentFrame].uvCoords[2].v,
-			animation->GetFrames()[currentFrame].uvCoords[3].u, animation->GetFrames()[currentFrame].uvCoords[3].v);
+		math::UVCoords* uvs = animation->GetFrames()[currentFrame].uvCoords;
+
+		SetTextureCoordinates(
+			(isFlippedX ? uvs[3].u : uvs[0].u), (isFlippedY ? uvs[1].v : uvs[0].v),
+			(isFlippedX ? uvs[2].u : uvs[1].u), (isFlippedY ? uvs[0].v : uvs[1].v),
+			(isFlippedX ? uvs[1].u : uvs[2].u), (isFlippedY ? uvs[3].v : uvs[2].v),
+			(isFlippedX ? uvs[0].u : uvs[3].u), (isFlippedY ? uvs[2].v : uvs[3].v));
 
 		previousFrame = currentFrame;
 	}
