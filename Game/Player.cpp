@@ -35,7 +35,6 @@ void Player::Start()
 		return;
 	}
 
-	SetTexture(engine::Texture("res/assets/Knuckles_Sprite_Sheet.png"));
 	SetAnimation(animations[0]);
 }
 

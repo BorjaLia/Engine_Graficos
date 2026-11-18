@@ -23,16 +23,21 @@ int main()
 void MyGame::Start()
 {
 	Player* player = new Player();
+	
+	player->SetTexture(engine::Texture("res/assets/Knuckles_Sprite_Sheet.png"));
+
+	math::Vector2 texSize = math::Vector2(646.0f, 473.0f);
 
 	player->SetPosition(math::Vector3(0.0f, 0.0f, 0.0f));
-	player->SetScale(math::Vector3(10.0f, 10.0f, 1.0f));
+	player->SetScale(math::Vector3(34.0f, 39.0f, 1.0f));
 
-	math::Vector2 frameSize = math::Vector2(200.0f, 246.6f);
+	math::Vector2 frameSize = math::Vector2(34.0f, 39.0f);
 
 	engine::Animation* idleAnim = new engine::Animation();
 
-	idleAnim->AddFrame(math::Vector2(frameSize.x, frameSize.y), frameSize, math::Vector2(1200.0f, 1233.0f), 0.01);
-	idleAnim->AddFrame(math::Vector2(2 *frameSize.x, frameSize.y), frameSize, math::Vector2(1200.0f, 1233.0f), 0.01);
+	idleAnim->AddFrame(math::Vector2(0, texSize.y - frameSize.y), frameSize, texSize, 0.001);
+	idleAnim->AddFrame(math::Vector2(0, texSize.y - frameSize.y), frameSize, texSize, 0.001);
+	//idleAnim->AddFrame(math::Vector2(frameSize.x, texSize.y - frameSize.y), frameSize, texSize, 0.001);
 
 	player->AddAnimation(idleAnim);
 
