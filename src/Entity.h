@@ -34,13 +34,13 @@ namespace engine
 	
 		virtual void Initialize();
 
-		inline math::Vector3 getPosition() { return position; }
-		inline math::Vector3 getRotation() { return rotation; }
-		inline math::Vector3 getScale() { return scale; }
+		inline math::Vector3 GetPosition() { return position; }
+		inline math::Vector3 GetRotation() { return rotation; }
+		inline math::Vector3 GetScale() { return scale; }
 
-		inline virtual void setPosition(math::Vector3 position) { this->position = position; }
-		inline virtual void setRotation(math::Vector3 rotation) { this->rotation = rotation; }
-		inline virtual void setScale(math::Vector3 scale) { this->scale = scale; }
+		inline virtual void SetPosition(math::Vector3 position) { this->position = position; }
+		inline virtual void SetRotation(math::Vector3 rotation) { this->rotation = rotation; }
+		inline virtual void SetScale(math::Vector3 scale) { this->scale = scale; }
 
 		virtual void Start() = 0;
 		virtual void Update() = 0;

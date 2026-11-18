@@ -37,9 +37,9 @@ namespace engine
 
 		math::Vector2 GetSize() { return window->GetSize(); };
 
-		glm::mat4 getMPVMat4x4() const { return mvp; };
-		glm::mat4 getProjectionMat4x4() const { return proj; };
-		glm::mat4 getViewMat4x4() const { return view; };
+		glm::mat4 GetMPVMat4x4() const { return mvp; };
+		glm::mat4 GetProjectionMat4x4() const { return proj; };
+		glm::mat4 GetViewMat4x4() const { return view; };
 
 		void GenerateBuffers(std::vector<math::Vertex> vertices, std::vector<unsigned int> indices,
 			unsigned int* vao, unsigned int* vbo, unsigned int* ibo);

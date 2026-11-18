@@ -1,9 +1,9 @@
 #include "CollisionManager.h"
 
-bool engine::CollisionManager::isCollidingAABB(Entity2D a, Entity2D b)
+bool engine::CollisionManager::IsCollidingAABB(Entity2D a, Entity2D b)
 {
-	Bounds ab = a.getBounds();
-	Bounds bb = b.getBounds();
+	Bounds ab = a.GetBounds();
+	Bounds bb = b.GetBounds();
 
 	return 
 		ab.max.x >= bb.min.x && ab.min.x <= bb.max.x &&

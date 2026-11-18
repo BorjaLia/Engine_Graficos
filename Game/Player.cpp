@@ -87,7 +87,7 @@ void Player::Teleport()
 
 		math::Vector2 normalizedPos = math::Vector2::Remap(mousePos, { 0.0f,0.0f }, renderer->GetSize(), targetMin, targetMax);
 
-		this->setPosition(normalizedPos);
+		this->SetPosition(normalizedPos);
 
 		std::cout << "\n" << "Mouse: " << mousePos.ToString() << std::endl;
 
@@ -127,12 +127,12 @@ void Player::Move()
 	if (engine::Input::Get()->IsKeyPressed(engine::KeyCode::S)) dir.y -= 1.0f;
 	if (engine::Input::Get()->IsKeyPressed(engine::KeyCode::D)) dir.x += 1.0f;
 
-	this->setPosition(this->getPosition() + (dir * engine::Time::GetDeltaTime()));
+	this->SetPosition(this->GetPosition() + (dir * engine::Time::GetDeltaTime()));
 }
 
 void Player::ShowPosition()
 {
-	std::cout << "Position: " << this->getPosition().ToString() << std::endl;
+	std::cout << "Position: " << this->GetPosition().ToString() << std::endl;
 }
 
 void Player::PhysicsUpdate()
@@ -148,7 +148,7 @@ void Player::PhysicsUpdate()
 
 	accel.y -= gravity * deltaTime;
 
-	math::Vector3 currentPos = this->getPosition();
+	math::Vector3 currentPos = this->GetPosition();
 	math::Vector3 nextPos = currentPos + (accel * deltaTime);
 
 	if (nextPos.y <= lowerLimit)
@@ -172,7 +172,7 @@ void Player::PhysicsUpdate()
 		jumpQueue = false;
 	}
 
-	this->setPosition(this->getPosition() + (accel * deltaTime));
+	this->SetPosition(this->GetPosition() + (accel * deltaTime));
 
 	dir = accel;
 }

@@ -54,7 +54,7 @@ void PlayerSquare::Teleport()
 
 		math::Vector2 normalizedPos = math::Vector2::Remap(mousePos, { 0.0f,0.0f }, renderer->GetSize(),targetMin, targetMax);
 
-		this->setPosition(normalizedPos);
+		this->SetPosition(normalizedPos);
 
 		std::cout << "\n" << "Mouse: " << mousePos.ToString() << std::endl;
 
@@ -73,10 +73,10 @@ void PlayerSquare::Move()
 	if (engine::Input::Get()->IsKeyPressed(engine::KeyCode::S)) dir.y -= 1.0f;
 	if (engine::Input::Get()->IsKeyPressed(engine::KeyCode::D)) dir.x += 1.0f;
 
-	this->setPosition(this->getPosition() + (dir * engine::Time::GetDeltaTime()));
+	this->SetPosition(this->GetPosition() + (dir * engine::Time::GetDeltaTime()));
 }
 
 void PlayerSquare::ShowPosition()
 {
-	std::cout << "Position: " << this->getPosition().ToString() << std::endl;
+	std::cout << "Position: " << this->GetPosition().ToString() << std::endl;
 }

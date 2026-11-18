@@ -31,24 +31,24 @@ namespace engine
 
 		void AddVertex(math::Vertex v);
 		void AddIndex(int i);
-		void Setindex(std::vector<int> indices);
+		void SetIndex(std::vector<int> indices);
 
 		void UpdateBufferData();
 
 		Material* GetMaterial() const { return material; }
-		inline Bounds getBounds() { return AABB; }
+		inline Bounds GetBounds() { return AABB; }
 
-		void setPosition(math::Vector3 position) override;
-		void setRotation(math::Vector3 rotation) override;
-		void setScale(math::Vector3 scale) override;
+		void SetPosition(math::Vector3 position) override;
+		void SetRotation(math::Vector3 rotation) override;
+		void SetScale(math::Vector3 scale) override;
 		inline void setBounds(Bounds bounds) { AABB = bounds; }
 
-		void updateTransform();
+		void UpdateTransform();
 
 		virtual void Draw() override;
 
-		inline utils::Color getTint() { return tint; }
-		inline void setTint(utils::Color tint) { this->tint = tint; }
+		inline utils::Color GetTint() { return tint; }
+		inline void SetTint(utils::Color tint) { this->tint = tint; }
 
 
 		// Inherited via Entity

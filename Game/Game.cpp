@@ -24,8 +24,8 @@ void MyGame::Start()
 {
 	Player* player = new Player();
 
-	player->setPosition(math::Vector3(0.0f, 0.0f, 0.0f));
-	player->setScale(math::Vector3(0.2f, 0.2f, 1.0f));
+	player->SetPosition(math::Vector3(0.0f, 0.0f, 0.0f));
+	player->SetScale(math::Vector3(0.2f, 0.2f, 1.0f));
 
 	math::Vector2 frameSize = math::Vector2(200.0f, 246.6f);
 

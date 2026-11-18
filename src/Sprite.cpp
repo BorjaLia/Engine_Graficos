@@ -25,7 +25,7 @@ engine::Sprite::Sprite() : texture(engine::Texture("res/assets/spritesheet.png")
 		AddVertex(vertices[i]);
 	}
 
-	Setindex({ 0,1,2,2,3,0 });
+	SetIndex({ 0,1,2,2,3,0 });
 
 	//texturedVertex[0].pos.x = -0.5;
 	//texturedVertex[0].pos.y = 0.5;
