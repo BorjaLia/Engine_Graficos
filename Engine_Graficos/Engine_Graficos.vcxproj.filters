@@ -89,6 +89,9 @@
     <Filter Include="Collisions\Bounds">
       <UniqueIdentifier>{d459599d-40ab-4a28-b418-7ef8be2955ee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Math\SimpleShapes">
+      <UniqueIdentifier>{519822e2-c031-4e04-a931-b182df11f6bb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Main.cpp">
@@ -236,6 +239,12 @@
     </ClInclude>
     <ClInclude Include="..\src\Bounds.h">
       <Filter>Collisions\Bounds</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Rect.h">
+      <Filter>Math\SimpleShapes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Circle.h">
+      <Filter>Math\SimpleShapes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
