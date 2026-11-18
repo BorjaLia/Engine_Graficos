@@ -22,31 +22,54 @@ int main()
 
 void MyGame::Start()
 {
-	Player* player = new Player();
+	Player* knuckles = new Player("res/assets/Knuckles_Sprite_Sheet.png");
 
-	player->SetPosition(math::Vector3(0.0f, 0.0f, 0.0f));
-	player->SetScale(math::Vector3(10.0f, 10.0f, 1.0f));
+	knuckles->SetPosition(math::Vector3(0.0f, 0.0f, 0.0f));
+	knuckles->SetScale(math::Vector3(10.0f, 10.0f, 1.0f));
 
-	math::Vector2 frameSize = math::Vector2(200.0f, 246.6f);
+	//math::Vector2 textureSize = math::Vector2(560.0f, 387.0f);
+	math::Vector2 textureSize = math::Vector2(646.0f, 473.0f);
+	math::Vector2 frameSize = math::Vector2(40.0f, 43.0f);
 
 	engine::Animation* idleAnim = new engine::Animation();
 
-	idleAnim->AddFrame(math::Vector2(frameSize.x, frameSize.y), frameSize, math::Vector2(1200.0f, 1233.0f), 0.01);
-	idleAnim->AddFrame(math::Vector2(2 *frameSize.x, frameSize.y), frameSize, math::Vector2(1200.0f, 1233.0f), 0.01);
+	idleAnim->AddFrame(math::Vector2(0.0f,0.0f), frameSize, textureSize, 0.001);
+	idleAnim->AddFrame(math::Vector2(0.0f,0.0f), frameSize, textureSize, 0.001);
 
-	player->AddAnimation(idleAnim);
+	knuckles->AddAnimation(idleAnim);
 
 	engine::Animation* runAnim = new engine::Animation();
 
-	for (int j = 4; j >= 0; j--)
+	frameSize.x = 41.0f;
+
+	for (int i = 0; i < 8; i++)
 	{
-		for (int i = 0; i < 6; i++)
-		{
-			runAnim->AddFrame(math::Vector2(i * frameSize.x, j * frameSize.y), frameSize, math::Vector2(1200.0f, 1233.0f), 0.001);
-		}
+		runAnim->AddFrame(math::Vector2(i * frameSize.x, frameSize.y), frameSize, textureSize, 0.001);
 	}
 
-	player->AddAnimation(runAnim);
+	knuckles->AddAnimation(runAnim);
 
-	AddEntity(player);
+	engine::Animation* dashAnim = new engine::Animation();
+
+	frameSize.x = 32.5f;
+	frameSize.y = 42.0f;
+
+	for (int i = 0; i < 7; i++)
+	{
+		dashAnim->AddFrame(math::Vector2(i * frameSize.x, 3 * frameSize.y), frameSize, textureSize, 0.001);
+	}
+
+	knuckles->AddAnimation(dashAnim);
+
+
+	engine::Animation* pushAnim = new engine::Animation();
+
+	for (int i = 11; i < 14; i++)
+	{
+		pushAnim->AddFrame(math::Vector2(i * frameSize.x, 3 * frameSize.y), frameSize, textureSize, 0.001);
+	}
+
+	knuckles->AddAnimation(pushAnim);
+
+	AddEntity(knuckles);
 }

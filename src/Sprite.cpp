@@ -1,6 +1,6 @@
 #include "Sprite.h"
 
-engine::Sprite::Sprite() : texture(engine::Texture("res/assets/spritesheet.png"))
+engine::Sprite::Sprite(const std::string& path) : texture(engine::Texture(path))
 {
 	const int vertexAmount = 4;
 	math::Vertex vertices[vertexAmount];

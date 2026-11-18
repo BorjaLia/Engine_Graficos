@@ -21,8 +21,9 @@ void engine::Animation::Update()
 	while(currentTime > length) 
 	{
 		currentTime -= length;
+		std::cout << "reset anim" << std::endl;
 	}
-
+	
 	float frameLength = length / frames.size();
 	currentFrame = static_cast<int>(currentTime / frameLength);
 }
@@ -35,17 +36,19 @@ void engine::Animation::AddFrame(float frameX, float frameY,
 	length = durationInSecs * 1000;
 	Frame frame;
 
+	float flippedY = textureHeigth - frameY - frameHeigth;
+
 	frame.uvCoords[0].u = (frameX / textureWidth);
-	frame.uvCoords[0].v = (frameY / textureHeigth);
+	frame.uvCoords[0].v = (flippedY / textureHeigth);
 
 	frame.uvCoords[1].u = (frameX / textureWidth);
-	frame.uvCoords[1].v = ((frameY + frameHeigth) / textureHeigth);
+	frame.uvCoords[1].v = ((flippedY + frameHeigth) / textureHeigth);
 
 	frame.uvCoords[2].u = ((frameX + frameWidth) / textureWidth);
-	frame.uvCoords[2].v = ((frameY + frameHeigth) / textureHeigth);
+	frame.uvCoords[2].v = ((flippedY + frameHeigth) / textureHeigth);
 
 	frame.uvCoords[3].u = ((frameX + frameWidth) / textureWidth);
-	frame.uvCoords[3].v = (frameY / textureHeigth);
+	frame.uvCoords[3].v = (flippedY / textureHeigth);
 
 	frames.push_back(frame);
 }

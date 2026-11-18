@@ -11,8 +11,10 @@
 
 #include <iostream>
 
-Player::Player()
+Player::Player(const std::string& texturePath)
 {
+	texture = engine::Texture(texturePath);
+
 	dir = { 0.0f,0.0f,0.0f };
 	animations.clear();
 }
@@ -40,31 +42,14 @@ void Player::Start()
 
 void Player::Update()
 {
-	bool pressingChangeKey = engine::Input::Get()->IsKeyPressed(engine::KeyCode::G);
-
-	if (pressingChangeKey && !changingMode)
-	{
-		std::cout << "Changed mode!" << std::endl;
-		physicsMode = !physicsMode;
-	}
-	changingMode = pressingChangeKey;
-
 	engine::Sprite::Update();
+
+	lastState = state;
 
 	wasMoving = isMoving;
 	isMoving = false;
 
-	Teleport();
-
-	if (physicsMode)
-	{
-		PhysicsUpdate();
-	}
-	else
-	{
-		Move();
-	}
-
+	Move();
 
 	UpdateVisuals();
 }
@@ -89,7 +74,7 @@ void Player::Teleport()
 
 		this->SetPosition(normalizedPos);
 
-		std::cout << "\n" << "Mouse: " << mousePos.ToString() << std::endl;
+		//std::cout << "\n" << "Mouse: " << mousePos.ToString() << std::endl;
 
 		//ShowPosition();
 	}
@@ -99,17 +84,11 @@ void Player::Teleport()
 
 void Player::UpdateVisuals()
 {
-	isMoving = (dir != math::Vector3::zero());
 
-	if (isMoving && !wasMoving)
+	if (state != lastState)
 	{
-		std::cout << "Changed anim!" << std::endl;
-		SetAnimation(animations[1]);
-	}
-	else if (!isMoving && wasMoving)
-	{
-		std::cout << "Changed anim!" << std::endl;
-		SetAnimation(animations[0]);
+		std::cout << "Changed anim! " << (int)state << std::endl;
+		SetAnimation(animations[(int)state]);
 	}
 
 	if (dir.x != 0.0f)
@@ -120,41 +99,35 @@ void Player::UpdateVisuals()
 
 void Player::Move()
 {
-	dir = math::Vector3::zero();
-
-	if (engine::Input::Get()->IsKeyPressed(engine::KeyCode::W)) dir.y += 1.0f;
-	if (engine::Input::Get()->IsKeyPressed(engine::KeyCode::A)) dir.x -= 1.0f;
-	if (engine::Input::Get()->IsKeyPressed(engine::KeyCode::S)) dir.y -= 1.0f;
-	if (engine::Input::Get()->IsKeyPressed(engine::KeyCode::D)) dir.x += 1.0f;
-
-	this->SetPosition(this->GetPosition() + (dir * walkForce * engine::Time::GetDeltaTime()));
-}
-
-void Player::ShowPosition()
-{
-	std::cout << "Position: " << this->GetPosition().ToString() << std::endl;
-}
-
-void Player::PhysicsUpdate()
-{
 	float deltaTime = engine::Time::GetDeltaTime();
 
-	if (engine::Input::Get()->IsKeyPressed(engine::KeyCode::A)) accel.x -= walkForce * deltaTime;
-	if (engine::Input::Get()->IsKeyPressed(engine::KeyCode::D)) accel.x += walkForce * deltaTime;
+	isDashing = (engine::Input::Get()->IsKeyPressed(engine::KeyCode::LeftShift));
+	
+	if (engine::Input::Get()->IsKeyPressed(engine::KeyCode::A)) dir.x -= walkForce * deltaTime * (isDashing ? dashMultiplier : 1.0f);
+	if (engine::Input::Get()->IsKeyPressed(engine::KeyCode::D)) dir.x += walkForce * deltaTime * (isDashing ? dashMultiplier : 1.0f);
 
-	accel.x *= 0.85f;
+	dir.x *= 0.85f;
 
-	if (accel.x > -0.05f && accel.x < 0.05f) accel.x = 0.0f;
+	if (dir.x > -0.05f && dir.x < 0.05f) dir.x = 0.0f;
 
-	accel.y -= gravity * deltaTime;
+	if (dir.x != 0.0f)
+	{
+		state = (isDashing ? KnucklesAnimationState::DASHING : KnucklesAnimationState::RUNNING );
+	}
+	else
+	{
+		state = KnucklesAnimationState::IDLE;
+	}
+
+	dir.y -= gravity * deltaTime;
 
 	math::Vector3 currentPos = this->GetPosition();
-	math::Vector3 nextPos = currentPos + (accel * deltaTime);
+	math::Vector3 nextPos = currentPos + (dir * deltaTime);
 
 	if (nextPos.y <= lowerLimit)
 	{
 		nextPos.y = lowerLimit;
-		accel.y = 0.0f;
+		dir.y = 0.0f;
 		isGrounded = true;
 		jumpQueue = false;
 	}
@@ -167,12 +140,15 @@ void Player::PhysicsUpdate()
 
 	if (isGrounded && jumpQueue)
 	{
-		accel.y = jumpForce;
+		dir.y = jumpForce;
 		isGrounded = false;
 		jumpQueue = false;
 	}
 
-	this->SetPosition(this->GetPosition() + (accel * deltaTime));
+	this->SetPosition(this->GetPosition() + (dir * deltaTime));
+}
 
-	dir = accel;
+void Player::ShowPosition()
+{
+	std::cout << "Position: " << this->GetPosition().ToString() << std::endl;
 }

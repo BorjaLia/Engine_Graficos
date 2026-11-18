@@ -2,10 +2,19 @@
 
 #include "Sprite.h"
 
+
 class Player : public engine::Sprite
 {
+	enum class KnucklesAnimationState
+	{
+		IDLE,
+		RUNNING,
+		DASHING,
+		PUSHING
+	};
+
 public:
-	Player();
+	Player(const std::string& texturePath);
 	~Player();
 
 	void Start() override;
@@ -14,6 +23,9 @@ public:
 	void AddAnimation(engine::Animation* animation);
 
 private:
+
+	KnucklesAnimationState state = KnucklesAnimationState::IDLE;
+	KnucklesAnimationState lastState = KnucklesAnimationState::IDLE;
 
 	bool queueTeleport = false;
 	bool isTeleporting = false;
@@ -32,22 +44,19 @@ private:
 
 	std::vector<engine::Animation*> animations;
 
-	//test 
-
-	bool changingMode = false;
-
-	void PhysicsUpdate();
 
 	bool physicsMode = false;
 
-	float gravity = 1.0f;
-	float lowerLimit = -0.8f;
+	float gravity = 50.0f;
+	float lowerLimit = -25.0f;
 
-	float walkForce = 50.0f;
-	float jumpForce = 1.0f;
+	float walkForce = 5000.0f;
+	float jumpForce = 50.0f;
 
 	bool isGrounded = false;
 	bool jumpQueue = false;
 
-	math::Vector3 accel;
+	float dashMultiplier = 1.5f;
+
+	bool isDashing = false;
 };

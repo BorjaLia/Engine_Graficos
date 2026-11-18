@@ -13,6 +13,8 @@ namespace engine
 	{
 	protected:
 
+		Texture texture;
+
 		Animation* animation;
 
 		int currentFrame;	
@@ -21,7 +23,7 @@ namespace engine
 		DllExport void SetAnimation(Animation* animation);
 	
 	public:
-		DllExport Sprite();
+		DllExport Sprite(const std::string& path = "res/assets/spritesheet.png");
 		DllExport ~Sprite(void);
 
 		DllExport void SetTextureCoordinates(float u0, float v0,
@@ -47,7 +49,6 @@ namespace engine
 		//DllExport void Draw(Renderer& rkRenderer);
 
 	private:
-		Texture texture;
 
 		bool isFlippedX = false;
 		bool isFlippedY = false;
