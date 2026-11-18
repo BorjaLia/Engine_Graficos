@@ -15,6 +15,14 @@ public:
 
 	void AddForce(math::Vector3 force);
 
+	void CheckCollisions();
+
+	void OnContact();
+
+	virtual void OnContactOverride();
+
+	PhysicsObject* other = nullptr;
+
 protected:
 
 	math::Vector3 dir;

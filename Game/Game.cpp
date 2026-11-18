@@ -28,6 +28,8 @@ void MyGame::Start()
 
 	knuckles->SetPosition(math::Vector3(0.0f, 0.0f, 0.0f));
 	knuckles->SetScale(math::Vector3(10.0f, 10.0f, 1.0f));
+	
+	knuckles->setBounds({ 0.0f,0.0f,10.0f,10.0f });
 
 	math::Vector2 textureSize = math::Vector2(646.0f, 473.0f);
 	math::Vector2 frameSize = math::Vector2(40.0f, 43.0f);
@@ -62,23 +64,26 @@ void MyGame::Start()
 
 	knuckles->AddAnimation(dashAnim);
 
-
 	engine::Animation* pushAnim = new engine::Animation();
 
-	for (int i = 11; i < 14; i++)
+	frameSize.x = 38.5f;
+	frameSize.y = 44.0f;
+
+	for (int i = 10; i < 14; i++)
 	{
-		pushAnim->AddFrame(math::Vector2(i * frameSize.x, 3 * frameSize.y), frameSize, textureSize, 0.001);
+		pushAnim->AddFrame(math::Vector2(i * frameSize.x, 2 * frameSize.y), frameSize, textureSize, 0.001);
 	}
 
 	knuckles->AddAnimation(pushAnim);
 
 	AddEntity(knuckles);
 
-
 	Rock* rock = new Rock("res/assets/Rock.png");
 
 	rock->SetPosition(math::Vector3(10.0f, -10.0f, 0.0f));
 	rock->SetScale(math::Vector3(10.0f, 10.0f, 1.0f));
+
+	rock->setBounds({0.0f,0.0f,10.0f,10.0f});
 
 	math::Vector2 rockTextureSize = math::Vector2(244.0f, 207.0f);
 	math::Vector2 rockFrameSize = math::Vector2(83.0f, 60.0f);
@@ -90,5 +95,9 @@ void MyGame::Start()
 
 	rock->AddAnimation(rockIdleAnim);
 	
+	rock->other = knuckles;
+
+	knuckles->other = rock;
+
 	AddEntity(rock);
 }

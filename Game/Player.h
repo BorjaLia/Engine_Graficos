@@ -21,6 +21,8 @@ public:
 	
 	void AddAnimation(engine::Animation* animation);
 
+	void OnContactOverride() override;
+
 private:
 
 	KnucklesAnimationState state = KnucklesAnimationState::IDLE;
@@ -43,7 +45,7 @@ private:
 
 
 	float walkForce = 5000.0f;
-	float jumpForce = 50.0f;
+	float jumpForce = 25.0f;
 
 	bool isGrounded = false;
 	bool jumpQueue = false;
@@ -51,4 +53,7 @@ private:
 	float dashMultiplier = 1.5f;
 
 	bool isDashing = false;
+
+	float pushLimit = 5.0f;
+	float pushCounter = 0;
 };

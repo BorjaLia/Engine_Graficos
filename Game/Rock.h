@@ -13,5 +13,8 @@ public:
 
 	void AddAnimation(engine::Animation* animation);
 
+	void OnContactOverride() override;
+
 private:
+
 };

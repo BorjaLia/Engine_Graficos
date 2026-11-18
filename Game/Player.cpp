@@ -12,6 +12,7 @@
 #include <iostream>
 #include "Rock.h"
 
+
 Player::Player(const std::string& texturePath)
 {
 	texture = engine::Texture(texturePath);
@@ -43,6 +44,7 @@ void Player::Start()
 
 void Player::Update()
 {
+
 	engine::Sprite::Update();
 
 	lastState = state;
@@ -55,11 +57,16 @@ void Player::Update()
 	UpdateVisuals();
 }
 
-
-
 void Player::AddAnimation(engine::Animation* animation)
 {
 	animations.push_back(animation);
+}
+
+void Player::OnContactOverride()
+{
+	std::cout << "pusH!";
+	state = KnucklesAnimationState::PUSHING;
+	pushCounter = pushLimit;
 }
 
 void Player::Teleport()
@@ -83,6 +90,11 @@ void Player::Teleport()
 
 void Player::UpdateVisuals()
 {
+	if (pushCounter <= 0)
+	{
+		pushCounter -= engine::Time::GetDeltaTime();
+		state = KnucklesAnimationState::PUSHING;
+	}
 
 	if (state != lastState)
 	{
@@ -109,7 +121,10 @@ void Player::Move()
 
 	if (dir.x != 0.0f)
 	{
-		state = (isDashing ? KnucklesAnimationState::DASHING : KnucklesAnimationState::RUNNING );
+		if (!pushCounter > 0)
+		{
+			state = (isDashing ? KnucklesAnimationState::DASHING : KnucklesAnimationState::RUNNING );
+		}
 	}
 	else
 	{

@@ -26,3 +26,7 @@ void Rock::AddAnimation(engine::Animation* animation)
 {
 	SetAnimation(animation);
 }
+
+void Rock::OnContactOverride()
+{
+}

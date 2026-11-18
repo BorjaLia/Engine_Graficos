@@ -106,9 +106,6 @@
     <ClCompile Include="..\src\Entity.cpp">
       <Filter>Entity</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Entity2D.cpp">
-      <Filter>Entity\Entity2D</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\Shape.cpp">
       <Filter>Entity\Entity2D\Shape</Filter>
     </ClCompile>
@@ -153,6 +150,9 @@
     </ClCompile>
     <ClCompile Include="..\src\CollisionManager.cpp">
       <Filter>Collisions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Entity2D.cpp">
+      <Filter>Entity\Entity2D\Shape</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
