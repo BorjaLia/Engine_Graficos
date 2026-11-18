@@ -11,7 +11,7 @@ echo enginePath: "%enginePath%"
 cd /d "%projPath%"
 
 echo Copying engine DLLs...
-xcopy "%enginePath%*.dll" "%outDir%" /D /Y
+copy "%enginePath%*.dll" "%outDir%" /Y
 
 echo Copying resource folder...
 xcopy "res" "%outDir%res" /E /I /D /Y

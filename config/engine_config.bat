@@ -9,6 +9,7 @@ echo and outDir: "%outDir%"
 cd /d "%projPath%"
 
 echo Copying library dependencies (GLFW)...
-xcopy "lib\glfw-3.5.1.bin.WIN64\lib-static-ucrt\*.dll" "%outDir%" /D /Y
+xcopy "lib\glfw-3.5.1.bin.WIN64\lib-static-ucrt\*.dll" "%outDir%" /Y
+copy "%outdir%*.dll" "%projPath%\Game\bin\x64\Debug" /Y
 
 echo -Initial configuration done-
