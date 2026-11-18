@@ -1,9 +1,8 @@
 #pragma once
 
-#include "Sprite.h"
+#include "PhysicsObject.h"
 
-
-class Player : public engine::Sprite
+class Player : public PhysicsObject
 {
 	enum class KnucklesAnimationState
 	{
@@ -40,15 +39,8 @@ private:
 
 	void ShowPosition();
 
-	math::Vector3 dir;
-
 	std::vector<engine::Animation*> animations;
 
-
-	bool physicsMode = false;
-
-	float gravity = 50.0f;
-	float lowerLimit = -25.0f;
 
 	float walkForce = 5000.0f;
 	float jumpForce = 50.0f;

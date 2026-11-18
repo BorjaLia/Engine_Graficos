@@ -19,6 +19,12 @@
     <Filter Include="Objects\Player">
       <UniqueIdentifier>{c5747bc6-255c-4ca5-9882-89c5ba40f0ff}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Objects\Rock">
+      <UniqueIdentifier>{6a3bc266-c718-4ac6-bb4f-30657a80c8ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\ColisionManager">
+      <UniqueIdentifier>{76309f98-6a72-43cb-8c91-411852c3ec75}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -36,6 +42,15 @@
     <ClInclude Include="Player.h">
       <Filter>Objects\Player</Filter>
     </ClInclude>
+    <ClInclude Include="PhysicsObject.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Rock.h">
+      <Filter>Objects\Rock</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionManagerEntity.h">
+      <Filter>Objects\ColisionManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -52,6 +67,15 @@
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Objects\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Rock.cpp">
+      <Filter>Objects\Rock</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionManagerEntity.cpp">
+      <Filter>Objects\ColisionManager</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

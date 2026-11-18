@@ -10,6 +10,7 @@
 #include "File.h"
 
 #include <iostream>
+#include "Rock.h"
 
 Player::Player(const std::string& texturePath)
 {
@@ -54,6 +55,8 @@ void Player::Update()
 	UpdateVisuals();
 }
 
+
+
 void Player::AddAnimation(engine::Animation* animation)
 {
 	animations.push_back(animation);
@@ -73,10 +76,6 @@ void Player::Teleport()
 		math::Vector2 normalizedPos = math::Vector2::Remap(mousePos, { 0.0f,0.0f }, renderer->GetSize(), targetMin, targetMax);
 
 		this->SetPosition(normalizedPos);
-
-		//std::cout << "\n" << "Mouse: " << mousePos.ToString() << std::endl;
-
-		//ShowPosition();
 	}
 
 	isTeleporting = queueTeleport;
@@ -106,8 +105,6 @@ void Player::Move()
 	if (engine::Input::Get()->IsKeyPressed(engine::KeyCode::A)) dir.x -= walkForce * deltaTime * (isDashing ? dashMultiplier : 1.0f);
 	if (engine::Input::Get()->IsKeyPressed(engine::KeyCode::D)) dir.x += walkForce * deltaTime * (isDashing ? dashMultiplier : 1.0f);
 
-	dir.x *= 0.85f;
-
 	if (dir.x > -0.05f && dir.x < 0.05f) dir.x = 0.0f;
 
 	if (dir.x != 0.0f)
@@ -119,15 +116,11 @@ void Player::Move()
 		state = KnucklesAnimationState::IDLE;
 	}
 
-	dir.y -= gravity * deltaTime;
-
 	math::Vector3 currentPos = this->GetPosition();
 	math::Vector3 nextPos = currentPos + (dir * deltaTime);
 
 	if (nextPos.y <= lowerLimit)
 	{
-		nextPos.y = lowerLimit;
-		dir.y = 0.0f;
 		isGrounded = true;
 		jumpQueue = false;
 	}
@@ -140,12 +133,12 @@ void Player::Move()
 
 	if (isGrounded && jumpQueue)
 	{
-		dir.y = jumpForce;
+		AddForce(math::Vector3(0.0f, jumpForce, 0.0f));
 		isGrounded = false;
 		jumpQueue = false;
 	}
 
-	this->SetPosition(this->GetPosition() + (dir * deltaTime));
+	PhysicsObject::Update();
 }
 
 void Player::ShowPosition()

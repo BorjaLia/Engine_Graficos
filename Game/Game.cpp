@@ -3,6 +3,8 @@
 #include "Shape.h"
 #include "Sprite.h"
 #include "Player.h"
+#include "Rock.h"
+#include  "CollisionManagerEntity.h"
 
 #include "BlueSquare.h"
 #include "PinkSquare.h"
@@ -27,7 +29,6 @@ void MyGame::Start()
 	knuckles->SetPosition(math::Vector3(0.0f, 0.0f, 0.0f));
 	knuckles->SetScale(math::Vector3(10.0f, 10.0f, 1.0f));
 
-	//math::Vector2 textureSize = math::Vector2(560.0f, 387.0f);
 	math::Vector2 textureSize = math::Vector2(646.0f, 473.0f);
 	math::Vector2 frameSize = math::Vector2(40.0f, 43.0f);
 
@@ -72,4 +73,22 @@ void MyGame::Start()
 	knuckles->AddAnimation(pushAnim);
 
 	AddEntity(knuckles);
+
+
+	Rock* rock = new Rock("res/assets/Rock.png");
+
+	rock->SetPosition(math::Vector3(10.0f, -10.0f, 0.0f));
+	rock->SetScale(math::Vector3(10.0f, 10.0f, 1.0f));
+
+	math::Vector2 rockTextureSize = math::Vector2(244.0f, 207.0f);
+	math::Vector2 rockFrameSize = math::Vector2(83.0f, 60.0f);
+
+	engine::Animation* rockIdleAnim = new engine::Animation();
+
+	rockIdleAnim->AddFrame(math::Vector2(75.0f, 20.0f), rockFrameSize, rockTextureSize, 0.001);
+	rockIdleAnim->AddFrame(math::Vector2(75.0f, 20.0f), rockFrameSize, rockTextureSize, 0.001);
+
+	rock->AddAnimation(rockIdleAnim);
+	
+	AddEntity(rock);
 }
