@@ -48,6 +48,14 @@ void engine::Entity2D::Draw()
 	Renderer::Get()->Draw(vao, ibo, trs, material);
 }
 
+void engine::Entity2D::Start()
+{
+}
+
+void engine::Entity2D::Update()
+{
+}
+
 void engine::Entity2D::AddVertex(math::Vertex v)
 {
 	vertices.push_back(v);
