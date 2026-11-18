@@ -24,9 +24,30 @@ private:
 	void Move();
 	void Teleport();
 
+	void UpdateVisuals();
+
 	void ShowPosition();
 
 	math::Vector3 dir;
 
 	std::vector<engine::Animation*> animations;
+
+	//test 
+
+	bool changingMode = false;
+
+	void PhysicsUpdate();
+
+	bool physicsMode = false;
+
+	float gravity = 1.0f;
+	float lowerLimit = -0.8f;
+
+	float walkForce = 50.0f;
+	float jumpForce = 1.0f;
+
+	bool isGrounded = false;
+	bool jumpQueue = false;
+
+	math::Vector3 accel;
 };

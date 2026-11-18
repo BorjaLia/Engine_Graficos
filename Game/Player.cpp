@@ -21,7 +21,7 @@ Player::~Player()
 {
 	for (int i = 0; i < animations.size(); i++)
 	{
-		if(animations[i]) delete animations[i];
+		if (animations[i]) delete animations[i];
 	}
 }
 
@@ -31,7 +31,7 @@ void Player::Start()
 
 	if (animations.size() == 0)
 	{
-		std::cout << "No animations have been set for the player!";
+		std::cout << "No animations have been set for the player!" << std::endl;
 		return;
 	}
 
@@ -40,6 +40,15 @@ void Player::Start()
 
 void Player::Update()
 {
+	bool pressingChangeKey = engine::Input::Get()->IsKeyPressed(engine::KeyCode::G);
+
+	if (pressingChangeKey && !changingMode)
+	{
+		std::cout << "Changed mode!" << std::endl;
+		physicsMode = !physicsMode;
+	}
+	changingMode = pressingChangeKey;
+
 	engine::Sprite::Update();
 
 	wasMoving = isMoving;
@@ -47,23 +56,17 @@ void Player::Update()
 
 	Teleport();
 
-	Move();
-
-	if (isMoving && !wasMoving)
+	if (physicsMode)
 	{
-		std::cout << "Changed anim!";
-		SetAnimation(animations[1]);
+		PhysicsUpdate();
 	}
-	else if (!isMoving && wasMoving)
+	else
 	{
-		std::cout << "Changed anim!";
-		SetAnimation(animations[0]);
+		Move();
 	}
 
-	if (dir.x != 0.0f)
-	{
-		SetFlipX(dir.x < 0.0f);
-	}
+
+	UpdateVisuals();
 }
 
 void Player::AddAnimation(engine::Animation* animation)
@@ -94,6 +97,27 @@ void Player::Teleport()
 	isTeleporting = queueTeleport;
 }
 
+void Player::UpdateVisuals()
+{
+	isMoving = (dir != math::Vector3::zero());
+
+	if (isMoving && !wasMoving)
+	{
+		std::cout << "Changed anim!" << std::endl;
+		SetAnimation(animations[1]);
+	}
+	else if (!isMoving && wasMoving)
+	{
+		std::cout << "Changed anim!" << std::endl;
+		SetAnimation(animations[0]);
+	}
+
+	if (dir.x != 0.0f)
+	{
+		SetFlipX(dir.x < 0.0f);
+	}
+}
+
 void Player::Move()
 {
 	dir = math::Vector3::zero();
@@ -104,11 +128,51 @@ void Player::Move()
 	if (engine::Input::Get()->IsKeyPressed(engine::KeyCode::D)) dir.x += 1.0f;
 
 	this->setPosition(this->getPosition() + (dir * engine::Time::GetDeltaTime()));
-
-	isMoving = (dir != math::Vector3::zero());
 }
 
 void Player::ShowPosition()
 {
 	std::cout << "Position: " << this->getPosition().ToString() << std::endl;
+}
+
+void Player::PhysicsUpdate()
+{
+	float deltaTime = engine::Time::GetDeltaTime();
+
+	if (engine::Input::Get()->IsKeyPressed(engine::KeyCode::A)) accel.x -= walkForce * deltaTime;
+	if (engine::Input::Get()->IsKeyPressed(engine::KeyCode::D)) accel.x += walkForce * deltaTime;
+
+	accel.x *= 0.85f;
+
+	if (accel.x > -0.05f && accel.x < 0.05f) accel.x = 0.0f;
+
+	accel.y -= gravity * deltaTime;
+
+	math::Vector3 currentPos = this->getPosition();
+	math::Vector3 nextPos = currentPos + (accel * deltaTime);
+
+	if (nextPos.y <= lowerLimit)
+	{
+		nextPos.y = lowerLimit;
+		accel.y = 0.0f;
+		isGrounded = true;
+		jumpQueue = false;
+	}
+	else
+	{
+		isGrounded = false;
+	}
+
+	if (engine::Input::Get()->IsKeyPressed(engine::KeyCode::Space)) jumpQueue = true;
+
+	if (isGrounded && jumpQueue)
+	{
+		accel.y = jumpForce;
+		isGrounded = false;
+		jumpQueue = false;
+	}
+
+	this->setPosition(this->getPosition() + (accel * deltaTime));
+
+	dir = accel;
 }
