@@ -12,6 +12,6 @@ out vec4 vColor;
 
 void main()
 {
-	gl_Position = u_MVP * position;
+	gl_Position = u_Proj * u_View * u_Model * position;
 	vColor = u_Color;
 }

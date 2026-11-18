@@ -23,6 +23,8 @@ int engine::Renderer::Initialize(Window& window)
 
 	proj = glm::ortho(-halfWorldX,halfWorldX,-halfWorldY,halfWorldY,-1.0f,1.0f);
 
+	view = glm::lookAt(glm::vec3(0, 0, 0), glm::vec3(0, 0, -1), glm::vec3(0, 1, 0));
+
 	File::SetRootPath("");
 
 	return 0;
@@ -40,6 +42,7 @@ void engine::Renderer::Draw(unsigned int& vao, unsigned int& ibo, glm::mat4 trs,
 	{
 		material->Bind();
 		material->GetShader()->SetUniform("u_Model", trs);
+		material->GetShader()->SetUniform("u_View", view);
 		material->GetShader()->SetUniform("u_Proj", proj);
 	}
 	glBindVertexArray(vao);
