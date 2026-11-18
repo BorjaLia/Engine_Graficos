@@ -90,7 +90,7 @@ void Player::Teleport()
 
 void Player::UpdateVisuals()
 {
-	if (pushCounter <= 0)
+	if (pushCounter < 0)
 	{
 		pushCounter -= engine::Time::GetDeltaTime();
 		state = KnucklesAnimationState::PUSHING;
@@ -121,10 +121,9 @@ void Player::Move()
 
 	if (dir.x != 0.0f)
 	{
-		if (!pushCounter > 0)
-		{
-			state = (isDashing ? KnucklesAnimationState::DASHING : KnucklesAnimationState::RUNNING );
-		}
+
+		state = (isDashing ? KnucklesAnimationState::DASHING : KnucklesAnimationState::RUNNING );
+		
 	}
 	else
 	{
