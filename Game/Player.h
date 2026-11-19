@@ -18,6 +18,9 @@ private:
 	bool queueTeleport = false;
 	bool isTeleporting = false;
 
+	bool isRunning = false;
+	bool wasRunning = false;
+
 	bool isMoving = false;
 	bool wasMoving = false;
 
@@ -27,6 +30,8 @@ private:
 	void UpdateVisuals();
 
 	void ShowPosition();
+
+	float runMultiplier = 1.75f;
 
 	math::Vector3 dir;
 

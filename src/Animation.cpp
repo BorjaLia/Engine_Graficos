@@ -5,7 +5,8 @@ engine::Animation::Animation(float length, std::string name) :
 	currentTime(0),
 	currentFrame(0),
 	frameLength(length),
-	animLength(length)
+	animLength(length),
+	speed(1.0f)
 {
 }
 engine::Animation::~Animation(void) {}
@@ -21,13 +22,19 @@ void engine::Animation::SetLength(float lenght)
 	frameLength = animLength / frames.size();
 }
 
+void engine::Animation::SetSpeed(float speed)
+{
+	this->speed = speed;
+	frameLength = (animLength / speed) / frames.size();
+}
+
 void engine::Animation::Update()
 {
 	currentTime += Time::GetDeltaTime();
 
-	while (currentTime > animLength)
+	while (currentTime > animLength / speed)
 	{
-		currentTime -= animLength;
+		currentTime -= animLength / speed;
 	}
 
 	currentFrame = static_cast<int>(currentTime / frameLength);
@@ -60,7 +67,9 @@ void engine::Animation::AddFrame(math::Rect rect, math::Vector2 textureSize)
 	frame.uvCoords[3].v = bottomRight.y;
 
 	frames.push_back(frame);
-	frameLength = animLength / frames.size();
+
+	frameLength = (animLength / speed) / frames.size();
+
 	if (frameLength <= 0.0f)
 	{
 		std::cout << "Animation length can't be negative!" << std::endl;

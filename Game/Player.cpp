@@ -51,6 +51,17 @@ void Player::Update()
 
 	engine::Sprite::Update();
 
+	if (isRunning && !wasRunning)
+	{
+		animation->SetSpeed(runMultiplier);
+	}
+	else if (!isRunning && !wasRunning)
+	{
+		animation->SetSpeed(1.0f);
+	}
+
+	wasRunning = isRunning;
+
 	wasMoving = isMoving;
 	isMoving = false;
 
@@ -127,7 +138,9 @@ void Player::Move()
 	if (engine::Input::Get()->IsKeyPressed(engine::KeyCode::S)) dir.y -= 1.0f;
 	if (engine::Input::Get()->IsKeyPressed(engine::KeyCode::D)) dir.x += 1.0f;
 
-	this->SetPosition(this->GetPosition() + (dir * walkForce * engine::Time::GetDeltaTime()));
+	isRunning = engine::Input::Get()->IsKeyPressed(engine::KeyCode::LeftShift);
+
+	this->SetPosition(this->GetPosition() + (dir * walkForce * (isRunning ? runMultiplier : 1.0f) * engine::Time::GetDeltaTime()));
 }
 
 void Player::ShowPosition()

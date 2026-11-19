@@ -21,6 +21,7 @@ namespace engine
 
 		DllExport void SetName(std::string newName);
 		DllExport void SetLength(float lenght);
+		DllExport void SetSpeed(float speed);
 
 		DllExport void Update();
 
@@ -42,6 +43,8 @@ namespace engine
 
 		float frameLength;
 		float animLength;
+
+		float speed;
 
 		std::vector<Frame> frames;
 	};
