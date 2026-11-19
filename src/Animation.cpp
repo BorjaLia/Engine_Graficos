@@ -1,94 +1,114 @@
 #include "Animation.h"
 
-engine::Animation::Animation(std::string name) :
+engine::Animation::Animation(float length, std::string name) :
 	name(name),
 	currentTime(0),
 	currentFrame(0),
-	length(1000)
+	frameLength(length),
+	animLength(length)
 {
 }
 engine::Animation::~Animation(void) {}
 
-DllExport void engine::Animation::SetName(std::string newName)
+void engine::Animation::SetName(std::string newName)
 {
 	name = newName;
+}
+
+void engine::Animation::SetLength(float lenght)
+{
+	animLength = lenght;
+	frameLength = animLength / frames.size();
 }
 
 void engine::Animation::Update()
 {
 	currentTime += Time::GetDeltaTime();
 
-	while(currentTime > length) 
+	while (currentTime > animLength)
 	{
-		currentTime -= length;
+		currentTime -= animLength;
 	}
 
-	float frameLength = length / frames.size();
 	currentFrame = static_cast<int>(currentTime / frameLength);
 }
 
-void engine::Animation::AddFrame(float frameX, float frameY,
-	float frameWidth, float frameHeigth,
-	float textureWidth, float textureHeigth,
-	float durationInSecs)
+void engine::Animation::AddFrame(math::Rect rect, math::Vector2 textureSize)
 {
-	length = durationInSecs * 1000;
 	Frame frame;
 
-	frame.uvCoords[0].u = (frameX / textureWidth);
-	frame.uvCoords[0].v = (frameY / textureHeigth);
+	math::Vector2 texMin = { 0.0f, 0.0f };
+	math::Vector2 texMax = { textureSize.x, textureSize.y };
+	math::Vector2 uvMin = { 0.0f, 1.0f };
+	math::Vector2 uvMax = { 1.0f, 0.0f };
 
-	frame.uvCoords[1].u = (frameX / textureWidth);
-	frame.uvCoords[1].v = ((frameY + frameHeigth) / textureHeigth);
+	math::Vector2 rectMax = { rect.pos.x + rect.size.x, rect.pos.y + rect.size.y };
 
-	frame.uvCoords[2].u = ((frameX + frameWidth) / textureWidth);
-	frame.uvCoords[2].v = ((frameY + frameHeigth) / textureHeigth);
+	math::Vector2 topLeft = math::Vector2::Remap(rect.pos, texMin, texMax, uvMin, uvMax);
+	math::Vector2 bottomRight = math::Vector2::Remap(rectMax, texMin, texMax, uvMin, uvMax);
 
-	frame.uvCoords[3].u = ((frameX + frameWidth) / textureWidth);
-	frame.uvCoords[3].v = (frameY / textureHeigth);
+	frame.uvCoords[0].u = topLeft.x;
+	frame.uvCoords[0].v = bottomRight.y;
+
+	frame.uvCoords[1].u = topLeft.x;
+	frame.uvCoords[1].v = topLeft.y;
+
+	frame.uvCoords[2].u = bottomRight.x;
+	frame.uvCoords[2].v = topLeft.y;
+
+	frame.uvCoords[3].u = bottomRight.x;
+	frame.uvCoords[3].v = bottomRight.y;
 
 	frames.push_back(frame);
-}
-
-void engine::Animation::AddFrame(float frameX, float frameY,
-	float frameWidth, float frameHeigth,
-	float textureWidth, float textureHeigth,
-	float durationInSecs,
-	int frameCount)
-{
-	length = durationInSecs * 1000;
-
-	float frameXIndex = 0;
-
-	for (int i = 0; i < frameCount; i++)
+	frameLength = animLength / frames.size();
+	if (frameLength <= 0.0f)
 	{
-		Frame frame;
-
-		frame.uvCoords[0].u = (frameX / textureWidth);
-		frame.uvCoords[0].v = (frameY / textureHeigth);
-
-		frame.uvCoords[1].u = (frameX / textureWidth);
-		frame.uvCoords[1].v = ((frameY + frameHeigth) / textureHeigth);
-
-		frame.uvCoords[2].u = ((frameX + frameWidth) / textureWidth);
-		frame.uvCoords[2].v = ((frameY + frameHeigth) / textureHeigth);
-
-		frame.uvCoords[3].u = ((frameX + frameWidth) / textureWidth);
-		frame.uvCoords[3].v = (frameY / textureHeigth);
-
-		frames.push_back(frame);
-		frameXIndex += frameWidth;
+		std::cout << "Animation length can't be negative!" << std::endl;
 	}
 }
 
-void engine::Animation::AddFrame(math::Vector2 framePos, math::Vector2 frameSize, math::Vector2 textureSize, float durationInSecs)
+void engine::Animation::AddFrames(math::Rect rect, math::Vector2 textureSize, int framesAmount)
 {
-	AddFrame(framePos.x, framePos.y, frameSize.x, frameSize.y, textureSize.x, textureSize.y, durationInSecs);
+	if (framesAmount <= 0)
+	{
+		std::cout << "Cant load null frames!" << std::endl;
+		return;
+	}
+
+	if (framesAmount == 1) return AddFrame(rect, textureSize);
+
+	math::Rect frameRect = rect;
+	frameRect.size.x = rect.size.x / framesAmount;
+
+	for (int i = 0; i < framesAmount; i++)
+	{
+		frameRect.pos.x = rect.pos.x + frameRect.size.x * i;
+		AddFrame(frameRect, textureSize);
+	}
+
+	return;
 }
 
-void engine::Animation::AddFrame(math::Vector2 framePos, math::Vector2 frameSize, math::Vector2 textureSize, float durationInSecs, int frameCount)
+void engine::Animation::AddFrames(math::Rect rect, math::Vector2 textureSize, math::Vector2 framesAmount)
 {
-	AddFrame(framePos.x, framePos.y, frameSize.x, frameSize.y, textureSize.x, textureSize.y, durationInSecs,frameCount);
+	if (framesAmount.x <= 0 || framesAmount.y <= 0)
+	{
+		std::cout << "Cant load null frames!" << std::endl;
+		return;
+	}
+
+	if (framesAmount.x == 1 && framesAmount.y == 1) return AddFrame(rect, textureSize);
+
+	math::Rect rowRect = rect;
+	rowRect.size.y = rect.size.y / framesAmount.y;
+
+	for (int i = 0; i < framesAmount.y; i++)
+	{
+		rowRect.pos.y = rect.pos.y + rowRect.size.y * i;
+		AddFrames(rowRect, textureSize, static_cast<int>(framesAmount.x));
+	}
+
+	return;
 }
 
 std::vector<engine::Frame>& engine::Animation::GetFrames()

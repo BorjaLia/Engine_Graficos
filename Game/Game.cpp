@@ -27,24 +27,19 @@ void MyGame::Start()
 	player->SetPosition(math::Vector3(0.0f, 0.0f, 0.0f));
 	player->SetScale(math::Vector3(10.0f, 10.0f, 1.0f));
 
-	math::Vector2 frameSize = math::Vector2(200.0f, 246.6f);
+	engine::Animation* idleAnim = new engine::Animation(0.5f);
 
-	engine::Animation* idleAnim = new engine::Animation();
-
-	idleAnim->AddFrame(math::Vector2(frameSize.x, frameSize.y), frameSize, math::Vector2(1200.0f, 1233.0f), 0.01);
-	idleAnim->AddFrame(math::Vector2(2 *frameSize.x, frameSize.y), frameSize, math::Vector2(1200.0f, 1233.0f), 0.01);
+	idleAnim->AddFrame(math::Rect(math::Vector2(0.0f,0.0f),math::Vector2(200.0f,246.0f)), math::Vector2(1200.0f, 1233.0f));
 
 	player->AddAnimation(idleAnim);
 
-	engine::Animation* runAnim = new engine::Animation();
+	engine::Animation* runAnim = new engine::Animation(1.5f);
 
-	for (int j = 4; j >= 0; j--)
-	{
-		for (int i = 0; i < 6; i++)
-		{
-			runAnim->AddFrame(math::Vector2(i * frameSize.x, j * frameSize.y), frameSize, math::Vector2(1200.0f, 1233.0f), 0.001);
-		}
-	}
+	runAnim->AddFrames(
+		math::Rect(math::Vector2(0.0f, 0.0f), math::Vector2(1200.0f, 1233.0f)),
+		math::Vector2(1200.0f, 1233.0f),
+		math::Vector2(6.0f, 5.0f)
+	);
 
 	player->AddAnimation(runAnim);
 

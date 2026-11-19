@@ -43,7 +43,7 @@ private:
 	float gravity = 1.0f;
 	float lowerLimit = -0.8f;
 
-	float walkForce = 50.0f;
+	float walkForce = 25.0f;
 	float jumpForce = 1.0f;
 
 	bool isGrounded = false;

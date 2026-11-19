@@ -3,7 +3,7 @@
 
 #include "GameTime.h"
 #include "Frame.h"
-#include "Vector2.h"
+#include "Rect.h"
 #include <vector>
 
 #define DllExport __declspec( dllexport )
@@ -16,34 +16,17 @@ namespace engine
 	class Animation
 	{
 	public:
-		DllExport Animation(std::string name = "NULL");
+		DllExport Animation(float length, std::string name = "NULL");
 		DllExport ~Animation();
 
 		DllExport void SetName(std::string newName);
+		DllExport void SetLength(float lenght);
 
 		DllExport void Update();
 
-		DllExport void AddFrame(float frameX, float frameY,
-			float frameWidth, float frameHeigth,
-			float textureWidth, float textureHeigth,
-			float durationInSecs);
-
-		DllExport void AddFrame(float frameX, float frameY,
-			float frameWidth, float frameHeigth,
-			float textureWidth, float textureHeigth,
-			float durationInSecs,
-			int frameCount);
-
-		DllExport void AddFrame(math::Vector2 framePos,
-			math::Vector2 frameSize,
-			math::Vector2 textureSize,
-			float durationInSecs);
-
-		DllExport void AddFrame(math::Vector2 framePos,
-			math::Vector2 frameSize,
-			math::Vector2 textureSize,
-			float durationInSecs,
-			int frameCount);
+		DllExport void AddFrame(math::Rect rect, math::Vector2 textureSize);
+		DllExport void AddFrames(math::Rect rect,math::Vector2 textureSize, int framesAmount);
+		DllExport void AddFrames(math::Rect rect,math::Vector2 textureSize, math::Vector2 framesAmount);
 
 		DllExport int CurrentFrame();
 
@@ -57,7 +40,9 @@ namespace engine
 
 		float currentTime;
 
-		float length;
+		float frameLength;
+		float animLength;
+
 		std::vector<Frame> frames;
 	};
 #endif
