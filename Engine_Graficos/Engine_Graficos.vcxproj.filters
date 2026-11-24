@@ -92,6 +92,9 @@
     <Filter Include="Math\SimpleShapes">
       <UniqueIdentifier>{519822e2-c031-4e04-a931-b182df11f6bb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scenes">
+      <UniqueIdentifier>{0bdfaf8b-637a-45a0-a8e2-0a69350b6fa3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Main.cpp">
@@ -156,6 +159,12 @@
     </ClCompile>
     <ClCompile Include="..\src\CollisionManager.cpp">
       <Filter>Collisions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Scene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SceneBuilder.cpp">
+      <Filter>Scenes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -245,6 +254,12 @@
     </ClInclude>
     <ClInclude Include="..\src\Circle.h">
       <Filter>Math\SimpleShapes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Scene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SceneBuilder.h">
+      <Filter>Scenes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

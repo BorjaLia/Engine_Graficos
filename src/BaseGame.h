@@ -7,6 +7,7 @@
 #include "Renderer.h"
 #include "Input.h"
 #include "Entity.h"
+#include "Scene.h"
 #include "CollisionManager.h"
 
 namespace engine
@@ -24,9 +25,11 @@ namespace engine
 
 		void Run();
 
-		virtual void Start() = 0;
+		//virtual void Start() = 0;
 
-		void AddEntity(Entity* entity);
+		//void AddEntity(Entity* entity);
+
+		void LoadScene(Scene* scene);
 
 	private:
 
@@ -35,11 +38,16 @@ namespace engine
 		void Initialize();
 		void Shutdown();
 
+		void UpdateLoadScene();
+
 		Window window;
 		Renderer* renderer = Renderer::Get();
 		Input* input = Input::Get();
 
-		std::vector<Entity*> entities;
+		Scene* queuedScene = nullptr;
+		Scene* currentScene = nullptr;
+
+		std::vector<Entity*>* entities;
 
 	protected:
 

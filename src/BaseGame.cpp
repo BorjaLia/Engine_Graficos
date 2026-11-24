@@ -15,10 +15,10 @@ void engine::BaseGame::Run()
 {
 	Initialize();
 
-	for (Entity* e : entities)
-	{
-		e->Start();
-	}
+	//for (Entity* e : *entities)
+	//{
+	//	e->Start();
+	//}
 
 	while (isRunning)
 	{
@@ -26,15 +26,17 @@ void engine::BaseGame::Run()
 		input->Update();
 		renderer->Update();
 
-		for (Entity* e : entities)
+		for (Entity* e : *entities)
 		{
 			e->Update();
 		}
 
-		for (Entity* e : entities)
+		for (Entity* e : *entities)
 		{
 			e->Draw();
 		}
+
+		UpdateLoadScene();
 
 		isRunning = !window.ShouldClose();
 	}
@@ -48,21 +50,43 @@ void engine::BaseGame::Initialize()
 	input->Initialize(window);
 	renderer->Initialize(window);
 
-	Start();
+	currentScene->BuildScene();
+	//Start();
 
-	for (Entity* e: entities)
-	{
-		e->Initialize();
-	}
+	//for (Entity* e : *entities)
+	//{
+	//	e->Initialize();
+	//}
 }
 
 void engine::BaseGame::Shutdown()
 {
+	currentScene->UnloadScene();
+
 	input->Shutdown();
 	window.Shutdown();
 }
 
-void engine::BaseGame::AddEntity(Entity* entity)
+void engine::BaseGame::LoadScene(Scene* scene)
 {
-	entities.push_back(entity);
+	queuedScene = scene;
 }
+
+void engine::BaseGame::UpdateLoadScene()
+{
+	if (queuedScene == nullptr) return;
+
+	currentScene->UnloadScene();
+
+	currentScene = queuedScene;
+	queuedScene = nullptr;
+
+	entities = &(currentScene->entities);
+
+	currentScene->BuildScene();
+}
+
+//void engine::BaseGame::AddEntity(Entity* entity)
+//{
+//	entities.push_back(entity);
+//}
