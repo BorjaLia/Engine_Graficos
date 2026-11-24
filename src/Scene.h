@@ -46,4 +46,14 @@ namespace engine
 
 		std::vector<Entity*> entities;
 	};
+
+	template<std::derived_from<Entity> T, typename ...Args>
+	T* Scene::CreateEntity(Args && ...args)
+	{
+		T* entity = new T(std::forward<Args>(args)...);
+
+		entities.push_back(entity);
+
+		return entity;
+	}
 }

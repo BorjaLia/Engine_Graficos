@@ -13,7 +13,7 @@ engine::BaseGame::~BaseGame()
 
 void engine::BaseGame::Run()
 {
-	UpdateLoadScene();
+	SetupScenes();
 
 	Initialize();
 
@@ -79,7 +79,7 @@ void engine::BaseGame::UpdateLoadScene()
 {
 	if (queuedScene == nullptr) return;
 
-	currentScene->Shutdown();
+	if (currentScene != nullptr) currentScene->Shutdown();
 
 	currentScene = queuedScene;
 	queuedScene = nullptr;
