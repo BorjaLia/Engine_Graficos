@@ -13,6 +13,8 @@ engine::BaseGame::~BaseGame()
 
 void engine::BaseGame::Run()
 {
+	UpdateLoadScene();
+
 	Initialize();
 
 	//for (Entity* e : *entities)
@@ -50,7 +52,8 @@ void engine::BaseGame::Initialize()
 	input->Initialize(window);
 	renderer->Initialize(window);
 
-	currentScene->Start();
+	//currentScene->Start();
+	
 	//Start();
 
 	//for (Entity* e : *entities)
@@ -81,7 +84,7 @@ void engine::BaseGame::UpdateLoadScene()
 	currentScene = queuedScene;
 	queuedScene = nullptr;
 
-	currentScene->Build();
+	currentScene->Setup();
 
 	entities = currentScene->entities;
 
