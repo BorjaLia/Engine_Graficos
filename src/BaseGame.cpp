@@ -50,7 +50,7 @@ void engine::BaseGame::Initialize()
 	input->Initialize(window);
 	renderer->Initialize(window);
 
-	currentScene->BuildScene();
+	currentScene->Start();
 	//Start();
 
 	//for (Entity* e : *entities)
@@ -61,7 +61,7 @@ void engine::BaseGame::Initialize()
 
 void engine::BaseGame::Shutdown()
 {
-	currentScene->UnloadScene();
+	currentScene->Shutdown();
 
 	input->Shutdown();
 	window.Shutdown();
@@ -76,14 +76,14 @@ void engine::BaseGame::UpdateLoadScene()
 {
 	if (queuedScene == nullptr) return;
 
-	currentScene->UnloadScene();
+	currentScene->Shutdown();
 
 	currentScene = queuedScene;
 	queuedScene = nullptr;
 
 	entities = &(currentScene->entities);
 
-	currentScene->BuildScene();
+	currentScene->Start();
 }
 
 //void engine::BaseGame::AddEntity(Entity* entity)

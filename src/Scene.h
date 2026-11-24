@@ -2,6 +2,8 @@
 
 #include "Core.h"
 
+#include "SceneBuilder.h"
+
 #include "Entity.h"
 
 /// The class that handles the entity list
@@ -23,7 +25,7 @@ namespace engine
 			sceneCount++; 
 		}
 
-		virtual void Build();
+		virtual void Build(SceneBuilder builder) = 0;
 
 		void Start();
 
@@ -38,7 +40,7 @@ namespace engine
 		int id;
 		std::string name;
 
-		void UnloadScene();
+		void Shutdown();
 		std::vector<Entity*> entities;
 	};
 }

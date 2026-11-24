@@ -2,7 +2,7 @@
 
 int engine::Scene::sceneCount = 0;
 
-void engine::Scene::BuildScene()
+void engine::Scene::Start()
 {
 	for (Entity* e : entities)
 	{
@@ -15,7 +15,7 @@ void engine::Scene::BuildScene()
 	}
 }
 
-void engine::Scene::UnloadScene()
+void engine::Scene::Shutdown()
 {
 	for (Entity* e : entities)
 	{

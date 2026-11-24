@@ -6,7 +6,7 @@ class MyGame : public engine::BaseGame
 {
 public:
 
-	void Start() override;
+	//void Start() override;
 };
 
 int main(void);
