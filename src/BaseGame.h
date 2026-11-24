@@ -47,7 +47,7 @@ namespace engine
 		Scene* queuedScene = nullptr;
 		Scene* currentScene = nullptr;
 
-		std::vector<Entity*>* entities;
+		std::vector<Entity*> entities;
 
 	protected:
 
