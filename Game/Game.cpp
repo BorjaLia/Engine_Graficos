@@ -29,7 +29,7 @@ void MyGame::Start()
 
 	engine::Animation* idleAnim = new engine::Animation(0.5f);
 
-	idleAnim->AddFrame(math::Rect(math::Vector2(0.0f,0.0f),math::Vector2(200.0f,246.0f)), math::Vector2(1200.0f, 1233.0f));
+	idleAnim->AddFrames(math::Rect(math::Vector2(0.0f,0.0f),math::Vector2(2* 200.0f,246.0f)), math::Vector2(1200.0f, 1233.0f),2);
 
 	player->AddAnimation(idleAnim);
 
