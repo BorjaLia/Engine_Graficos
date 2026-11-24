@@ -1,16 +1,5 @@
 #include "Game.h"
 
-#include "Shape.h"
-#include "Sprite.h"
-#include "Player.h"
-
-#include "BlueSquare.h"
-#include "PinkSquare.h"
-#include "PlayerSquare.h"
-
-#include "Vector2.h"
-#include "Vertex.h"
-
 int main()
 {
 	MyGame game;
@@ -45,3 +34,7 @@ int main()
 //
 //	AddEntity(player);
 //}
+
+void MyGame::SetupScenes()
+{
+}

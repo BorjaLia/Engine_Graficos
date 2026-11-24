@@ -4,6 +4,8 @@
 
 #include "Entity.h"
 
+#include <concepts>
+
 /// The class that handles the entity list
 /// @ingroup Scenes
 

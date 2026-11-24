@@ -25,6 +25,8 @@ namespace engine
 
 		void Run();
 
+		virtual void SetupScenes() = 0;
+
 		//virtual void Start() = 0;
 
 		//void AddEntity(Entity* entity);
