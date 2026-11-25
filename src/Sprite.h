@@ -31,7 +31,8 @@ namespace engine
 
 		DllExport void SetTextureCoordinates(math::UVCoords uv1, math::UVCoords uv2, math::UVCoords uv3, math::UVCoords uv4);
 
-		DllExport void SetTexture(const Texture& texture);
+		DllExport void SetTexture(Texture& texture);
+		DllExport Texture GetTexture() { return *texture; };
 
 		DllExport void FlipX() { isFlippedX = !isFlippedX; }
 		DllExport void FlipY() { isFlippedY = !isFlippedY; }
@@ -47,7 +48,7 @@ namespace engine
 		//DllExport void Draw(Renderer& rkRenderer);
 
 	private:
-		Texture texture;
+		Texture* texture;
 
 		bool isFlippedX = false;
 		bool isFlippedY = false;

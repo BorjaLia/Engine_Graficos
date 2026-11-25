@@ -3,6 +3,7 @@
 
 engine::Entity2D::Entity2D()
 {
+	AABB = Bounds(math::Vector3(-1.0f,-1.0f,-1.0f), math::Vector3(1.0f, 1.0f, 1.0f));
 	material = nullptr;
 	vbo = 0;
 	ibo = 0;

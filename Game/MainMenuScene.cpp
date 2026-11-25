@@ -1,6 +1,7 @@
 #include "MainMenuScene.h"
 
 #include "Button.h"
+#include "Game.h"
 
 void MainMenuScene::Setup()
 {

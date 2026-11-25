@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Core.h"
+
 #include "Window.h"
 #include "Vertex.h"
 #include "Material.h"
@@ -35,8 +37,8 @@ namespace engine
 		void Draw(unsigned int& vao, unsigned int& ibo, glm::mat4 trs, Material* material, int glDrawType = GL_TRIANGLES);
 		int Shutdown();
 
-		math::Vector2 ScreenToWorld(math::Vector2 screenPos);
-		math::Vector2 WorldToScreen(math::Vector2 worldPos);
+		ENGINE_API math::Vector2 ScreenToWorld(math::Vector2 screenPos);
+		ENGINE_API math::Vector2 WorldToScreen(math::Vector2 worldPos);
 
 		math::Vector2 GetSize() { return window->GetSize(); };
 

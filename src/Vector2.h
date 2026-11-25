@@ -27,6 +27,11 @@ namespace math
 
 		static Vector2 Remap(const Vector2& value, const Vector2& inMin, const Vector2& inMax, const Vector2& outMin, const Vector2& outMax);
 
+		Vector2 operator-()
+		{
+			return Vector2(-x,-y);
+		}
+
 		operator Vector3() const;
 		operator UVCoords() const;
 

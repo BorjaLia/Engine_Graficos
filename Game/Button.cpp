@@ -15,12 +15,19 @@ Button::~Button()
 
 void Button::Start()
 {
+	Sprite::Start();
+
 	currentState = State::Nothing;
 	previousState = currentState;
+
+	UpdateBounds();
 }
+
 
 void Button::Update()
 {
+	Sprite::Update();
+
 	bool isMouseOver = engine::CollisionManager::Get()->IsPointInAABB(this->GetPosition(), this->AABB, input->GetMouseWorldPosition());
 	bool isClicking = input->IsMouseButtonPressed(engine::MouseCode::ButtonLeft);
 
@@ -28,7 +35,7 @@ void Button::Update()
 	{
 	case Button::State::Nothing:
 	{
-		if (isMouseOver) currentState = State::Hovered;
+		if (isMouseOver) ChangeState(State::Hovered);
 
 		break;
 	}
@@ -36,15 +43,13 @@ void Button::Update()
 	{
 		if (!isMouseOver)
 		{
-			currentState = State::Nothing;
-			SetTexture(*normalTexture);
+			ChangeState(State::Nothing);
 			break;
 		}
 
 		if (isClicking)
 		{
-			currentState = State::Clicked;
-			SetTexture(*clickTexture);
+			ChangeState(State::Clicked);
 		}
 
 		break;
@@ -53,14 +58,14 @@ void Button::Update()
 	{
 		if (!isMouseOver)
 		{
-			currentState = State::Nothing;
+			ChangeState(State::Nothing);
 			break;
 		}
 
 		if (!isClicking)
 		{
-			currentState = State::Nothing;
-			onClick();
+			ChangeState(State::Hovered);
+			if (onClick) onClick();
 		}
 
 		break;
@@ -81,7 +86,7 @@ void Button::SetupTextures(std::string normalPath, std::string hoverPath, std::s
 	hoverTexture = new engine::Texture(hoverPath);
 	clickTexture = new engine::Texture(clickPath);
 
-	ChangeState(State::Nothing);
+	SetTexture(*normalTexture);
 }
 
 void Button::ChangeState(State newState)
@@ -104,4 +109,15 @@ void Button::ChangeState(State newState)
 	default:
 		break;
 	}
+
+	UpdateBounds();
+}
+
+void Button::UpdateBounds()
+{
+	math::Vector2 scale = this->GetScale();
+	math::Vector2 halfSize(std::abs(scale.x) * 0.5f, std::abs(scale.y) * 0.5f);
+
+	this->AABB.min = -halfSize;
+	this->AABB.max = halfSize;
 }

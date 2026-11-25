@@ -1,6 +1,6 @@
 #include "Sprite.h"
 
-engine::Sprite::Sprite() : texture(engine::Texture("res/assets/spritesheet.png"))
+engine::Sprite::Sprite() : texture(new engine::Texture("res/assets/spritesheet.png"))
 {
 	const int vertexAmount = 4;
 	math::Vertex vertices[vertexAmount];
@@ -27,33 +27,7 @@ engine::Sprite::Sprite() : texture(engine::Texture("res/assets/spritesheet.png")
 
 	SetIndex({ 0,1,2,2,3,0 });
 
-	//texturedVertex[0].pos.x = -0.5;
-	//texturedVertex[0].pos.y = 0.5;
-	//texturedVertex[0].pos.z = 0.0f;
-	//
-	//texturedVertex[1].pos.x = 0.5;
-	//texturedVertex[1].pos.y = 0.5;
-	//texturedVertex[1].pos.z = 0.0f;
-	//
-	//texturedVertex[2].pos.x = -0.5;
-	//texturedVertex[2].pos.y = -0.5;
-	//texturedVertex[2].pos.z = 0.0f;
-
-	//texturedVertex[3].pos.x = 0.5;
-	//texturedVertex[3].pos.y = -0.5;
-	//texturedVertex[3].pos.z = 0.0f;
-	//
-	//texturedVertex[0].textureCoords.u = 0.0;
-	//texturedVertex[0].textureCoords.v = 0.0f;
-	//
-	//texturedVertex[1].textureCoords.u = 1.0;
-	//texturedVertex[1].textureCoords.v = 0.0;
-	//
-	//texturedVertex[2].textureCoords.u = 0.0;
-	//texturedVertex[2].textureCoords.v = 1.0;
-	//
-	//texturedVertex[3].textureCoords.u = 1.0;
-	//texturedVertex[3].textureCoords.v = 1.0;
+	material = new engine::Material("../res/shaders/VertexTexture.shader", "../res/shaders/FragmentTexture.shader");
 }
 
 engine::Sprite::~Sprite(void)
@@ -91,9 +65,10 @@ void engine::Sprite::SetTextureCoordinates(math::UVCoords uv1, math::UVCoords uv
 	SetTextureCoordinates(uv1.u, uv1.v, uv2.u, uv2.v, uv3.u, uv3.v, uv4.u, uv4.v);
 }
 
-void engine::Sprite::SetTexture(const engine::Texture& texture)
+void engine::Sprite::SetTexture(engine::Texture& texture)
 {
-	this->texture = texture;
+	this->texture = &texture;
+	material->SetTexture(this->texture);
 }
 
 void engine::Sprite::SetAnimation(Animation* animation)
@@ -104,10 +79,8 @@ void engine::Sprite::SetAnimation(Animation* animation)
 
 void engine::Sprite::Start()
 {
-	material = new engine::Material("../res/shaders/VertexTexture.shader", "../res/shaders/FragmentTexture.shader");
-
 	//texture = engine::Texture("res/assets/images.png");
-	material->SetTexture(&texture);
+	material->SetTexture(texture);
 }
 
 void engine::Sprite::Update()
@@ -131,10 +104,3 @@ void engine::Sprite::Update()
 		previousFrame = currentFrame;
 	}
 }
-
-//void engine::Sprite::Draw(Renderer& rkRenderer)
-//{
-//	//rkRenderer.SetCurrentTexture(texture);
-//	//rkRenderer.SetMatrix(transformationMatrix);
-//	//rkRenderer.Draw(texturedVertex, TRIANGLESTRIP, ARRAY_SIZE(texturedVertex));
-//}

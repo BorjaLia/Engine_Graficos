@@ -34,12 +34,14 @@ public:
 
 private:
 
+	void UpdateBounds();
+
 	engine::Input* input = engine::Input::Get();
 
-	State currentState;
-	State previousState;
+	State currentState = State::Nothing;
+	State previousState = State::Nothing;
 
-	engine::Texture* normalTexture;
-	engine::Texture* hoverTexture;
-	engine::Texture* clickTexture;
+	engine::Texture* normalTexture = nullptr;
+	engine::Texture* hoverTexture = nullptr;
+	engine::Texture* clickTexture = nullptr;
 };
