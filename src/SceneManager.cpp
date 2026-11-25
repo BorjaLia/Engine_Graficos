@@ -19,21 +19,29 @@ void engine::SceneManager::Initialize()
 void engine::SceneManager::Update(std::vector<Entity*>& entities)
 {
 	if (queuedScene == nullptr) return;
-
-	std::cout << "Changing to scene" << queuedScene->GetName() << "..." << std::endl;
+	std::cout << std::endl;
+	std::cout << "Changing to scene " << queuedScene->GetName() << " (" << queuedScene->GetId() << ")" << "..." << std::endl;
 
 	if (currentScene != nullptr) currentScene->Shutdown();
 
 	currentScene = queuedScene;
 	queuedScene = nullptr;
 
+	std::cout << "Starting setup for " << currentScene->GetName() << " (" << currentScene->GetId() << ")" << std::endl;
+	
+	std::cout << std::endl << "{" << std::endl;
 	currentScene->Setup();
+	std::cout << "}" << std::endl << std::endl;
 
 	entities = currentScene->entities;
 
+	std::cout << "Calling start for " << currentScene->GetName() << " (" << currentScene->GetId() << ")" << std::endl;
+	std::cout << std::endl << "{" << std::endl;
 	currentScene->Start();
+	std::cout << "}" << std::endl << std::endl;
 
-	std::cout << "Scene" << currentScene->GetName() << " has been loaded" << std::endl;
+	std::cout << "Scene " << currentScene->GetName() << " (" << currentScene->GetId() << ")" << " has been loaded" << std::endl;
+	std::cout << std::endl;
 }
 
 void engine::SceneManager::Shutdown()
@@ -49,6 +57,7 @@ void engine::SceneManager::Shutdown()
 void engine::SceneManager::RegisterScene(Scene* scene)
 {
 	std::cout << "Registered Scene " << scene->GetName() << std::endl;
+	scene->SetId(scenes.size());
 	scenes.push_back(scene);
 }
 

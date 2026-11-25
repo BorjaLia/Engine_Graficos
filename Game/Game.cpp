@@ -15,6 +15,6 @@ int main()
 
 void MyGame::SetupScenes()
 {
- 	engine::SceneManager::Get()->RegisterScene(new MainMenuScene());
- 	engine::SceneManager::Get()->RegisterScene(new GameplayScene());
+ 	engine::SceneManager::Get()->RegisterScene(new MainMenuScene("MainMenuScene"));
+ 	engine::SceneManager::Get()->RegisterScene(new GameplayScene("GameplayScene"));
 }

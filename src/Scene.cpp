@@ -1,10 +1,20 @@
 #include "Scene.h"
 
-int engine::Scene::sceneCount = 0;
+engine::Scene::Scene(std::string name)
+{
+	this->name = name;
+	id = -1;
+}
 
 void engine::Scene::Start()
 {
-	std::cout << "Starting scene" << std::endl;
+	if (id == -1)
+	{
+		std::cout << "Scene has not been registered!" << std::endl;
+		std::cout << "Aborting Start" << std::endl;
+		return;
+	}
+	std::cout << "Starting scene "<< name << std::endl;
 
 	for (Entity* e : entities)
 	{
@@ -19,7 +29,7 @@ void engine::Scene::Start()
 
 void engine::Scene::Shutdown()
 {
-	std::cout << "Shutdown scene" << std::endl;
+	std::cout << "Shutdown scene " << name << std::endl;
 
 	for (Entity* e : entities)
 	{

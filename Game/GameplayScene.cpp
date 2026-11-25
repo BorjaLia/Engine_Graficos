@@ -7,8 +7,6 @@
 
 void GameplayScene::Setup()
 {
-	this->SetName("GameScene");
-
 	GameManager* manager = CreateEntity<GameManager>();
 
 	Player* player = CreateEntity<Player>();

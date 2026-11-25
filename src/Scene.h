@@ -15,19 +15,13 @@ namespace engine
 	{
 	protected:
 
-		static int sceneCount;
-
 	public:
 
-		Scene()
-		{
-			id = sceneCount;
-			sceneCount++;
-		}
+		Scene(std::string name = "NO_NAME_SCENE");
 
-		int GetId() { return id; };
+		const int GetId() const { return this->id; };
 
-		std::string GetName() { return name; };
+		const std::string GetName() const { return name; };
 		void SetName(std::string name) { this->name = name; };
 
 		const std::vector<Entity*>& GetEntityVector() const { return entities; };
@@ -42,6 +36,8 @@ namespace engine
 
 		void Start();
 		void Shutdown();
+
+		void SetId(int id) { this->id = id; }
 
 		int id;
 		std::string name;
