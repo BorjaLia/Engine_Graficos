@@ -91,18 +91,11 @@ void Player::Teleport()
 
 	if (queueTeleport && !isTeleporting)
 	{
-		math::Vector2 mousePos = engine::Input::Get()->GetMousePosition();
+		math::Vector2 mouseWorldPos = engine::Input::Get()->GetMouseWorldPosition();
 
-		math::Vector2 targetMin(-1.0f, 1.0f);
-		math::Vector2 targetMax(1.0f, -1.0f);
+		this->SetPosition(mouseWorldPos);
 
-		math::Vector2 normalizedPos = math::Vector2::Remap(mousePos, { 0.0f,0.0f }, renderer->GetSize(), targetMin, targetMax);
-
-		this->SetPosition(normalizedPos);
-
-		std::cout << "\n" << "Mouse: " << mousePos.ToString() << std::endl;
-
-		//ShowPosition();
+		std::cout << "\n" << "Mouse World: " << mouseWorldPos.ToString() << std::endl;
 	}
 
 	isTeleporting = queueTeleport;

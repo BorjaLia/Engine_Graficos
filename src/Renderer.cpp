@@ -55,6 +55,27 @@ int engine::Renderer::Shutdown()
 	return 0;
 }
 
+math::Vector2 engine::Renderer::ScreenToWorld(math::Vector2 screenPos)
+{
+	glm::vec4 viewport = GetViewport();
+
+	if (viewport.z == 0.0f || viewport.w == 0.0f) return math::Vector2(0.0f, 0.0f);
+
+	glm::vec3 glScreenPos(screenPos.x, viewport.w - screenPos.y, 0.0f);
+	glm::vec3 worldPos = glm::unProject(glScreenPos, view, proj, viewport);
+
+	return math::Vector2(worldPos.x, worldPos.y);
+}
+
+math::Vector2 engine::Renderer::WorldToScreen(math::Vector2 worldPos)
+{
+	glm::vec4 viewport = GetViewport();
+
+	glm::vec3 glScreenPos = glm::project(glm::vec3(worldPos.x, worldPos.y, 0.0f), view, proj, viewport);
+
+	return math::Vector2(glScreenPos.x, viewport.w - glScreenPos.y);
+}
+
 void engine::Renderer::GenerateBuffers(std::vector<math::Vertex> vertices, std::vector<unsigned int> indices, unsigned int* vao, unsigned int* vbo, unsigned int* ibo)
 {
 	glGenVertexArrays(1, vao);
@@ -89,6 +110,13 @@ void engine::Renderer::UpdateBuffers(std::vector<math::Vertex> vertices,unsigned
 	glBufferSubData(GL_ARRAY_BUFFER, 0, vertices.size() * sizeof(math::Vertex), vertices.data());
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
+}
+
+glm::vec4 engine::Renderer::GetViewport()
+{
+	math::Vector2 size = window->GetSize();
+
+	return glm::vec4(0.0f, 0.0f, size.x, size.y);
 }
 
 engine::Renderer* engine::Renderer::instance = nullptr;;

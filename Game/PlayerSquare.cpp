@@ -47,18 +47,18 @@ void PlayerSquare::Teleport()
 
 	if (queueTeleport && !isTeleporting)
 	{
-		math::Vector2 mousePos = engine::Input::Get()->GetMousePosition();
+		queueTeleport = engine::Input::Get()->IsMouseButtonPressed(engine::MouseCode::Button0);
 
-		math::Vector2 targetMin(-1.0f, 1.0f);
-		math::Vector2 targetMax(1.0f, -1.0f);
+		if (queueTeleport && !isTeleporting)
+		{
+			math::Vector2 mouseWorldPos = engine::Input::Get()->GetMouseWorldPosition();
 
-		math::Vector2 normalizedPos = math::Vector2::Remap(mousePos, { 0.0f,0.0f }, renderer->GetSize(),targetMin, targetMax);
+			this->SetPosition(mouseWorldPos);
 
-		this->SetPosition(normalizedPos);
+			std::cout << "\n" << "Mouse World: " << mouseWorldPos.ToString() << std::endl;
+		}
 
-		std::cout << "\n" << "Mouse: " << mousePos.ToString() << std::endl;
-
-		ShowPosition();
+		isTeleporting = queueTeleport;
 	}
 
 	isTeleporting = queueTeleport;

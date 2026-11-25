@@ -35,6 +35,9 @@ namespace engine
 		void Draw(unsigned int& vao, unsigned int& ibo, glm::mat4 trs, Material* material, int glDrawType = GL_TRIANGLES);
 		int Shutdown();
 
+		math::Vector2 ScreenToWorld(math::Vector2 screenPos);
+		math::Vector2 WorldToScreen(math::Vector2 worldPos);
+
 		math::Vector2 GetSize() { return window->GetSize(); };
 
 		glm::mat4 GetMPVMat4x4() const { return mvp; };
@@ -47,6 +50,7 @@ namespace engine
 		void UpdateBuffers(std::vector<math::Vertex> vertices, unsigned int* vbo);
 
 	private:
+		glm::vec4 GetViewport();
 
 		glm::mat4 proj;
 		glm::mat4 view;

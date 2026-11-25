@@ -1,6 +1,6 @@
 #include "Input.h"
 
-#include <GLFW/glfw3.h>
+#include "Renderer.h"
 
 engine::Input* engine::Input::instance = nullptr;
 
@@ -30,12 +30,17 @@ int engine::Input::Shutdown()
     return 0;
 }
 
-math::Vector2 engine::Input::GetMousePosition()
+math::Vector2 engine::Input::GetMouseScreenPosition()
 {
     double xpos, ypos;
     glfwGetCursorPos(&window->GetGlfwWindow(), &xpos, &ypos);
 
     return math::Vector2(static_cast<float>(xpos), static_cast<float>(ypos));
+}
+
+math::Vector2 engine::Input::GetMouseWorldPosition()
+{
+    return Renderer::Get()->ScreenToWorld(GetMouseScreenPosition());
 }
 
 bool engine::Input::IsMouseButtonPressed(MouseCode button)

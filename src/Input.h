@@ -35,7 +35,8 @@ namespace engine
 		int Shutdown();
 
 
-		math::Vector2 GetMousePosition();
+		math::Vector2 GetMouseScreenPosition();
+		math::Vector2 GetMouseWorldPosition();
 
 		bool IsMouseButtonPressed(MouseCode button);
 		bool IsKeyPressed(KeyCode key);
