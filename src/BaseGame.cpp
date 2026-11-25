@@ -5,10 +5,12 @@
 
 engine::BaseGame::BaseGame()
 {
+
 }
 
 engine::BaseGame::~BaseGame()
 {
+
 }
 
 void engine::BaseGame::Run()

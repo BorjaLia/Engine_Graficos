@@ -45,14 +45,12 @@ namespace engine
 
 		DllExport void Start() override;
 		DllExport void Update() override;
-		//DllExport void Draw(Renderer& rkRenderer);
 
 	private:
 		Texture* texture;
 
 		bool isFlippedX = false;
 		bool isFlippedY = false;
-		//math::Vertex texturedVertex[4];
 	};
 }
 #endif

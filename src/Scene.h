@@ -30,6 +30,8 @@ namespace engine
 		std::string GetName() { return name; };
 		void SetName(std::string name) { this->name = name; };
 
+		const std::vector<Entity*>& GetEntityVector() const { return entities; };
+
 		template <std::derived_from<Entity> T, typename... Args>
 		T* CreateEntity(Args&&... args);
 

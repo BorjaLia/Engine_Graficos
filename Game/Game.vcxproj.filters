@@ -25,6 +25,9 @@
     <Filter Include="Objects\Button">
       <UniqueIdentifier>{ab8a20de-43e1-4da5-991e-95d837d25d2c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Objects\GameManager">
+      <UniqueIdentifier>{ea41ed7f-bbe8-4afe-ace0-6b0fc5cc78d3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -51,6 +54,9 @@
     <ClInclude Include="Button.h">
       <Filter>Objects\Button</Filter>
     </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>Objects\GameManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -76,6 +82,9 @@
     </ClCompile>
     <ClCompile Include="Button.cpp">
       <Filter>Objects\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Objects\GameManager</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

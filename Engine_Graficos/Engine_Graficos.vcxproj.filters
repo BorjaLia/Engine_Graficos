@@ -261,5 +261,8 @@
     <ClInclude Include="..\src\SceneManager.h">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\MathUtils.h">
+      <Filter>Math</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

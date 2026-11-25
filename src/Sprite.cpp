@@ -79,7 +79,6 @@ void engine::Sprite::SetAnimation(Animation* animation)
 
 void engine::Sprite::Start()
 {
-	//texture = engine::Texture("res/assets/images.png");
 	material->SetTexture(texture);
 }
 

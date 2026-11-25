@@ -35,6 +35,8 @@ namespace engine
 
 		void LoadScene(int index);
 
+		const Scene& GetCurrentScene() const { return *currentScene; };
+
 	private:
 
 		Scene* queuedScene = nullptr;

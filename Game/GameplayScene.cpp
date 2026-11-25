@@ -1,18 +1,14 @@
 #include "GameplayScene.h"
 
-#include "Shape.h"
-#include "Sprite.h"
+
 #include "Player.h"
+#include "GameManager.h"
 
-#include "BlueSquare.h"
-#include "PinkSquare.h"
-#include "PlayerSquare.h"
-
-#include "Vector2.h"
-#include "Vertex.h"
 
 void GameplayScene::Setup()
 {
+	GameManager* manager = CreateEntity<GameManager>();
+
 	Player* player = CreateEntity<Player>();
 
 	player->SetPosition(math::Vector3(0.0f, 0.0f, 0.0f));
@@ -33,4 +29,5 @@ void GameplayScene::Setup()
 	);
 
 	player->AddAnimation(runAnim);
+
 }

@@ -149,6 +149,7 @@
     <ClInclude Include="BlueSquare.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameplayScene.h" />
     <ClInclude Include="MainMenuScene.h" />
     <ClInclude Include="PinkSquare.h" />
@@ -159,6 +160,7 @@
     <ClCompile Include="BlueSquare.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameplayScene.cpp" />
     <ClCompile Include="MainMenuScene.cpp" />
     <ClCompile Include="PinkSquare.cpp" />

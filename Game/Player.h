@@ -13,6 +13,9 @@ public:
 	
 	void AddAnimation(engine::Animation* animation);
 
+	const bool IsGrounded() const { return isGrounded; };
+	const math::Vector2 GetDir() const { return dir; };
+
 private:
 
 	bool queueTeleport = false;

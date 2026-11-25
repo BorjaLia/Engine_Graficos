@@ -2,6 +2,7 @@
 
 #include "Core.h"
 #include <string>
+#include <cmath>
 
 namespace math
 {
@@ -26,6 +27,28 @@ namespace math
 		}
 
 		static Vector2 Remap(const Vector2& value, const Vector2& inMin, const Vector2& inMax, const Vector2& outMin, const Vector2& outMax);
+
+		void Normalize()
+		{
+			float length = std::sqrt(x * x + y * y);
+			if (length > 0.0001)
+			{
+				float invLength = 1.0f / length;
+				x *= invLength;
+				y *= invLength;
+			}
+			else
+			{
+				x = y  = 0.0f;
+			}
+		}
+
+		math::Vector2 Normalized()
+		{
+			math::Vector2 v = *this;
+			v.Normalize();
+			return v;
+		}
 
 		Vector2 operator-()
 		{

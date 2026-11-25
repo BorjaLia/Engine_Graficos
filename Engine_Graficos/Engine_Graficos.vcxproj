@@ -60,6 +60,7 @@
     <ClInclude Include="..\src\Input.h" />
     <ClInclude Include="..\src\Keycodes.h" />
     <ClInclude Include="..\src\Material.h" />
+    <ClInclude Include="..\src\MathUtils.h" />
     <ClInclude Include="..\src\Rect.h" />
     <ClInclude Include="..\src\Renderer.h" />
     <ClInclude Include="..\src\Scene.h" />
