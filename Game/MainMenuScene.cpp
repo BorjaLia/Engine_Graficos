@@ -1,7 +1,8 @@
 #include "MainMenuScene.h"
 
-#include "Button.h"
 #include "Game.h"
+#include "Button.h"
+#include "SceneManager.h"
 
 void MainMenuScene::Setup()
 {
@@ -17,6 +18,7 @@ void MainMenuScene::Setup()
 
 	playButton->onClick = []()
 		{
+			engine::SceneManager::Get()->LoadScene(1);
 			std::cout << "Button pressed" << std::endl;
 		};
 }
