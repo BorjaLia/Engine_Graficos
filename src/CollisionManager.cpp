@@ -1,5 +1,16 @@
 #include "CollisionManager.h"
 
+engine::CollisionManager* engine::CollisionManager::instance = nullptr;
+
+engine::CollisionManager* engine::CollisionManager::Get()
+{
+	if (instance == nullptr)
+	{
+		instance = new engine::CollisionManager();
+	}
+	return instance;
+}
+
 bool engine::CollisionManager::IsCollidingAABB(Entity2D& a, Entity2D& b)
 {
 	Bounds ab = a.GetBounds();
