@@ -1,5 +1,6 @@
 #include "Game.h"
 
+#include "MainMenuScene.h"
 #include "GameplayScene.h"
 
 int main()
@@ -13,5 +14,6 @@ int main()
 
 void MyGame::SetupScenes()
 {
-	LoadScene(new GameplayScene());
+	LoadScene(new MainMenuScene());
+	//LoadScene(new GameplayScene());
 }

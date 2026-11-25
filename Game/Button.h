@@ -29,6 +29,9 @@ public:
 
 	void SetOnClick(std::function<void()> func) { onClick = func; };
 
+	void SetupTextures(std::string normalPath, std::string hoverPath, std::string clickPath);
+	void ChangeState(State newState);
+
 private:
 
 	engine::Input* input = engine::Input::Get();
