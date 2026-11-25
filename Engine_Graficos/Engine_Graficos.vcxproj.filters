@@ -163,6 +163,9 @@
     <ClCompile Include="..\src\Scene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\SceneManager.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\BaseGame.h">
@@ -253,6 +256,9 @@
       <Filter>Math\SimpleShapes</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Scene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SceneManager.h">
       <Filter>Scenes</Filter>
     </ClInclude>
   </ItemGroup>

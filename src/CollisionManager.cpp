@@ -41,4 +41,3 @@ bool engine::CollisionManager::IsPointInAABB(math::Vector2 pos, Bounds bounds, m
 	
 	return (horizontal && vertical);
 }
-

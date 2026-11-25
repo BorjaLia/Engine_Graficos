@@ -38,7 +38,7 @@ void engine::BaseGame::Run()
 			e->Draw();
 		}
 
-		UpdateLoadScene();
+		sceneManager->Update(entities);
 
 		isRunning = !window.ShouldClose();
 	}
@@ -48,9 +48,12 @@ void engine::BaseGame::Run()
 
 void engine::BaseGame::Initialize()
 {
+
+
 	window.Initialize();
 	input->Initialize(window);
 	renderer->Initialize(window);
+	sceneManager->Initialize();
 
 	//currentScene->Start();
 	
@@ -64,31 +67,10 @@ void engine::BaseGame::Initialize()
 
 void engine::BaseGame::Shutdown()
 {
-	currentScene->Shutdown();
 
+	sceneManager->Shutdown();
 	input->Shutdown();
 	window.Shutdown();
-}
-
-void engine::BaseGame::LoadScene(Scene* scene)
-{
-	queuedScene = scene;
-}
-
-void engine::BaseGame::UpdateLoadScene()
-{
-	if (queuedScene == nullptr) return;
-
-	if (currentScene != nullptr) currentScene->Shutdown();
-
-	currentScene = queuedScene;
-	queuedScene = nullptr;
-
-	currentScene->Setup();
-
-	entities = currentScene->entities;
-
-	currentScene->Start();
 }
 
 //void engine::BaseGame::AddEntity(Entity* entity)

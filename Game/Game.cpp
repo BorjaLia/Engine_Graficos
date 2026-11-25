@@ -1,3 +1,4 @@
+#include "SceneManager.h"
 #include "Game.h"
 
 #include "MainMenuScene.h"
@@ -14,6 +15,6 @@ int main()
 
 void MyGame::SetupScenes()
 {
-	LoadScene(new MainMenuScene());
-	//LoadScene(new GameplayScene());
+ 	engine::SceneManager::Get()->RegisterScene(new MainMenuScene());
+ 	engine::SceneManager::Get()->RegisterScene(new GameplayScene());
 }

@@ -36,7 +36,7 @@ namespace engine
 		virtual void Setup() = 0;
 
 	private:
-		friend class BaseGame;
+		friend class SceneManager;
 
 		void Start();
 		void Shutdown();
