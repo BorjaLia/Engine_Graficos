@@ -22,6 +22,9 @@
     <Filter Include="Scenes">
       <UniqueIdentifier>{1b1d2fb0-b2a9-479c-bbda-b0c2db4a2135}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Objects\Button">
+      <UniqueIdentifier>{ab8a20de-43e1-4da5-991e-95d837d25d2c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -42,6 +45,12 @@
     <ClInclude Include="GameplayScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="MainMenuScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Objects\Button</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -61,6 +70,12 @@
     </ClCompile>
     <ClCompile Include="GameplayScene.cpp">
       <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Objects\Button</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
