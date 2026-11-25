@@ -53,6 +53,6 @@ namespace engine
 
 	protected:
 
-		CollisionManager collisions;
+		CollisionManager* collisions = CollisionManager::Get();
 	};
 }

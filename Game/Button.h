@@ -3,6 +3,7 @@
 #include "Sprite.h"
 
 #include "Texture.h"
+#include "Input.h"
 
 #include <functional>
 
@@ -29,6 +30,8 @@ public:
 	void SetOnClick(std::function<void()> func) { onClick = func; };
 
 private:
+
+	engine::Input* input = engine::Input::Get();
 
 	State currentState;
 	State previousState;
