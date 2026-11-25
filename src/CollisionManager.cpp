@@ -13,3 +13,17 @@ bool engine::CollisionManager::IsCollidingAABB(Entity2D& a, Entity2D& b)
 		ab.max.y + posA.y >= bb.min.y + posB.y && ab.min.y + posA.y <= bb.max.y + posB.y &&
 		ab.max.z + posA.z >= bb.min.z + posB.z && ab.min.z + posA.z <= bb.max.z + posB.z;
 }
+
+bool engine::CollisionManager::IsPointInAABB(Entity2D& entity, math::Vector2 point)
+{
+	return IsPointInAABB(entity.GetPosition(),entity.GetBounds(),point);
+}
+
+bool engine::CollisionManager::IsPointInAABB(math::Vector2 pos, Bounds bounds, math::Vector2 point)
+{
+	bool horizontal = (bounds.min.x <= point.x && bounds.max.x >= point.x);
+	bool vertical = (bounds.min.y <= point.y && bounds.max.y >= point.y);
+	
+	return (horizontal && vertical);
+}
+
