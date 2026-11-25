@@ -2,6 +2,7 @@
 
 #include "Input.h"
 #include "Window.h"
+#include "SceneManager.h"
 #include "GameTime.h"
 #include "Shader.h"
 
@@ -40,6 +41,11 @@ void Player::Start()
 
 void Player::Update()
 {
+	if (engine::Input::Get()->IsKeyPressed(engine::KeyCode::Escape))
+	{
+		engine::SceneManager::Get()->LoadScene(0);
+	}
+
 	bool pressingChangeKey = engine::Input::Get()->IsKeyPressed(engine::KeyCode::G);
 
 	if (pressingChangeKey && !changingMode)
