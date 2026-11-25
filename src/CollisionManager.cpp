@@ -32,8 +32,12 @@ bool engine::CollisionManager::IsPointInAABB(Entity2D& entity, math::Vector2 poi
 
 bool engine::CollisionManager::IsPointInAABB(math::Vector2 pos, Bounds bounds, math::Vector2 point)
 {
-	bool horizontal = (bounds.min.x <= point.x && bounds.max.x >= point.x);
-	bool vertical = (bounds.min.y <= point.y && bounds.max.y >= point.y);
+	math::Vector2 localPoint = point;
+	localPoint.x -= pos.x;
+	localPoint.y -= pos.y;
+
+	bool horizontal = (bounds.min.x <= localPoint.x && bounds.max.x >= localPoint.x);
+	bool vertical = (bounds.min.y <= localPoint.y && bounds.max.y >= localPoint.y);
 	
 	return (horizontal && vertical);
 }
