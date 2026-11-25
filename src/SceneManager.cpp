@@ -20,6 +20,8 @@ void engine::SceneManager::Update(std::vector<Entity*>& entities)
 {
 	if (queuedScene == nullptr) return;
 
+	std::cout << "Changing to scene" << queuedScene->GetName() << "..." << std::endl;
+
 	if (currentScene != nullptr) currentScene->Shutdown();
 
 	currentScene = queuedScene;
@@ -30,6 +32,8 @@ void engine::SceneManager::Update(std::vector<Entity*>& entities)
 	entities = currentScene->entities;
 
 	currentScene->Start();
+
+	std::cout << "Scene" << currentScene->GetName() << " has been loaded" << std::endl;
 }
 
 void engine::SceneManager::Shutdown()

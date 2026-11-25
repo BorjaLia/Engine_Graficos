@@ -6,6 +6,8 @@
 
 void MainMenuScene::Setup()
 {
+	this->SetName("MainMenuScene");
+
 	Button* playButton = CreateEntity<Button>();
 
 	playButton->SetPosition(math::Vector3(-10.0f, 0.0f, 0.0f));

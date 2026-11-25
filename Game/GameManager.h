@@ -16,7 +16,7 @@ public:
 
 private:
 
-	Player* player;
+	Player* player = nullptr;
 
 	math::Vector2 lastDir;
 };

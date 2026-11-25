@@ -4,6 +4,8 @@ int engine::Scene::sceneCount = 0;
 
 void engine::Scene::Start()
 {
+	std::cout << "Starting scene" << std::endl;
+
 	for (Entity* e : entities)
 	{
 		e->Initialize();
@@ -17,6 +19,8 @@ void engine::Scene::Start()
 
 void engine::Scene::Shutdown()
 {
+	std::cout << "Shutdown scene" << std::endl;
+
 	for (Entity* e : entities)
 	{
 		delete e;

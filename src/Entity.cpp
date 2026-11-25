@@ -24,4 +24,3 @@ engine::Entity::~Entity()
 void engine::Entity::Initialize()
 {
 }
-

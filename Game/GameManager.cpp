@@ -19,8 +19,8 @@ void GameManager::Initialize()
 void GameManager::Start()
 {
 	const engine::Scene& currentScene = engine::SceneManager::Get()->GetCurrentScene();
-	
-	for(Entity* e : currentScene.GetEntityVector())
+
+	for (Entity* e : currentScene.GetEntityVector())
 	{
 		if (Player* p = dynamic_cast<Player*>(e))
 		{
@@ -28,8 +28,9 @@ void GameManager::Start()
 			std::cout << "\nFound player!" << std::endl;
 			break;
 		}
-		std::cout << "\nCouldnt find player!" << std::endl;
 	}
+
+	if (player == nullptr) std::cout << "\nCouldnt find player!" << std::endl;
 }
 
 static int GetNormalDir(float value)
