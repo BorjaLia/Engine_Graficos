@@ -18,19 +18,27 @@ namespace engine
 	class ENGINE_API Entity
 	{
 	private:
-	
+		friend class Scene;
+
+		static void* operator new(std::size_t size);
+		static void* operator new[](std::size_t size) = delete;
 
 	protected:
+
+		static void operator delete(void* ptr) noexcept;
+		static void operator delete[](void* ptr) = delete;
+
 		math::Vector3 position;
 		math::Vector3 rotation;
 		math::Vector3 scale;
 
 		Renderer* renderer = Renderer::Get();
 
+
 	public:
 		
 		Entity();
-		~Entity();
+		virtual ~Entity();
 	
 		virtual void Initialize();
 
