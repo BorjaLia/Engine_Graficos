@@ -19,8 +19,14 @@ namespace engine
 
 		static CollisionManager* Get();
 
-		bool IsCollidingAABB(Entity2D& a, Entity2D& b);
-		bool IsPointInAABB(Entity2D& entity, math::Vector2 point);
-		bool IsPointInAABB(math::Vector2 pos, Bounds bounds, math::Vector2 point);
+		void Start();
+		void Update();
+
+		bool IsCollidingEntity(Entity2D& a, Entity2D& b);
+		bool IsCollidingAABB(Bounds& a, Bounds& b);
+		bool IsPointInEntity(Entity2D& entity, math::Vector2 point);
+		bool IsPointInAABB(Bounds bounds, math::Vector2 point);
+	
+		const std::vector<Entity2D*>* entities;
 	};
 }

@@ -11,7 +11,18 @@ engine::CollisionManager* engine::CollisionManager::Get()
 	return instance;
 }
 
-bool engine::CollisionManager::IsCollidingAABB(Entity2D& a, Entity2D& b)
+
+void engine::CollisionManager::Start()
+{
+
+}
+
+void engine::CollisionManager::Update()
+{
+
+}
+
+bool engine::CollisionManager::IsCollidingEntity(Entity2D& a, Entity2D& b)
 {
 	Bounds ab = a.GetBounds();
 	Bounds bb = b.GetBounds();
@@ -24,13 +35,18 @@ bool engine::CollisionManager::IsCollidingAABB(Entity2D& a, Entity2D& b)
 		ab.max.y + posA.y >= bb.min.y + posB.y && ab.min.y + posA.y <= bb.max.y + posB.y &&
 		ab.max.z + posA.z >= bb.min.z + posB.z && ab.min.z + posA.z <= bb.max.z + posB.z;
 }
-
-bool engine::CollisionManager::IsPointInAABB(Entity2D& entity, math::Vector2 point)
+bool engine::CollisionManager::IsCollidingAABB(Bounds& a, Bounds& b)
 {
-	return IsPointInAABB(entity.GetPosition(),entity.GetBounds(),point);
+
 }
 
-bool engine::CollisionManager::IsPointInAABB(math::Vector2 pos, Bounds bounds, math::Vector2 point)
+bool engine::CollisionManager::IsPointInEntity(Entity2D& entity, math::Vector2 point)
+{
+	return IsPointInEntity(entity.GetPosition(),entity.GetBounds(),point);
+}
+
+
+bool engine::CollisionManager::IsPointInAABB(Bounds bounds, math::Vector2 point)
 {
 	math::Vector2 localPoint = point;
 	localPoint.x -= pos.x;
