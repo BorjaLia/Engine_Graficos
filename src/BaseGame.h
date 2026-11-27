@@ -39,6 +39,7 @@ namespace engine
 		Renderer* renderer = Renderer::Get();
 		Input* input = Input::Get();
 		SceneManager* sceneManager = SceneManager::Get();
+		CollisionManager* collisionManager = CollisionManager::Get();
 
 		Scene* currentScene = nullptr;
 

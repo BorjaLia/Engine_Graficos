@@ -21,6 +21,10 @@ void engine::Entity2D::Initialize()
 	renderer->GenerateBuffers(vertices, indices, &vao, &vbo, &ibo);
 }
 
+void engine::Entity::OnCollision()
+{
+}
+
 void engine::Entity2D::Draw()
 {
 	Renderer::Get()->Draw(vao, ibo, trs, material);

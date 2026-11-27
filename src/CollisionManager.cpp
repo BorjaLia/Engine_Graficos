@@ -11,15 +11,17 @@ engine::CollisionManager* engine::CollisionManager::Get()
 	return instance;
 }
 
-
-void engine::CollisionManager::Start()
+void engine::CollisionManager::Initialize(std::vector<Entity*>* entities)
 {
-
+	this->entities = entities;
 }
 
 void engine::CollisionManager::Update()
 {
-
+	for (Entity* e : *entities)
+	{
+		
+	}
 }
 
 bool engine::CollisionManager::IsCollidingEntity(Entity2D& a, Entity2D& b)
@@ -30,30 +32,37 @@ bool engine::CollisionManager::IsCollidingEntity(Entity2D& a, Entity2D& b)
 	math::Vector3 posA = a.GetPosition();
 	math::Vector3 posB = b.GetPosition();
 
-	return
-		ab.max.x + posA.x >= bb.min.x + posB.x && ab.min.x + posA.x <= bb.max.x + posB.x &&
-		ab.max.y + posA.y >= bb.min.y + posB.y && ab.min.y + posA.y <= bb.max.y + posB.y &&
-		ab.max.z + posA.z >= bb.min.z + posB.z && ab.min.z + posA.z <= bb.max.z + posB.z;
+	ab.min += posA;
+	ab.max += posA;
+	bb.min += posB;
+	bb.max += posB;
+
+	return IsCollidingAABB(ab, bb);
 }
+
 bool engine::CollisionManager::IsCollidingAABB(Bounds& a, Bounds& b)
 {
-
+	return
+		a.max.x >= b.min.x && a.min.x <= b.max.x &&
+		a.max.y >= b.min.y && a.min.y <= b.max.y &&
+		a.max.z >= b.min.z && a.min.z <= b.max.z;
 }
 
 bool engine::CollisionManager::IsPointInEntity(Entity2D& entity, math::Vector2 point)
 {
-	return IsPointInEntity(entity.GetPosition(),entity.GetBounds(),point);
+	math::Vector2& localPoint = point;
+
+	localPoint.x -= entity.GetPosition().x;
+	localPoint.y -= entity.GetPosition().y;
+
+	return IsPointInAABB(entity.GetBounds(), point);
 }
 
 
 bool engine::CollisionManager::IsPointInAABB(Bounds bounds, math::Vector2 point)
 {
-	math::Vector2 localPoint = point;
-	localPoint.x -= pos.x;
-	localPoint.y -= pos.y;
+	bool horizontal = (bounds.min.x <= point.x && bounds.max.x >= point.x);
+	bool vertical = (bounds.min.y <= point.y && bounds.max.y >= point.y);
 
-	bool horizontal = (bounds.min.x <= localPoint.x && bounds.max.x >= localPoint.x);
-	bool vertical = (bounds.min.y <= localPoint.y && bounds.max.y >= localPoint.y);
-	
 	return (horizontal && vertical);
 }

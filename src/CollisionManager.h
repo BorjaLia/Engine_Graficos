@@ -2,6 +2,8 @@
 #include "Core.h"
 #include <Entity2D.h>
 
+#include <vector>
+
 namespace engine
 {
 	class ENGINE_API CollisionManager
@@ -9,7 +11,6 @@ namespace engine
 	protected:
 
 		CollisionManager() {}
-
 		static CollisionManager* instance;
 
 	public:
@@ -19,7 +20,7 @@ namespace engine
 
 		static CollisionManager* Get();
 
-		void Start();
+		void Initialize(std::vector<Entity*>* entities);
 		void Update();
 
 		bool IsCollidingEntity(Entity2D& a, Entity2D& b);
@@ -27,6 +28,6 @@ namespace engine
 		bool IsPointInEntity(Entity2D& entity, math::Vector2 point);
 		bool IsPointInAABB(Bounds bounds, math::Vector2 point);
 	
-		const std::vector<Entity2D*>* entities;
+		const std::vector<Entity*>* entities;
 	};
 }

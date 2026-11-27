@@ -28,7 +28,7 @@ void Button::Update()
 {
 	Sprite::Update();
 
-	bool isMouseOver = engine::CollisionManager::Get()->IsPointInAABB(this->GetPosition(), this->AABB, input->GetMouseWorldPosition());
+	bool isMouseOver = engine::CollisionManager::Get()->IsPointInEntity(*this,input->GetMouseWorldPosition());
 	bool isClicking = input->IsMouseButtonPressed(engine::MouseCode::ButtonLeft);
 
 	switch (currentState)

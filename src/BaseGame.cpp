@@ -1,7 +1,7 @@
 #include "BaseGame.h"
 
 #include "Entity.h"
-#include "Shape.h"
+#include "Entity2D.h"
 
 engine::BaseGame::BaseGame()
 {
@@ -30,6 +30,8 @@ void engine::BaseGame::Run()
 		input->Update();
 		renderer->Update();
 
+		collisionManager->Update();
+
 		for (Entity* e : entities)
 		{
 			e->Update();
@@ -56,6 +58,8 @@ void engine::BaseGame::Initialize()
 	input->Initialize(window);
 	renderer->Initialize(window);
 	sceneManager->Initialize();
+	collisionManager->Initialize(&entities);
+	
 
 	//currentScene->Start();
 	
@@ -69,7 +73,6 @@ void engine::BaseGame::Initialize()
 
 void engine::BaseGame::Shutdown()
 {
-
 	sceneManager->Shutdown();
 	input->Shutdown();
 	window.Shutdown();

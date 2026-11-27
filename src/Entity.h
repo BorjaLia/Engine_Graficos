@@ -50,6 +50,8 @@ namespace engine
 		inline virtual void SetRotation(math::Vector3 rotation) { this->rotation = rotation; }
 		inline virtual void SetScale(math::Vector3 scale) { this->scale = scale; }
 
+		virtual void OnCollision();
+
 		virtual void Start() = 0;
 		virtual void Update() = 0;
 
