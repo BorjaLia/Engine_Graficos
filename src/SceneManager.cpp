@@ -1,4 +1,5 @@
 #include "SceneManager.h"
+#include "CollisionManager.h"
 
 engine::SceneManager* engine::SceneManager::instance = nullptr;;
 
@@ -39,6 +40,8 @@ void engine::SceneManager::Update(std::vector<Entity*>& entities)
 	std::cout << std::endl << "{" << std::endl;
 	currentScene->Start();
 	std::cout << "}" << std::endl << std::endl;
+
+	CollisionManager::Get()->SetEntities(&currentScene->entities);
 
 	std::cout << "Scene " << currentScene->GetName() << " (" << currentScene->GetId() << ")" << " has been loaded" << std::endl;
 	std::cout << std::endl;

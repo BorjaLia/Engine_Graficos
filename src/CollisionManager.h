@@ -30,6 +30,6 @@ namespace engine
 		bool IsPointInEntity(Entity2D& entity, math::Vector2 point);
 		bool IsPointInAABB(Bounds bounds, math::Vector2 point);
 	
-		std::vector<Entity2D*>* entities;
+		std::vector<Entity2D*>* entities = new std::vector<Entity2D*>();
 	};
 }

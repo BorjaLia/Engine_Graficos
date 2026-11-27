@@ -36,10 +36,10 @@ namespace engine
 
 
 	public:
-		
+
 		Entity();
 		virtual ~Entity();
-	
+
 		virtual void Initialize();
 
 		inline math::Vector3 GetPosition() { return position; }

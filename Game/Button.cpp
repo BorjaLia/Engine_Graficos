@@ -112,12 +112,3 @@ void Button::ChangeState(State newState)
 
 	UpdateBounds();
 }
-
-void Button::UpdateBounds()
-{
-	math::Vector2 scale = this->GetScale();
-	math::Vector2 halfSize(std::abs(scale.x) * 0.5f, std::abs(scale.y) * 0.5f);
-
-	this->AABB.min = -halfSize;
-	this->AABB.max = halfSize;
-}

@@ -2,17 +2,19 @@
 
 
 #include "Player.h"
+#include "Enemy.h"
 #include "GameManager.h"
 
 
 void GameplayScene::Setup()
 {
-	GameManager* manager = CreateEntity<GameManager>();
+	//GameManager* manager = CreateEntity<GameManager>();
 
 	Player* player = CreateEntity<Player>();
 
-	player->SetPosition(math::Vector3(0.0f, 0.0f, 0.0f));
+	player->SetPosition(math::Vector3(-10.0f, 0.0f, 0.0f));
 	player->SetScale(math::Vector3(10.0f, 10.0f, 1.0f));
+	player->setBounds(engine::Bounds(player->GetScale()));
 
 	engine::Animation* idleAnim = new engine::Animation(0.5f);
 
@@ -30,4 +32,14 @@ void GameplayScene::Setup()
 
 	player->AddAnimation(runAnim);
 
+
+	Enemy* enemy = CreateEntity<Enemy>();
+
+	enemy->SetPosition(math::Vector3(10.0f, 0.0f, 0.0f));
+	enemy->SetScale(math::Vector3(10.0f, 10.0f, 1.0f));
+	enemy->setBounds(engine::Bounds(enemy->GetScale()));
+
+	engine::Texture* enemyTex = new engine::Texture("res/assets/images.png");
+
+	enemy->SetTexture(*enemyTex);
 }

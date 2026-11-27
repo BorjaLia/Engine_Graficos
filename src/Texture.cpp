@@ -7,7 +7,7 @@ engine::Texture::Texture(const std::string path) : filePath(path), localBuffer(n
 	stbi_set_flip_vertically_on_load(1);
 	int tempX = 0, tempY = 0;
 
-	std::cout << "Looking at path: " << path;
+	std::cout << "Looking at path: " << path << std::endl;
 
 	localBuffer = stbi_load(path.c_str(), &tempX, &tempY, &BPP, 4);
 

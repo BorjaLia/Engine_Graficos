@@ -21,10 +21,6 @@ void engine::Entity2D::Initialize()
 	renderer->GenerateBuffers(vertices, indices, &vao, &vbo, &ibo);
 }
 
-void engine::Entity2D::OnCollision()
-{
-}
-
 void engine::Entity2D::Draw()
 {
 	Renderer::Get()->Draw(vao, ibo, trs, material);
@@ -77,6 +73,7 @@ void engine::Entity2D::SetScale(math::Vector3 scale)
 {
 	this->scale = scale;
 	UpdateTransform();
+	UpdateBounds();
 }
 
 void engine::Entity2D::OnCollision(Entity2D* other)
@@ -96,6 +93,11 @@ void engine::Entity2D::UpdateTransform()
 	trs = glm::scale(trs, glm::vec3(scale.x, scale.y, scale.z));
 }
 
+void engine::Entity2D::UpdateBounds()
+{
+	math::Vector2 scale = this->GetScale();
+	math::Vector2 halfSize(std::abs(scale.x) * 0.5f, std::abs(scale.y) * 0.5f);
 
-
-
+	this->AABB.min = -halfSize;
+	this->AABB.max = halfSize;
+}

@@ -34,8 +34,6 @@ public:
 
 private:
 
-	void UpdateBounds();
-
 	engine::Input* input = engine::Input::Get();
 
 	State currentState = State::Nothing;

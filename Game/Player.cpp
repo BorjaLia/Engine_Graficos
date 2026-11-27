@@ -86,6 +86,11 @@ void Player::Update()
 	UpdateVisuals();
 }
 
+void Player::OnCollision(engine::Entity2D* other)
+{
+	std::cout << "Player collided with something" << std::endl;
+}
+
 void Player::AddAnimation(engine::Animation* animation)
 {
 	animations.push_back(animation);
@@ -113,12 +118,12 @@ void Player::UpdateVisuals()
 
 	if (isMoving && !wasMoving)
 	{
-		std::cout << "Changed anim!" << std::endl;
+		//std::cout << "Changed anim!" << std::endl;
 		SetAnimation(animations[1]);
 	}
 	else if (!isMoving && wasMoving)
 	{
-		std::cout << "Changed anim!" << std::endl;
+		//std::cout << "Changed anim!" << std::endl;
 		SetAnimation(animations[0]);
 	}
 

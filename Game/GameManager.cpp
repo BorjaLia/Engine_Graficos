@@ -47,6 +47,8 @@ static math::Vector2 GetNormalDir(math::Vector2 dir)
 
 void GameManager::Update()
 {
+	if (player == nullptr) return;
+
 	math::Vector2 dir = player->GetDir();
 
 	math::Vector2 currentDir = GetNormalDir(dir);

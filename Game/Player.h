@@ -11,6 +11,8 @@ public:
 	void Start() override;
 	void Update() override;
 	
+	void OnCollision(engine::Entity2D* other) override;
+
 	void AddAnimation(engine::Animation* animation);
 
 	const bool IsGrounded() const { return isGrounded; };

@@ -13,11 +13,13 @@ engine::CollisionManager* engine::CollisionManager::Get()
 
 void engine::CollisionManager::Initialize(std::vector<engine::Entity*>* entities)
 {
-	SetEntities(entities);
 }
 
 void engine::CollisionManager::Update()
 {
+	if (entities == nullptr) return;
+	if (entities->size() == 0) return;
+
 	for (int i = 0; i < entities->size() - 1; i++)
 	{
 		Entity2D& a = *(*entities)[i];
@@ -29,13 +31,14 @@ void engine::CollisionManager::Update()
 			if (IsCollidingEntity(a,b))
 			{
 				a.OnCollision(&b);
+				b.OnCollision(&a);
 			}
 		}
 	}
 }
 
 void engine::CollisionManager::SetEntities(std::vector<Entity*>* entities)
-{
+{		
 	this->entities->clear();
 
 	for (Entity* e : *entities)

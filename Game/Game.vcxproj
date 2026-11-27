@@ -148,6 +148,7 @@
   <ItemGroup>
     <ClInclude Include="BlueSquare.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameplayScene.h" />
@@ -159,6 +160,7 @@
   <ItemGroup>
     <ClCompile Include="BlueSquare.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameplayScene.cpp" />

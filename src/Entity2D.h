@@ -46,6 +46,7 @@ namespace engine
 		virtual void OnCollision(Entity2D* other);
 
 		void UpdateTransform();
+		void UpdateBounds();
 
 		virtual void Draw() override;
 
