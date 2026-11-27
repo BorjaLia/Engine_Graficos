@@ -11,16 +11,40 @@ engine::CollisionManager* engine::CollisionManager::Get()
 	return instance;
 }
 
-void engine::CollisionManager::Initialize(std::vector<Entity*>* entities)
+void engine::CollisionManager::Initialize(std::vector<engine::Entity*>* entities)
 {
-	this->entities = entities;
+	SetEntities(entities);
 }
 
 void engine::CollisionManager::Update()
 {
+	for (int i = 0; i < entities->size() - 1; i++)
+	{
+		Entity2D& a = *(*entities)[i];
+
+		for (int j = i + 1; i < entities->size(); i++)
+		{
+			Entity2D& b = *(*entities)[j];
+
+			if (IsCollidingEntity(a,b))
+			{
+				a.OnCollision(&b);
+			}
+		}
+	}
+}
+
+void engine::CollisionManager::SetEntities(std::vector<Entity*>* entities)
+{
+	this->entities->clear();
+
 	for (Entity* e : *entities)
 	{
-		
+		Entity2D* e2D = dynamic_cast<Entity2D*>(e);
+		if (e2D != nullptr)
+		{
+			this->entities->push_back(e2D);
+		}
 	}
 }
 

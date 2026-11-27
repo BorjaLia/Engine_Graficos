@@ -21,7 +21,7 @@ void engine::Entity2D::Initialize()
 	renderer->GenerateBuffers(vertices, indices, &vao, &vbo, &ibo);
 }
 
-void engine::Entity::OnCollision()
+void engine::Entity2D::OnCollision()
 {
 }
 
@@ -77,6 +77,10 @@ void engine::Entity2D::SetScale(math::Vector3 scale)
 {
 	this->scale = scale;
 	UpdateTransform();
+}
+
+void engine::Entity2D::OnCollision(Entity2D* other)
+{
 }
 
 void engine::Entity2D::UpdateTransform()

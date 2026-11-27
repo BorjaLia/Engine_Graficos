@@ -43,6 +43,8 @@ namespace engine
 		void SetScale(math::Vector3 scale) override;
 		inline void setBounds(Bounds bounds) { AABB = bounds; }
 
+		virtual void OnCollision(Entity2D* other);
+
 		void UpdateTransform();
 
 		virtual void Draw() override;
