@@ -89,6 +89,12 @@ void Player::Update()
 void Player::OnCollision(engine::Entity2D* other)
 {
 	std::cout << "Player collided with something" << std::endl;
+
+	std::cout << "Enemy collided with something" << std::endl;
+	math::Vector3 pushDir = (this->GetPosition() - other->GetPosition());
+	pushDir.normalize();
+
+	this->dir += pushDir * 20.0f;
 }
 
 void Player::AddAnimation(engine::Animation* animation)

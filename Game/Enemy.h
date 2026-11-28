@@ -15,5 +15,7 @@ public:
 
 private:
 
+	math::Vector3 dir;
 
+	float pushForce;
 };
